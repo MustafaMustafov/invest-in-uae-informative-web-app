@@ -1,849 +1,859 @@
 <!DOCTYPE html>
 <html lang="bg">
+
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dubai & Abu Dhabi Off-Plan Properties</title>
-
-<style>
-
-.nav-logo {
-  height: 50px;          /* фиксирана височина */
-  margin-right: 20px;    /* разстояние от менюто */
-  vertical-align: middle;
-  object-fit: contain;
-}
-/* GLOBAL */
-* {
-  box-sizing: border-box;
-}
-
-#about {
-  background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
-  color: white;
-}
-
-#projects {
-  background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
-  color: white;
-}
-
-#process {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-}
-
-#calculator {
-  background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
-  color: white;
-}
-
-
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  color: #1d1d20;
-  scroll-behavior: smooth;
-  scroll-snap-type: y proximity; /* snap, но позволява дълги секции */
-  overflow-x: hidden;
-  background: #f7f7f7;
-}
-
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif; /* луксозни заглавия */
-  margin-bottom: 20px;
-  color: #0a1a2f;
-}
-
-h1 { font-size: 48px; line-height: 1.2; }
-h2 { font-size: 36px; }
-h3 { font-size: 24px; font-weight: 400; }
-
-/* NAVBAR */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #0a1a2f;
-  padding: 15px;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-}
-
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #0a1a2f;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.nav-left a {
-  margin-right: 20px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-}
-
-.nav-left a:last-child {
-  margin-right: 0;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-}
-
-.lang-flag {
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
-  margin-left: 10px;
-  border: 1px solid transparent;
-  transition: border 0.2s;
-}
-
-.lang-flag:hover {
-  border: 1px solid #000; /* highlight при hover */
-}
-
-
-
-
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: gold;
-} 
-
-/* SECTIONS - general */
-section {
-  border-radius: 25px;
-  padding: 80px 10%;
-  margin: 40px 0;
-  background: #ffffffcc; /* леко прозрачен бял фон */
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-.section-divider {
-  text-align: center;
-  font-size: 24px;
-  color: #d4af37; /* златен акцент */
-  margin: 60px 0;
-}
-
-/* FULL SCREEN SECTIONS */
-.full-screen {
-  min-height: 100vh; /* поне един екран */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* HERO */
-.hero {
-  background-image: url("./home-page.gif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  color: white;
-  position: relative;
-  height: 100vh;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 26, 47, 0.6);
-}
-
-.hero-content {
-  position: relative;
-  max-width: 600px;
-}
-
-.hero .btn {
-  font-family: 'Montserrat', sans-serif;
-  background: gold;
-  color: black;
-  padding: 15px 25px;
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  width: fit-content;
-  margin-top: 20px;
-  transition: all 0.3s ease;
-}
-
-.hero h1 {
-  color: white;
-}
-
-.hero .btn:hover {
-  background: #d4af37;
-}
-
-/* ABOUT */
-.about {
-  background-color: #0a1a2f;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  max-width: 1200px;
-  gap: 50px;
-  width: 100%;
-}
-
-.about-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.about-text p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.about-text h1 {
-  font-size: 50px;
-  color: white;
-}
-
-.about-text h3 {
-  color: white;
-}
-
-.about-icons {
-  display: flex;
-  gap: 30px;
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-.about-image {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  justify-content: center;
-}
-
-.about-image img {
-  max-width: 100%;
-  border-radius: 15px;
-  object-fit: cover;
-}
-
-/* PROJECTS */
-.projects {
-  background-color: #0a1a2f;
-  color: white;
-  text-align: center;
-  min-height: 100vh;
-}
-
-.projects h2 {
-  color: white;
-}
-
-.project-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.project-card {
-  width: 300px;
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-info {
-  padding: 15px;
-  text-align: left;
-}
-
-.project-title {
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color: #1d1d20;
-}
-
-.project-info h3 {
-  margin: 0 0 5px;
-  font-family: 'Playfair Display', serif;
-}
-
-.project-info p {
-  margin: 0;
-  font-size: 14px;
-}
-
-.location {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 14px;
-  color: #1d1d20;
-  margin-bottom: 10px;
-}
-
-.features {
-  display: flex;
-  gap: 10px;
-  padding-right: 15px;
-  border-right: 1px solid #ccc;
-}
-
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  background: rgba(0,0,0,0.8);
-  padding: 50px 10%;
-  box-sizing: border-box;
-}
-
-.modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  text-align: left;
-}
-
-.modal-content h3 {
-  margin-top: 0;
-}
-
-.modal-images img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border-radius: 10px;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* BUTTONS */
-.btn {
-  font-family: 'Montserrat', sans-serif;
-  background: gold;
-  color: black;
-  padding: 15px 25px;
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  width: fit-content;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: #d4af37;
-}
-
-/* CALCULATOR */
-/* === CALCULATOR SECTION === */
-#calculator {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;        /* вертикално центриране */
-  background: #0a1a2f;
-  padding: 100px 5%;
-  box-sizing: border-box;
-}
-
-/* Контейнер */
-.calculator-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
-}
-
-/* Лява колона – текст */
-.calculator-info h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
-
-.calculator-info p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 15px;
-  color: #ffffff;
-}
-
-.calculator-notes {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.calculator-notes li {
-  font-size: 14px;
-  margin-bottom: 8px;
-  color: #ffffff;
-}
-
-.calculator-hint {
-  font-size: 13px;
-  color: #666;
-  font-style: italic;
-  margin-top: 10px;
-}
-
-/* Дясна колона – калкулатор */
-.calculator-box {
-  background: #0a1a2f;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
-}
-
-/* Полета */
-.calculator input {
-  width: 100%;
-  padding: 12px 14px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  border: none;
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.calculator input:focus {
-  outline: none;
-}
-
-/* Бутон */
-.calculator .btn {
-  width: 100%;
-  margin-top: 10px;
-}
-
-/* Резултат */
-.calculator .result {
-  margin-top: 15px;
-  font-weight: 600;
-  font-size: 16px;
-  color: gold;
-  text-align: center;
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 900px) {
-  #calculator {
-    align-items: flex-start; /* по-добре за мобилни */
-  }
-
-  .calculator-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .calculator-box {
-    margin-top: 20px;
-  }
-}
-
-
-.result {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* CHATBOT */
-#chatbot {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-#chatbox {
-  width: 300px;
-  height: 400px;
-  background: white;
-  border-radius: 10px;
-  display: none;
-  flex-direction: column;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-#messages {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-}
-
-.option {
-  background: #0a1a2f;
-  color: white;
-  padding: 8px;
-  margin: 5px 0;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-}
-
-#chat-toggle {
-  background: gold;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* -------------------- ПРОЦЕС НА ПОКУПКА -------------------- */
-.process-section {
-  min-height: 100vh;
-  background: #f7f7f7;
-  display: flex;
-  align-items: center;
-  padding: 100px 5%;
-}
-
-.process-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 60px;
-}
-
-/* Лява част – списък */
-.process-steps h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  margin-bottom: 30px;
-  color: #0a1a2f;
-}
-
-.process-steps ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.process-steps li {
-  padding: 15px 20px;
-  margin-bottom: 12px;
-  background: white;
-  border-radius: 12px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  transition: all 0.3s ease;
-  border-left: 4px solid transparent;
-}
-
-.process-steps li:hover {
-  transform: translateX(5px);
-}
-
-.process-steps li.active {
-  border-left: 4px solid gold;
-  background: #0a1a2f;
-  color: white;
-}
-
-/* Дясна част – съдържание */
-.process-content {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
-}
-
-.step {
-  display: none;
-}
-
-.step.active {
-  display: block;
-}
-
-.step h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #0a1a2f;
-}
-
-.step p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #333;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .process-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* CONTACT */
-.contact {
-  background: #f7f7f7;
-  padding: 100px 5%;
-}
-
-.contact-container {
-  max-width: 1400px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-/* Map */
-.contact-map iframe {
-  width: 100%;
-  height: 450px;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-/* Text */
-.contact-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.contact-content h3 {
-  font-size: 18px;
-  font-weight: 400;
-  margin-bottom: 25px;
-  color: #555;
-}
-
-.contact-content p {
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.contact-details p {
-  font-weight: 600;
-  margin-top: 15px;
-}
-
-/* Button */
-.contact-btn {
-  display: inline-block;
-  margin-top: 25px;
-  background: gold;
-  color: black;
-  padding: 14px 30px;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-}
-
-.contact-btn:hover {
-  background: #e6c200;
-  transform: translateY(-2px);
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-map iframe {
-    height: 300px;
-  }
-}
-
-
-.footer {
-  background: #0a1a2f;
-  color: white;
-  padding: 80px 5% 30px;
-}
-
-.footer-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 50px;
-  max-width: 1400px;
-  margin: auto;
-}
-
-.footer h3,
-.footer h4 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 20px;
-}
-
-.footer p,
-.footer li,
-.footer a {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: rgba(255,255,255,0.85);
-}
-
-.footer a {
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer a:hover {
-  color: gold;
-}
-
-.footer-logo {
-  height: 70px;
-  margin-bottom: 25px;
-}
-
-/* Newsletter */
-.footer-form {
-  display: flex;
-  margin-top: 15px;
-}
-
-.footer-form input {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  outline: none;
-}
-
-.footer-form button {
-  background: gold;
-  border: none;
-  padding: 12px 18px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* Lists */
-.footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer ul li {
-  margin-bottom: 10px;
-}
-
-/* Socials */
-.footer-socials {
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
-}
-
-.footer-socials a {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255,255,255,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.footer-socials a:hover {
-  border-color: gold;
-}
-
-/* Bottom */
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
-  margin-top: 60px;
-  padding-top: 20px;
-  text-align: center;
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-}
-
-.footer h3 {
-  color: white;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-</style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap"
+    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dubai & Abu Dhabi Off-Plan Properties</title>
+
+  <style>
+    .nav-logo {
+      height: 50px;
+      margin-right: 20px;
+      vertical-align: middle;
+      object-fit: contain;
+    }
+
+    /* GLOBAL */
+    * {
+      box-sizing: border-box;
+    }
+
+    #about {
+      background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
+      color: white;
+    }
+
+    #projects {
+      background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
+      color: white;
+    }
+
+    #process {
+      background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    }
+
+    #calculator {
+      background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
+      color: white;
+    }
+
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #1d1d20;
+      scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
+      overflow-x: hidden;
+      background: #f7f7f7;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      color: #0a1a2f;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #0a1a2f;
+      padding: 15px;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #0a1a2f;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-left a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+
+    .nav-left a:last-child {
+      margin-right: 0;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .lang-flag {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      margin-left: 10px;
+      border: 1px solid transparent;
+      transition: border 0.2s;
+    }
+
+    .lang-flag:hover {
+      border: 1px solid #000;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: gold;
+    }
+
+    /* SECTIONS - general */
+    section {
+      border-radius: 25px;
+      padding: 80px 10%;
+      margin: 40px 0;
+      background: #ffffffcc;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .section-divider {
+      text-align: center;
+      font-size: 24px;
+      color: #d4af37;
+      margin: 60px 0;
+    }
+
+    /* FULL SCREEN SECTIONS */
+    .full-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* HERO */
+    .hero {
+      background-image: url("./images/home-page.gif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      color: white;
+      position: relative;
+      height: 100vh;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 26, 47, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 600px;
+    }
+
+    .hero .btn {
+      font-family: 'Montserrat', sans-serif;
+      background: gold;
+      color: black;
+      padding: 15px 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      width: fit-content;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .hero h1 {
+      color: white;
+    }
+
+    .hero .btn:hover {
+      background: #d4af37;
+    }
+
+    /* ABOUT */
+    .about {
+      background-color: #0a1a2f;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 1200px;
+      gap: 50px;
+      width: 100%;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .about-text h1 {
+      font-size: 50px;
+      color: white;
+    }
+
+    .about-text h3 {
+      color: white;
+    }
+
+    .about-icons {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    /* PROJECTS */
+    .projects {
+      background-color: #0a1a2f;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .projects h2 {
+      color: white;
+    }
+
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      width: 300px;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-info {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .project-title {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #1d1d20;
+    }
+
+    .project-info h3 {
+      margin: 0 0 5px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .project-info p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      color: #1d1d20;
+      margin-bottom: 10px;
+    }
+
+    .features {
+      display: flex;
+      gap: 10px;
+      padding-right: 15px;
+      border-right: 1px solid #ccc;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 50px 10%;
+      box-sizing: border-box;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      text-align: left;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+    }
+
+    .modal-images img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    /* BUTTONS */
+    .btn {
+      font-family: 'Montserrat', sans-serif;
+      background: gold;
+      color: black;
+      padding: 15px 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      width: fit-content;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #d4af37;
+    }
+
+    /* CALCULATOR */
+    #calculator {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: #0a1a2f;
+      padding: 100px 5%;
+      box-sizing: border-box;
+    }
+
+    /* Контейнер */
+    .calculator-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* Лява колона – текст */
+    .calculator-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .calculator-info p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .calculator-notes {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .calculator-notes li {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .calculator-hint {
+      font-size: 13px;
+      color: #666;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    /* Дясна колона – калкулатор */
+    .calculator-box {
+      background: #0a1a2f;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Полета */
+    .calculator input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .calculator input:focus {
+      outline: none;
+    }
+
+    /* Бутон */
+    .calculator .btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* Резултат */
+    .calculator .result {
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 16px;
+      color: gold;
+      text-align: center;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 900px) {
+      #calculator {
+        align-items: flex-start;
+      }
+
+      .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .calculator-box {
+        margin-top: 20px;
+      }
+    }
+
+
+    .result {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* CHATBOT */
+    #chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    #chatbox {
+      width: 300px;
+      height: 400px;
+      background: white;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    #messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .option {
+      background: #0a1a2f;
+      color: white;
+      padding: 8px;
+      margin: 5px 0;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    #chat-toggle {
+      background: gold;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* -------------------- ПРОЦЕС НА ПОКУПКА -------------------- */
+    .process-section {
+      min-height: 100vh;
+      background: #f7f7f7;
+      display: flex;
+      align-items: center;
+      padding: 100px 5%;
+    }
+
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+    }
+
+    /* Лява част – списък */
+    .process-steps h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #0a1a2f;
+    }
+
+    .process-steps ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .process-steps li {
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      background: white;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .process-steps li:hover {
+      transform: translateX(5px);
+    }
+
+    .process-steps li.active {
+      border-left: 4px solid gold;
+      background: #0a1a2f;
+      color: white;
+    }
+
+    /* Дясна част – съдържание */
+    .process-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #0a1a2f;
+    }
+
+    .step p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .process-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #f7f7f7;
+      padding: 100px 5%;
+    }
+
+    .contact-container {
+      max-width: 1400px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    /* Map */
+    .contact-map iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Text */
+    .contact-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .contact-content h3 {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 25px;
+      color: #555;
+    }
+
+    .contact-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .contact-details p {
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    /* Button */
+    .contact-btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: gold;
+      color: black;
+      padding: 14px 30px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: #e6c200;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-map iframe {
+        height: 300px;
+      }
+    }
+
+
+    .footer {
+      background: #0a1a2f;
+      color: white;
+      padding: 80px 5% 30px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .footer h3,
+    .footer h4 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer a {
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: gold;
+    }
+
+    .footer-logo {
+      height: 70px;
+      margin-bottom: 25px;
+    }
+
+    /* Newsletter */
+    .footer-form {
+      display: flex;
+      margin-top: 15px;
+    }
+
+    .footer-form input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      outline: none;
+    }
+
+    .footer-form button {
+      background: gold;
+      border: none;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Lists */
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+
+    /* Socials */
+    .footer-socials {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-socials a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .footer-socials a:hover {
+      border-color: gold;
+    }
+
+    /* Bottom */
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 60px;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer h3 {
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<!-- Добавяме езиков превключвател в навигацията -->
+  <!-- Добавяме езиков превключвател в навигацията -->
   <nav class="header-nav">
     <!-- Ляво: линкове -->
     <div class="nav-left">
@@ -858,796 +868,803 @@ section {
 
     <!-- Дясно: избор на език със знамена -->
     <div class="nav-right lang-switch">
-      <img src="bg.png" alt="BG" onclick="setLanguage('bg')" title="Български" class="lang-flag">
-      <img src="en.png" alt="EN" onclick="setLanguage('en')" title="English" class="lang-flag">
-      <img src="tr.png" alt="TR" onclick="setLanguage('tr')" title="Türkçe" class="lang-flag">
+      <img src="images/bg.png" alt="BG" onclick="setLanguage('bg')" title="Български" class="lang-flag">
+      <img src="images/en.png" alt="EN" onclick="setLanguage('en')" title="English" class="lang-flag">
+      <img src="images/tr.png" alt="TR" onclick="setLanguage('tr')" title="Türkçe" class="lang-flag">
     </div>
   </nav>
 
 
-<section id="home" class="hero">
-  <div class="hero-content">
-    <h1 data-key="hero_title">Инвестирайте в имоти на зелено</h1>
-    <p data-key="hero_text">Дубай и Абу Даби – сигурни инвестиции с висока възвръщаемост</p>
-    <button class="btn" data-key="hero_button" onclick="location.href='#about'">Научете повече</button>
-  </div>
-</section>
-
-<section id="about" class="about">
-  <div class="about-container">
-    <div class="about-text">
-      <h1 data-key="about_title">За нас</h1>
-      <h3 data-key="about_subtitle">Официален партньор на Equity Real Estate – Дубай</h3>
-      <p data-key="about_text1">Ние работим в партньорство с <strong>Equity Real Estate</strong> – водеща луксозна агенция за недвижими имоти в Дубай, известна със своята експертиза, иновативен подход и безкомпромисно качество на обслужване.</p>
-      <p data-key="about_text2">Equity Real Estate е специализирана в <strong>луксозни имоти и инвестиции от най-висок клас</strong>, предоставяйки на клиентите ексклузивен достъп до подбрани проекти и възможности с висока възвръщаемост.</p>
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 data-key="hero_title">Инвестирайте в имоти на зелено</h1>
+      <p data-key="hero_text">Дубай и Абу Даби – сигурни инвестиции с висока възвръщаемост</p>
+      <button class="btn" data-key="hero_button" onclick="location.href='#about'">Научете повече</button>
     </div>
-    <div class="about-image">
-      <img src="./equity-logo.png" alt="Equity Real Estate Logo">
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h1 data-key="about_title">За нас</h1>
+        <h3 data-key="about_subtitle">Официален партньор на Equity Real Estate – Дубай</h3>
+        <p data-key="about_text1">Ние работим в партньорство с <strong>Equity Real Estate</strong> – водеща луксозна
+          агенция за недвижими имоти в Дубай, известна със своята експертиза, иновативен подход и безкомпромисно
+          качество на обслужване.</p>
+        <p data-key="about_text2">Equity Real Estate е специализирана в <strong>луксозни имоти и инвестиции от най-висок
+            клас</strong>, предоставяйки на клиентите ексклузивен достъп до подбрани проекти и възможности с висока
+          възвръщаемост.</p>
+      </div>
+      <div class="about-image">
+        <img src="./images/equity-logo.png" alt="Equity Real Estate Logo">
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="projects" class="projects">
-   <h2 data-key="projects_title">Projects</h2>
-  <p data-key="projects_text">Explore our luxury apartments and investment properties in Dubai and Abu Dhabi.</p>
+  <section id="projects" class="projects">
+    <h2 data-key="projects_title">Projects</h2>
+    <p data-key="projects_text">Explore our luxury apartments and investment properties in Dubai and Abu Dhabi.</p>
 
 
-  <div class="project-list">
-    <!-- Project 1 -->
-    <div class="project-card" onclick="openModal(0)">
-      <img src="./marina-residence.jpg" alt="Dubai Marina Residence">
-      <div class="project-info">
-        <h3>Dubai Marina Residence</h3>
-        <p>Jumeirah Lake Towers, Dubai</p>
-        <div class="features">
-          <span>2 Bedrooms</span>
-          <span>2 Bathrooms</span>
-          <span>120 m²</span>
+    <div class="project-list">
+      <!-- Project 1 -->
+      <div class="project-card" onclick="openModal(0)">
+        <img src="./images/marina-residence.jpg" alt="Dubai Marina Residence">
+        <div class="project-info">
+          <h3>Dubai Marina Residence</h3>
+          <p>Jumeirah Lake Towers, Dubai</p>
+          <div class="features">
+            <span>2 Bedrooms</span>
+            <span>2 Bathrooms</span>
+            <span>120 m²</span>
+          </div>
+          <p>Price: AED 1,200,000</p>
         </div>
-        <p>Price: AED 1,200,000</p>
       </div>
-    </div>
 
-    <!-- Project 2 -->
-    <div class="project-card" onclick="openModal(1)">
-      <img src="./skyline-towers.jpg" alt="Skyline Towers">
-      <div class="project-info">
-        <h3>Skyline Towers</h3>
-        <p>Downtown Dubai, Dubai</p>
-        <div class="features">
-          <span>3 Bedrooms</span>
-          <span>3 Bathrooms</span>
-          <span>180 m²</span>
+      <!-- Project 2 -->
+      <div class="project-card" onclick="openModal(1)">
+        <img src="./images/skyline-towers.jpg" alt="Skyline Towers">
+        <div class="project-info">
+          <h3>Skyline Towers</h3>
+          <p>Downtown Dubai, Dubai</p>
+          <div class="features">
+            <span>3 Bedrooms</span>
+            <span>3 Bathrooms</span>
+            <span>180 m²</span>
+          </div>
+          <p>Price: AED 2,000,000</p>
         </div>
-        <p>Price: AED 2,000,000</p>
       </div>
-    </div>
 
-    <!-- Project 3 -->
-    <div class="project-card" onclick="openModal(2)">
-      <img src="./villa.jpg" alt="Abu Dhabi Villas">
-      <div class="project-info">
-        <h3>Abu Dhabi Villas</h3>
-        <p>Saadiyat Island, Abu Dhabi</p>
-        <div class="features">
-          <span>4 Bedrooms</span>
-          <span>4 Bathrooms</span>
-          <span>300 m²</span>
+      <!-- Project 3 -->
+      <div class="project-card" onclick="openModal(2)">
+        <img src="./images/villa.jpg" alt="Abu Dhabi Villas">
+        <div class="project-info">
+          <h3>Abu Dhabi Villas</h3>
+          <p>Saadiyat Island, Abu Dhabi</p>
+          <div class="features">
+            <span>4 Bedrooms</span>
+            <span>4 Bathrooms</span>
+            <span>300 m²</span>
+          </div>
+          <p>Price: AED 3,500,000</p>
         </div>
-        <p>Price: AED 3,500,000</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Modal -->
-<div id="modal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3 id="modal-title"></h3>
-    <div id="modal-images"></div>
-    <p id="modal-details"></p>
-  </div>
-</div>
-
-
-<section id="process" class="process-section">
-  <div class="process-container">
-    <div class="process-steps">
-      <h2 data-key="process_title">Процес на покупка</h2>
-      <ul>
-        <li class="active" onclick="showStep(1)" data-key="step1_li">1. Проявяване на интерес</li>
-        <li onclick="showStep(2)" data-key="step2_li">2. Консултация и стратегия</li>
-        <li onclick="showStep(3)" data-key="step3_li">3. Подбор на проект</li>
-        <li onclick="showStep(4)" data-key="step4_li">4. EOI – Резервация</li>
-        <li onclick="showStep(5)" data-key="step5_li">5. Booking Form</li>
-        <li onclick="showStep(6)" data-key="step6_li">6. SPA & Oqood</li>
-        <li onclick="showStep(7)" data-key="step7_li">7. Разсрочено плащане</li>
-      </ul>
+  <!-- Modal -->
+  <div id="modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title"></h3>
+      <div id="modal-images"></div>
+      <p id="modal-details"></p>
     </div>
-    <div class="process-content">
-      <!-- Step 1 -->
-  <div class="step active" data-step="1">
-    <h3 data-key="step1_title">Проявяване на интерес</h3>
-    <p data-key="step1_text">Първата стъпка е клиентът да заяви интерес към инвестиция в off-plan имоти в Дубай или Абу Даби. Това позволява да получава информация за нови проекти, оферти и предимства при ранни резервации.</p>
-    <ul data-key="step1_list">
-      <li>Получавате достъп до предварителни проекти.</li>
-      <li>Можете да изберете апартамент преди старта на продажбите.</li>
-      <li>Ние оценяваме потенциалната възвръщаемост и рисковете.</li>
-    </ul>
   </div>
 
-  <!-- Step 2 -->
-  <div class="step" data-step="2">
-    <h3 data-key="step2_title">Консултация и инвестиционна стратегия</h3>
-    <p data-key="step2_text">Заедно обсъждаме инвестиционната ви цел:</p>
-    <ul data-key="step2_list">
-      <li>Дългосрочно отдаване под наем.</li>
-      <li>Краткосрочна препродажба след завършване на проекта.</li>
-      <li>Лично ползване – краткосрочно или за ваканции.</li>
-      <li>Определяне на бюджет, очаквана възвръщаемост и предпочитани райони.</li>
-    </ul>
-  </div>
 
-  <!-- Step 3 -->
-  <div class="step" data-step="3">
-    <h3 data-key="step3_title">Подбор на проект</h3>
-    <p data-key="step3_text">Изготвяме селекция от проекти, които отговарят на вашите критерии и бюджет:</p>
-    <ul data-key="step3_list">
-      <li>Достъп до ексклузивни оферти преди официалния старт на продажбите.</li>
-      <li>Сравняваме различни опции по локация, цена и потенциална доходност.</li>
-      <li>Предоставяме подробни планове, 3D визуализации и срокове на строителството.</li>
-      <li>Клиентът има възможност да направи избор на апартамент още преди продажбите да започнат официално.</li>
-    </ul>
-  </div>
+  <section id="process" class="process-section">
+    <div class="process-container">
+      <div class="process-steps">
+        <h2 data-key="process_title">Процес на покупка</h2>
+        <ul>
+          <li class="active" onclick="showStep(1)" data-key="step1_li">1. Проявяване на интерес</li>
+          <li onclick="showStep(2)" data-key="step2_li">2. Консултация и стратегия</li>
+          <li onclick="showStep(3)" data-key="step3_li">3. Подбор на проект</li>
+          <li onclick="showStep(4)" data-key="step4_li">4. EOI – Резервация</li>
+          <li onclick="showStep(5)" data-key="step5_li">5. Booking Form</li>
+          <li onclick="showStep(6)" data-key="step6_li">6. SPA & Oqood</li>
+          <li onclick="showStep(7)" data-key="step7_li">7. Разсрочено плащане</li>
+        </ul>
+      </div>
+      <div class="process-content">
+        <!-- Step 1 -->
+        <div class="step active" data-step="1">
+          <h3 data-key="step1_title">Проявяване на интерес</h3>
+          <p data-key="step1_text">Първата стъпка е клиентът да заяви интерес към инвестиция в off-plan имоти в Дубай
+            или Абу Даби. Това позволява да получава информация за нови проекти, оферти и предимства при ранни
+            резервации.</p>
+          <ul data-key="step1_list">
+            <li>Получавате достъп до предварителни проекти.</li>
+            <li>Можете да изберете апартамент преди старта на продажбите.</li>
+            <li>Ние оценяваме потенциалната възвръщаемост и рисковете.</li>
+          </ul>
+        </div>
 
-  <!-- Step 4 -->
-  <div class="step" data-step="4">
-    <h3 data-key="step4_title">EOI – Expression of Interest</h3>
-    <p data-key="step4_text">За да резервирате избрания апартамент, се заплаща депозит от <strong>50,000 AED</strong>. Това е временно резервиране, което ви дава време да решите дали да продължите с покупката.</p>
-    <ul data-key="step4_list">
-      <li>Депозитът се приспада от крайната цена или може да бъде върнат.</li>
-      <li>Тази стъпка гарантира, че апартаментът е запазен за вас за ограничен период.</li>
-      <li>Клиентът решава след стартиране на продажбата дали да купи или да се откаже.</li>
-    </ul>
-  </div>
+        <!-- Step 2 -->
+        <div class="step" data-step="2">
+          <h3 data-key="step2_title">Консултация и инвестиционна стратегия</h3>
+          <p data-key="step2_text">Заедно обсъждаме инвестиционната ви цел:</p>
+          <ul data-key="step2_list">
+            <li>Дългосрочно отдаване под наем.</li>
+            <li>Краткосрочна препродажба след завършване на проекта.</li>
+            <li>Лично ползване – краткосрочно или за ваканции.</li>
+            <li>Определяне на бюджет, очаквана възвръщаемост и предпочитани райони.</li>
+          </ul>
+        </div>
 
-  <!-- Step 5 -->
-  <div class="step" data-step="5">
-    <h3 data-key="step5_title">Booking Form</h3>
-    <p data-key="step5_text">След потвърждение на покупката се заплащат <strong>10% от стойността</strong> на имота и се подписва booking form. Този формуляр е официална декларация за намерение да закупите имота.</p>
-    <ul data-key="step5_list">
-      <li>Съдържа информация за имота и плащанията по него.</li>
-      <li>Гарантира вашите права и резервация до подписването на SPA.</li>
-      <li>Това е ключова стъпка преди нотариалното оформяне.</li>
-    </ul>
-  </div>
+        <!-- Step 3 -->
+        <div class="step" data-step="3">
+          <h3 data-key="step3_title">Подбор на проект</h3>
+          <p data-key="step3_text">Изготвяме селекция от проекти, които отговарят на вашите критерии и бюджет:</p>
+          <ul data-key="step3_list">
+            <li>Достъп до ексклузивни оферти преди официалния старт на продажбите.</li>
+            <li>Сравняваме различни опции по локация, цена и потенциална доходност.</li>
+            <li>Предоставяме подробни планове, 3D визуализации и срокове на строителството.</li>
+            <li>Клиентът има възможност да направи избор на апартамент още преди продажбите да започнат официално.</li>
+          </ul>
+        </div>
 
-  <!-- Step 6 -->
-  <div class="step" data-step="6">
-    <h3 data-key="step6_title">SPA & Oqood</h3>
-    <p data-key="step6_text">След около 30 дни се заплащат допълнителни <strong>10% от стойността + 4% DLD такса</strong> и се подписва договор за покупко-продажба (SPA).</p>
-    <ul data-key="step6_list">
-      <li>SPA е официалният договор между купувача и продавача.</li>
-      <li>Oqood е временен нотариален акт, който потвърждава собствеността.</li>
-      <li>С Oqood можете да кандидатствате за 10-годишна златна виза при стойност над 2 млн. AED.</li>
-    </ul>
-  </div>
+        <!-- Step 4 -->
+        <div class="step" data-step="4">
+          <h3 data-key="step4_title">EOI – Expression of Interest</h3>
+          <p data-key="step4_text">За да резервирате избрания апартамент, се заплаща депозит от <strong>50,000
+              AED</strong>. Това е временно резервиране, което ви дава време да решите дали да продължите с покупката.
+          </p>
+          <ul data-key="step4_list">
+            <li>Депозитът се приспада от крайната цена или може да бъде върнат.</li>
+            <li>Тази стъпка гарантира, че апартаментът е запазен за вас за ограничен период.</li>
+            <li>Клиентът решава след стартиране на продажбата дали да купи или да се откаже.</li>
+          </ul>
+        </div>
 
-  <!-- Step 7 -->
-  <div class="step" data-step="7">
-    <h3 data-key="step7_title">Разсрочено плащане</h3>
-    <p data-key="step7_text">Плащанията се извършват по договорения план до завършване на проекта. Това позволява:</p>
-    <ul data-key="step7_list">
-      <li>Гъвкавост в управлението на бюджета.</li>
-      <li>Ясни етапи на плащане, съгласно договора.</li>
-      <li>Контрол върху инвестицията до получаване на ключове.</li>
-    </ul>
-  </div>
-  </div>
-</section>
+        <!-- Step 5 -->
+        <div class="step" data-step="5">
+          <h3 data-key="step5_title">Booking Form</h3>
+          <p data-key="step5_text">След потвърждение на покупката се заплащат <strong>10% от стойността</strong> на
+            имота и се подписва booking form. Този формуляр е официална декларация за намерение да закупите имота.</p>
+          <ul data-key="step5_list">
+            <li>Съдържа информация за имота и плащанията по него.</li>
+            <li>Гарантира вашите права и резервация до подписването на SPA.</li>
+            <li>Това е ключова стъпка преди нотариалното оформяне.</li>
+          </ul>
+        </div>
 
-<section id="calculator" class="calculator-section">
-  <div class="calculator-container">
-    <div class="calculator-info">
-      <h2 data-key="calc_title">Калкулатор за ипотечен кредит в ОАЕ</h2>
-      <p data-key="calc_text1">В ОАЕ ипотечен кредит може да бъде изтеглен след заплащане на минимум 50% от стойността на имота.</p>
-      <p data-key="calc_text2">Максималният срок на ипотеката обикновено е до 25 години...</p>
-    </div>
-    <div class="calculator-box">
-      <div class="calculator">
-        <input type="number" id="price" placeholder="Цена на имота (AED)">
-        <input type="number" id="down" value="50" min="50" max="100" placeholder="Първоначална вноска (%)">
-        <input type="number" id="interest" placeholder="Годишна лихва (%)">
-        <input type="number" id="years" placeholder="Срок (години)">
-        <button class="btn" onclick="calculate()" data-key="calc_button">Изчисли месечна вноска</button>
-        <div class="result" id="result"></div>
+        <!-- Step 6 -->
+        <div class="step" data-step="6">
+          <h3 data-key="step6_title">SPA & Oqood</h3>
+          <p data-key="step6_text">След около 30 дни се заплащат допълнителни <strong>10% от стойността + 4% DLD
+              такса</strong> и се подписва договор за покупко-продажба (SPA).</p>
+          <ul data-key="step6_list">
+            <li>SPA е официалният договор между купувача и продавача.</li>
+            <li>Oqood е временен нотариален акт, който потвърждава собствеността.</li>
+            <li>С Oqood можете да кандидатствате за 10-годишна златна виза при стойност над 2 млн. AED.</li>
+          </ul>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="step" data-step="7">
+          <h3 data-key="step7_title">Разсрочено плащане</h3>
+          <p data-key="step7_text">Плащанията се извършват по договорения план до завършване на проекта. Това позволява:
+          </p>
+          <ul data-key="step7_list">
+            <li>Гъвкавост в управлението на бюджета.</li>
+            <li>Ясни етапи на плащане, съгласно договора.</li>
+            <li>Контрол върху инвестицията до получаване на ключове.</li>
+          </ul>
+        </div>
+      </div>
+  </section>
+
+  <section id="calculator" class="calculator-section">
+    <div class="calculator-container">
+      <div class="calculator-info">
+        <h2 data-key="calc_title">Калкулатор за ипотечен кредит в ОАЕ</h2>
+        <p data-key="calc_text1">В ОАЕ ипотечен кредит може да бъде изтеглен след заплащане на минимум 50% от стойността
+          на имота.</p>
+        <p data-key="calc_text2">Максималният срок на ипотеката обикновено е до 25 години...</p>
+      </div>
+      <div class="calculator-box">
+        <div class="calculator">
+          <input type="number" id="price" placeholder="Цена на имота (AED)">
+          <input type="number" id="down" value="50" min="50" max="100" placeholder="Първоначална вноска (%)">
+          <input type="number" id="interest" placeholder="Годишна лихва (%)">
+          <input type="number" id="years" placeholder="Срок (години)">
+          <button class="btn" onclick="calculate()" data-key="calc_button">Изчисли месечна вноска</button>
+          <div class="result" id="result"></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact" class="contact">
-  <div class="contact-container">
-    <div class="contact-map">
-      <iframe src="https://www.google.com/maps?q=Dubai,UAE&output=embed" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div class="contact-content">
-      <h2 data-key="contact_title">Свържете се с нас</h2>
-      <h3 data-key="contact_subtitle">Професионално съдействие при инвестиции в off-plan имоти</h3>
-      <p data-key="contact_text1">Ние ви помагаме да инвестирате в правилния off-plan проект...</p>
-      <p data-key="contact_text2">Нашите клиенти получават достъп до проекти преди официалния старт...</p>
-      <p data-key="contact_text3">Съдействаме във всяка стъпка – от избор на проект и апартамент...</p>
-      <div class="contact-details">
-        <p>📧 realestateinvestmentinuae@gmail.com</p>
-        <p>📞 +359 89 706 5580</p>
+  <section id="contact" class="contact">
+    <div class="contact-container">
+      <div class="contact-map">
+        <iframe src="https://www.google.com/maps?q=Dubai,UAE&output=embed" allowfullscreen="" loading="lazy"></iframe>
       </div>
-      <a href="mailto:realestateinvestmentinuae@gmail.com" class="contact-btn" data-key="contact_button">Безплатна консултация</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- CHATBOT -->
-<div id="chatbot">
-  <button id="chat-toggle" onclick="toggleChat()">💬</button>
-  <div id="chatbox">
-    <div id="messages"></div>
-  </div>
-</div>
-
-<footer class="footer">
-  <div class="footer-container">
-
-    <!-- Лого + newsletter -->
-    <div class="footer-col footer-brand">
-      <a href="#">
-        <img src="./live logo.png" alt="Logo" class="footer-logo">
-      </a>
-
-      <h3 data-key="footer_newsletter_title">Абонирайте се за пазарни ъпдейти</h3>
-
-      <form class="footer-form">
-        <input type="email" data-key-placeholder="footer_newsletter_input" placeholder="Email адрес" required>
-        <button type="submit" data-key="footer_newsletter_button">Изпрати</button>
-      </form>
-    </div>
-
-    <!-- Guides -->
-    <div class="footer-col">
-      <h4 data-key="footer_guides_title">Ресурси</h4>
-      <ul>
-        <li><a href="#" data-key="footer_guide1">Ръководство за купувачи</a></li>
-        <li><a href="#" data-key="footer_guide2">Инвестиционен гид</a></li>
-        <li><a href="#" data-key="footer_guide3">Зони в Дубай</a></li>
-        <li><a href="#" data-key="footer_guide4">Пазарни анализи</a></li>
-      </ul>
-    </div>
-
-    <!-- Company -->
-    <div class="footer-col">
-      <h4 data-key="footer_company_title">Компания</h4>
-      <ul>
-        <li><a href="#about" data-key="footer_about">За нас</a></li>
-        <li><a href="#projects" data-key="footer_projects">Проекти</a></li>
-        <li><a href="#process" data-key="footer_process">Процес на покупка</a></li>
-        <li><a href="#contact" data-key="footer_contact">Контакти</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact -->
-    <div class="footer-col">
-      <h4 data-key="footer_contact_title">Свържете се с нас</h4>
-      <ul class="contact-list">
-        <li data-key="footer_phone">📞 +971 XX XXX XXXX</li>
-        <li data-key="footer_email">✉️ info@yourdomain.com</li>
-        <li data-key="footer_address">📍 Dubai, UAE</li>
-      </ul>
-
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/invest_in_uae__/">IG</a>
-        <a href="#">FB</a>
-        <a href="#">IN</a>
+      <div class="contact-content">
+        <h2 data-key="contact_title">Свържете се с нас</h2>
+        <h3 data-key="contact_subtitle">Професионално съдействие при инвестиции в off-plan имоти</h3>
+        <p data-key="contact_text1">Ние ви помагаме да инвестирате в правилния off-plan проект...</p>
+        <p data-key="contact_text2">Нашите клиенти получават достъп до проекти преди официалния старт...</p>
+        <p data-key="contact_text3">Съдействаме във всяка стъпка – от избор на проект и апартамент...</p>
+        <div class="contact-details">
+          <p>📧 realestateinvestmentinuae@gmail.com</p>
+          <p>📞 +359 89 706 5580</p>
+        </div>
+        <a href="mailto:realestateinvestmentinuae@gmail.com" class="contact-btn" data-key="contact_button">Безплатна
+          консултация</a>
       </div>
     </div>
+  </section>
 
+
+  <!-- CHATBOT -->
+  <div id="chatbot">
+    <button id="chat-toggle" onclick="toggleChat()">💬</button>
+    <div id="chatbox">
+      <div id="messages"></div>
+    </div>
   </div>
 
-  <div class="footer-bottom" data-key="footer_copyright">
-    Invest in UAE © 2026 All rights reserved
-  </div>
-</footer>
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- Лого + newsletter -->
+      <div class="footer-col footer-brand">
+        <a href="#">
+          <img src="./images/live logo.png" alt="Logo" class="footer-logo">
+        </a>
+
+        <h3 data-key="footer_newsletter_title">Абонирайте се за пазарни ъпдейти</h3>
+
+        <form class="footer-form">
+          <input type="email" data-key-placeholder="footer_newsletter_input" placeholder="Email адрес" required>
+          <button type="submit" data-key="footer_newsletter_button">Изпрати</button>
+        </form>
+      </div>
+
+      <!-- Guides -->
+      <div class="footer-col">
+        <h4 data-key="footer_guides_title">Ресурси</h4>
+        <ul>
+          <li><a href="#" data-key="footer_guide1">Ръководство за купувачи</a></li>
+          <li><a href="#" data-key="footer_guide2">Инвестиционен гид</a></li>
+          <li><a href="#" data-key="footer_guide3">Зони в Дубай</a></li>
+          <li><a href="#" data-key="footer_guide4">Пазарни анализи</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div class="footer-col">
+        <h4 data-key="footer_company_title">Компания</h4>
+        <ul>
+          <li><a href="#about" data-key="footer_about">За нас</a></li>
+          <li><a href="#projects" data-key="footer_projects">Проекти</a></li>
+          <li><a href="#process" data-key="footer_process">Процес на покупка</a></li>
+          <li><a href="#contact" data-key="footer_contact">Контакти</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4 data-key="footer_contact_title">Свържете се с нас</h4>
+        <ul class="contact-list">
+          <li data-key="footer_phone">📞 +971 XX XXX XXXX</li>
+          <li data-key="footer_email">✉️ info@yourdomain.com</li>
+          <li data-key="footer_address">📍 Dubai, UAE</li>
+        </ul>
+
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/invest_in_uae__/">IG</a>
+          <a href="#">FB</a>
+          <a href="#">IN</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom" data-key="footer_copyright">
+      Invest in UAE © 2026 All rights reserved
+    </div>
+  </footer>
 
 
 
-<script>
-function calculate() {
-  const price = document.getElementById('price').value;
-  const down = document.getElementById('down').value;
-  const interest = document.getElementById('interest').value / 100 / 12;
-  const years = document.getElementById('years').value * 12;
+  <script>
+    function calculate() {
+      const price = document.getElementById('price').value;
+      const down = document.getElementById('down').value;
+      const interest = document.getElementById('interest').value / 100 / 12;
+      const years = document.getElementById('years').value * 12;
 
-  const loan = price * (1 - down / 100);
-  const emi = loan * interest * Math.pow(1 + interest, years) /
-              (Math.pow(1 + interest, years) - 1);
+      const loan = price * (1 - down / 100);
+      const emi = loan * interest * Math.pow(1 + interest, years) /
+        (Math.pow(1 + interest, years) - 1);
 
-  document.getElementById('result').innerText =
-    `Месечна вноска: ${emi.toFixed(2)} AED`;
-}
+      document.getElementById('result').innerText =
+        `Месечна вноска: ${emi.toFixed(2)} AED`;
+    }
 
-/* CHATBOT LOGIC */
-const messages = document.getElementById("messages");
+    /* CHATBOT LOGIC */
+    const messages = document.getElementById("messages");
 
-function toggleChat() {
-  const box = document.getElementById("chatbox");
-  box.style.display = box.style.display === "flex" ? "none" : "flex";
-  box.style.flexDirection = "column";
-  if (messages.innerHTML === "") startChat();
-}
+    function toggleChat() {
+      const box = document.getElementById("chatbox");
+      box.style.display = box.style.display === "flex" ? "none" : "flex";
+      box.style.flexDirection = "column";
+      if (messages.innerHTML === "") startChat();
+    }
 
-function startChat() {
-  messages.innerHTML = `
+    function startChat() {
+      messages.innerHTML = `
     <p>Здравейте! Къде искате да инвестирате?</p>
     <div class="option" onclick="next('Dubai')">Дубай</div>
     <div class="option" onclick="next('Abu Dhabi')">Абу Даби</div>
   `;
-}
+    }
 
-function next(answer) {
-  messages.innerHTML += `<p><b>${answer}</b></p>`;
-  messages.innerHTML += `
+    function next(answer) {
+      messages.innerHTML += `<p><b>${answer}</b></p>`;
+      messages.innerHTML += `
     <p>Какъв тип имот търсите?</p>
     <div class="option" onclick="finalStep('Жилищен')">Жилищен</div>
     <div class="option" onclick="finalStep('Инвестиционен')">Инвестиционен</div>
   `;
-}
+    }
 
-function finalStep(type) {
-  messages.innerHTML += `<p><b>${type}</b></p>`;
-  messages.innerHTML += `
+    function finalStep(type) {
+      messages.innerHTML += `<p><b>${type}</b></p>`;
+      messages.innerHTML += `
     <p>Искате ли да използвате калкулатора или да се свържем с вас?</p>
     <div class="option" onclick="location.href='#calculator'">Калкулатор</div>
     <div class="option">Контакт с консултант</div>
   `;
-}
-
-// Дефинираме информацията за проектите
-const projects = [
-  {
-    title: "Dubai Marina Residence",
-    images: ["./properties/abu-dhabi/villa.jpg", "./properties/marina property/marina-residence.jpg", "./properties/skyline/skyline-towers.jpg", "./properties/skyline/skyline-towers.jpg"],
-    details: "2 Bedrooms, 2 Bathrooms, 120 m², modern amenities, sea view."
-  },
-  {
-    title: "Skyline Towers",
-    images: ["./properties/abu-dhabi/villa.jpg", "./properties/marina property/marina-residence.jpg", "./properties/skyline/skyline-towers.jpg", "./properties/skyline/skyline-towers.jpg"],
-    details: "3 Bedrooms, 3 Bathrooms, 180 m², high floor with panoramic view."
-  },
-  {
-    title: "Abu Dhabi Villas",
-    images: ["./properties/abu-dhabi/villa.jpg", "./properties/marina property/marina-residence.jpg", "./properties/skyline/skyline-towers.jpg", "./properties/skyline/skyline-towers.jpg"],
-    details: "4 Bedrooms, 4 Bathrooms, private yard and pool, luxury finish."
-  }
-];
-
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modal-title");
-const modalImages = document.getElementById("modal-images");
-const modalDetails = document.getElementById("modal-details");
-
-function openModal(index) {
-  const project = projects[index];
-  modalTitle.innerText = project.title;
-  modalDetails.innerText = project.details;
-  modalImages.innerHTML = "";
-  modalImages.style.display = "flex";
-  modalImages.style.gap = "10px";        // разстояние между снимките
-  modalImages.style.overflowX = "auto";  // хоризонтален скрол, ако се събират много
-  modalImages.style.padding = "10px 0";
-
-  project.images.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = project.title;
-    img.style.width = "200px";  // фиксирана ширина
-    img.style.height = "auto";  // запазване на пропорции
-    img.style.flexShrink = "0"; // не се свива
-    img.style.borderRadius = "5px"; // малко заобляне, по желание
-    modalImages.appendChild(img);
-  });
-
-  modal.style.display = "block";
-}
-
-function closeModal() {
-  modal.style.display = "none";
-}
-
-// Затваряне при кликане извън модала
-window.onclick = function(event) {
-  if (event.target === modal) {
-    closeModal();
-  }
-};
-
-function showStep(step) {
-  document.querySelectorAll('.process-steps li').forEach(li => {
-    li.classList.remove('active');
-  });
-
-  document.querySelectorAll('.step').forEach(s => {
-    s.classList.remove('active');
-  });
-
-  document.querySelector(`.process-steps li:nth-child(${step})`).classList.add('active');
-  document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
-}
-
-
-
-// превод на кода
-
-const translations = {
-  bg: {
-    nav_home: "Начало",
-    nav_about: "За нас",
-    nav_projects: "Проекти",
-    nav_benefits: "Защо Дубай",
-    nav_process: "Процес",
-    nav_calculator: "Калкулатор",
-    nav_contact: "Контакти",
-    hero_title: "Инвестирайте в имоти на зелено",
-    hero_text: "Дубай и Абу Даби – сигурни инвестиции с висока възвръщаемост",
-    hero_button: "Научете повече",
-    about_title: "За нас",
-    about_subtitle: "Официален партньор на Equity Real Estate – Дубай",
-    about_text1: "Ние работим в партньорство с Equity Real Estate – водеща луксозна агенция за недвижими имоти в Дубай, известна със своята експертиза, иновативен подход и безкомпромисно качество на обслужване.",
-    about_text2: "Equity Real Estate е специализирана в луксозни имоти и инвестиции от най-висок клас, предоставяйки на клиентите ексклузивен достъп до подбрани проекти и възможности с висока възвръщаемост.",
-    projects_title: "Проекти",
-    projects_text: "Разгледайте нашите луксозни апартаменти и инвестиционни имоти в Дубай и Абу Даби. Всяка оферта включва подробни планове, 3D визуализации и информация за потенциалната доходност.",
-    project1_title: "Dubai Marina Residence",
-    project1_location: "Jumeirah Lake Towers, Dubai",
-    project1_bedrooms: "2 спални",
-    project1_bathrooms: "2 бани",
-    project1_size: "120 кв.м",
-    project1_price: "Цена: AED 1,200,000",
-    process_title: "Процес на покупка",
-    step1_li: "1. Проявяване на интерес",
-    step2_li: "2. Консултация и стратегия",
-    step3_li: "3. Подбор на проект",
-    step4_li: "4. EOI – Резервация",
-    step5_li: "5. Booking Form",
-    step6_li: "6. SPA & Oqood",
-    step7_li: "7. Разсрочено плащане",
-    step1_title: "Проявяване на интерес",
-    step1_text: "Първата стъпка е клиентът да заяви интерес към инвестиция в off-plan имоти в Дубай или Абу Даби. Това позволява да получава информация за нови проекти, оферти и предимства при ранни резервации.",
-    step1_list: [
-      "Получавате достъп до предварителни проекти.",
-      "Можете да изберете апартамент преди старта на продажбите.",
-      "Ние оценяваме потенциалната възвръщаемост и рисковете."
-    ],
-    step2_title: "Консултация и инвестиционна стратегия",
-    step2_text: "Заедно обсъждаме инвестиционната ви цел, като определяме най-подходящата стратегия.",
-    step2_list: [
-      "Дългосрочно отдаване под наем.",
-      "Краткосрочна препродажба след завършване на проекта.",
-      "Лично ползване – краткосрочно или за ваканции.",
-      "Определяне на бюджет, очаквана възвръщаемост и предпочитани райони."
-    ],
-    step3_title: "Подбор на проект",
-    step3_text: "Изготвяме селекция от проекти, които отговарят на вашите критерии и бюджет.",
-    step3_list: [
-      "Достъп до ексклузивни оферти преди официалния старт на продажбите.",
-      "Сравняваме различни опции по локация, цена и потенциална доходност.",
-      "Предоставяме подробни планове, 3D визуализации и срокове на строителството.",
-      "Възможност за избор на апартамент преди официалното започване на продажбите."
-    ],
-    step4_title: "EOI – Expression of Interest",
-    step4_text: "За да резервирате избрания апартамент, се заплаща депозит от 50,000 AED. Това е временно резервиране, което ви дава време да решите дали да продължите с покупката.",
-    step4_list: [
-      "Депозитът се приспада от крайната цена или може да бъде върнат.",
-      "Гарантира, че апартаментът е запазен за вас за ограничен период.",
-      "Клиентът решава след стартиране на продажбата дали да купи или да се откаже."
-    ],
-    step5_title: "Booking Form",
-    step5_text: "След потвърждение на покупката се заплащат 10% от стойността на имота и се подписва booking form. Този формуляр е официална декларация за намерение да закупите имота.",
-    step5_list: [
-      "Съдържа информация за имота и плащанията по него.",
-      "Гарантира вашите права и резервация до подписването на SPA.",
-      "Ключова стъпка преди нотариалното оформяне."
-    ],
-    step6_title: "SPA & Oqood",
-    step6_text: "След около 30 дни се заплащат допълнителни 10% от стойността + 4% DLD такса и се подписва договор за покупко-продажба (SPA). Издава се Oqood – временен нотариален акт.",
-    step6_list: [
-      "SPA е официалният договор между купувача и продавача.",
-      "Oqood потвърждава собствеността на имота.",
-      "С Oqood можете да кандидатствате за 10-годишна златна виза при стойност над 2 млн. AED."
-    ],
-    step7_title: "Разсрочено плащане",
-    step7_text: "Плащанията се извършват по договорения план до завършване на проекта. Това позволява пълна гъвкавост и контрол върху инвестицията.",
-    step7_list: [
-      "Гъвкавост в управлението на бюджета.",
-      "Ясни етапи на плащане, съгласно договора.",
-      "Контрол върху инвестицията до получаване на ключове."
-    ],
-    calc_title: "Калкулатор за ипотечен кредит в ОАЕ",
-    calc_text1: "В ОАЕ ипотечен кредит може да бъде изтеглен след заплащане на минимум 50% от стойността на имота.",
-    calc_text2: "Максималният срок на ипотеката обикновено е до 25 години (300 месеца), като точният период зависи от възрастта и профила на клиента. За служители до 65 г., за граждани и самонаети до 70 г. Обичаен срок: 15–25 години.",
-    calc_button: "Изчисли месечна вноска",
-    contact_title: "Свържете се с нас",
-    contact_subtitle: "Професионално съдействие при инвестиции в off-plan имоти",
-    contact_text1: "Ние ви помагаме да инвестирате в правилния off-plan проект в Дубай и Абу Даби, съобразен с вашите цели – отдаване под наем, препродажба или лично ползване.",
-    contact_text2: "Нашите клиенти получават достъп до проекти преди официалния старт на продажбите, възможност за избор на конкретен апартамент и запазване чрез Expression of Interest (EOI).",
-    contact_text3: "Съдействаме във всяка стъпка – от избор на проект и апартамент, през резервация, договори и плащания, до завършване на сделката.",
-    contact_button: "Безплатна консултация",
-    footer_newsletter_title: "Абонирайте се за пазарни ъпдейти",
-  footer_newsletter_input: "Email адрес",
-  footer_newsletter_button: "Изпрати",
-  footer_guides_title: "Ресурси",
-  footer_guide1: "Ръководство за купувачи",
-  footer_guide2: "Инвестиционен гид",
-  footer_guide3: "Зони в Дубай",
-  footer_guide4: "Пазарни анализи",
-  footer_company_title: "Компания",
-  footer_about: "За нас",
-  footer_projects: "Проекти",
-  footer_process: "Процес на покупка",
-  footer_contact: "Контакти",
-  footer_contact_title: "Свържете се с нас",
-  footer_phone: "📞 +971 XX XXX XXXX",
-  footer_email: "✉️ info@yourdomain.com",
-  footer_address: "📍 Dubai, UAE",
-  footer_copyright: "Invest in UAE © 2026 Всички права запазени"
-  },
-
-  en: {
-    nav_home: "Home",
-    nav_about: "About Us",
-    nav_projects: "Projects",
-    nav_benefits: "Why Dubai",
-    nav_process: "Process",
-    nav_calculator: "Calculator",
-    nav_contact: "Contact",
-    hero_title: "Invest in Off-Plan Properties",
-    hero_text: "Dubai and Abu Dhabi – secure investments with high returns",
-    hero_button: "Learn More",
-    about_title: "About Us",
-    about_subtitle: "Official Partner of Equity Real Estate – Dubai",
-    about_text1: "We work in partnership with Equity Real Estate – a leading luxury real estate agency in Dubai, known for its expertise, innovative approach, and uncompromising quality of service.",
-    about_text2: "Equity Real Estate specializes in luxury properties and high-end investments, providing clients with exclusive access to carefully selected projects and high-return opportunities.",
-    projects_title: "Projects",
-    projects_text: "Explore our luxury apartments and investment properties in Dubai and Abu Dhabi. Each listing includes detailed plans, 3D visualizations, and potential ROI information.",
-    project1_title: "Dubai Marina Residence",
-    project1_location: "Jumeirah Lake Towers, Dubai",
-    project1_bedrooms: "2 Bedrooms",
-    project1_bathrooms: "2 Bathrooms",
-    project1_size: "120 m²",
-    project1_price: "Price: AED 1,200,000",
-    process_title: "Purchase Process",
-    step1_li: "1. Express Interest",
-    step2_li: "2. Consultation & Strategy",
-    step3_li: "3. Project Selection",
-    step4_li: "4. EOI – Reservation",
-    step5_li: "5. Booking Form",
-    step6_li: "6. SPA & Oqood",
-    step7_li: "7. Installments",
-    step1_title: "Express Interest",
-    step1_text: "The first step is for the client to express interest in off-plan properties in Dubai or Abu Dhabi. This allows them to receive updates about new projects, offers, and advantages for early reservations.",
-    step1_list: [
-      "Access to preliminary projects.",
-      "Ability to select an apartment before sales start.",
-      "We evaluate potential returns and risks."
-    ],
-    step2_title: "Consultation & Investment Strategy",
-    step2_text: "Together we discuss your investment goal and define the best strategy.",
-    step2_list: [
-      "Long-term rental income.",
-      "Short-term resale after project completion.",
-      "Personal use – short-term or vacations.",
-      "Define budget, expected ROI, and preferred areas."
-    ],
-    step3_title: "Project Selection",
-    step3_text: "We prepare a selection of projects matching your criteria and budget.",
-    step3_list: [
-      "Access to exclusive offers before official sales start.",
-      "Compare options by location, price, and potential ROI.",
-      "Provide detailed plans, 3D visualizations, and construction timelines.",
-      "Ability to choose an apartment before official sales begin."
-    ],
-    step4_title: "EOI – Expression of Interest",
-    step4_text: "To reserve the selected apartment, a deposit of AED 50,000 is required. This temporary reservation gives you time to decide whether to proceed with the purchase.",
-    step4_list: [
-      "Deposit is deducted from the final price or refundable.",
-      "Guarantees the apartment is held for you for a limited period.",
-      "Client decides after sales start whether to buy or cancel."
-    ],
-    step5_title: "Booking Form",
-    step5_text: "Upon purchase confirmation, 10% of the property value is paid and the booking form is signed. This form is an official declaration of intent to purchase.",
-    step5_list: [
-      "Contains property and payment information.",
-      "Secures your rights and reservation until SPA signing.",
-      "Key step before notarization."
-    ],
-    step6_title: "SPA & Oqood",
-    step6_text: "After approximately 30 days, an additional 10% + 4% DLD fee is paid, and the sale-purchase agreement (SPA) is signed. Oqood – temporary title deed – is issued.",
-    step6_list: [
-      "SPA is the official agreement between buyer and seller.",
-      "Oqood confirms property ownership.",
-      "With Oqood, you can apply for a 10-year golden visa for properties above AED 2 million."
-    ],
-    step7_title: "Installments",
-    step7_text: "Payments are made according to the agreed plan until project completion, allowing full flexibility and investment control.",
-    step7_list: [
-      "Flexibility in budget management.",
-      "Clear payment stages according to the contract.",
-      "Control over the investment until key handover."
-    ],
-    calc_title: "Mortgage Calculator in UAE",
-    calc_text1: "In the UAE, a mortgage can be taken after paying at least 50% of the property value.",
-    calc_text2: "Maximum tenure is usually up to 25 years (300 months), depending on age and client profile. Employees up to 65, UAE citizens and self-employed up to 70. Typical range: 15–25 years.",
-    calc_button: "Calculate Monthly Payment",
-    contact_title: "Contact Us",
-    contact_subtitle: "Professional assistance with off-plan property investments",
-    contact_text1: "We help you invest in the right off-plan project in Dubai and Abu Dhabi according to your goals – rental, resale, or personal use.",
-    contact_text2: "Our clients get access to projects before the official sales launch, with the ability to choose a specific apartment and reserve via Expression of Interest (EOI).",
-    contact_text3: "We assist at every step – from project and apartment selection, to reservations, contracts, payments, and completion.",
-    contact_button: "Free Consultation",
-    footer_newsletter_title: "Subscribe for Market Updates",
-  footer_newsletter_input: "Email address",
-  footer_newsletter_button: "Send",
-  footer_guides_title: "Resources",
-  footer_guide1: "Buyer's Guide",
-  footer_guide2: "Investment Guide",
-  footer_guide3: "Dubai Zones",
-  footer_guide4: "Market Analysis",
-  footer_company_title: "Company",
-  footer_about: "About Us",
-  footer_projects: "Projects",
-  footer_process: "Purchase Process",
-  footer_contact: "Contact",
-  footer_contact_title: "Contact Us",
-  footer_phone: "📞 +971 XX XXX XXXX",
-  footer_email: "✉️ info@yourdomain.com",
-  footer_address: "📍 Dubai, UAE",
-  footer_copyright: "Invest in UAE © 2026 All rights reserved"
-  },
-
-  tr: {
-    nav_home: "Ana Sayfa",
-    nav_about: "Hakkımızda",
-    nav_projects: "Projeler",
-    nav_benefits: "Neden Dubai",
-    nav_process: "Süreç",
-    nav_calculator: "Hesap Makinesi",
-    nav_contact: "İletişim",
-    hero_title: "Off-plan Projelere Yatırım Yapın",
-    hero_text: "Dubai ve Abu Dabi – yüksek getiri sağlayan güvenli yatırımlar",
-    hero_button: "Daha Fazla Bilgi",
-    about_title: "Hakkımızda",
-    about_subtitle: "Equity Real Estate – Dubai Resmi Ortağı",
-    about_text1: "Equity Real Estate ile ortaklık içinde çalışıyoruz – Dubai'deki önde gelen lüks gayrimenkul ajansı, uzmanlığı, yenilikçi yaklaşımı ve kusursuz hizmet kalitesiyle tanınır.",
-    about_text2: "Equity Real Estate, yüksek sınıf mülkler ve yatırımlar konusunda uzmanlaşmıştır ve müşterilerine özenle seçilmiş projelere ve yüksek getiri fırsatlarına özel erişim sağlar.",
-    projects_title: "Projeler",
-    projects_text: "Dubai ve Abu Dabi'deki lüks dairelerimizi ve yatırım mülklerimizi keşfedin. Her teklif ayrıntılı planlar, 3D görselleştirmeler ve potansiyel getiriler içerir.",
-    project1_title: "Dubai Marina Residence",
-    project1_location: "Jumeirah Lake Towers, Dubai",
-    project1_bedrooms: "2 Yatak Odası",
-    project1_bathrooms: "2 Banyo",
-    project1_size: "120 m²",
-    project1_price: "Fiyat: AED 1,200,000",
-    process_title: "Satın Alma Süreci",
-    step1_li: "1. İlgi Gösterme",
-    step2_li: "2. Danışmanlık & Strateji",
-    step3_li: "3. Proje Seçimi",
-    step4_li: "4. EOI – Rezervasyon",
-    step5_li: "5. Booking Form",
-    step6_li: "6. SPA & Oqood",
-    step7_li: "7. Taksitler",
-    step1_title: "İlgi Gösterme",
-    step1_text: "İlk adım, Dubai veya Abu Dabi'deki off-plan projelerine ilgi göstermektir. Bu, yeni projeler, teklifler ve erken rezervasyon avantajları hakkında bilgi almanızı sağlar.",
-    step1_list: [
-      "Ön projelere erişim.",
-      "Satışlar başlamadan önce daire seçme imkanı.",
-      "Potansiyel getiriler ve riskleri değerlendiriyoruz."
-    ],
-    step2_title: "Danışmanlık & Yatırım Stratejisi",
-    step2_text: "Yatırım hedefinizi birlikte tartışıyor ve en uygun stratejiyi belirliyoruz.",
-    step2_list: [
-      "Uzun vadeli kiralama geliri.",
-      "Proje tamamlandıktan sonra kısa vadeli satış.",
-      "Kişisel kullanım – kısa dönem veya tatiller.",
-      "Bütçe, beklenen getiri ve tercih edilen bölgeleri belirleme."
-    ],
-    step3_title: "Proje Seçimi",
-    step3_text: "Kriterlerinize ve bütçenize uygun projelerden bir seçki hazırlıyoruz.",
-    step3_list: [
-      "Resmi satış başlangıcından önce özel tekliflere erişim.",
-      "Farklı seçenekleri konum, fiyat ve potansiyel getiriye göre karşılaştırma.",
-      "Ayrıntılı planlar, 3D görselleştirmeler ve inşaat süreleri sağlama.",
-      "Resmi satış başlamadan önce daire seçme imkanı."
-    ],
-    step4_title: "EOI – İlgi Beyanı",
-    step4_text: "Seçilen daireyi rezerve etmek için 50.000 AED depozito ödenir. Bu geçici rezervasyon, satın alma kararını vermeniz için size zaman tanır ve dairenin sizin için ayrılmasını sağlar.",
-    step4_list: [
-      "Depozito nihai fiyattan düşülür veya geri ödenebilir.",
-      "Daireyi sınırlı bir süre sizin için ayırır.",
-      "Müşteri satışlar başladıktan sonra satın alıp almamaya karar verir."
-    ],
-    step5_title: "Booking Form",
-    step5_text: "Satın alma onayında, mülkün %10'u ödenir ve booking form imzalanır. Bu form, satın alma niyetinizi resmi olarak beyan eder.",
-    step5_list: [
-      "Mülk ve ödeme bilgilerini içerir.",
-      "SPA imzalanana kadar haklarınızı ve rezervasyonu güvence altına alır.",
-      "Noter tasdikinden önceki önemli bir adımdır."
-    ],
-    step6_title: "SPA & Oqood",
-    step6_text: "Yaklaşık 30 gün sonra ek %10 + %4 DLD ücreti ödenir ve satış-satın alma sözleşmesi (SPA) imzalanır. Oqood – geçici tapu belgesi – düzenlenir.",
-    step6_list: [
-      "SPA, alıcı ve satıcı arasındaki resmi sözleşmedir.",
-      "Oqood mülkiyeti doğrular.",
-      "2 milyon AED üzerindeki mülklerde Oqood ile 10 yıllık altın vize başvurusu yapabilirsiniz."
-    ],
-    step7_title: "Taksitler",
-    step7_text: "Ödemeler, proje tamamlanana kadar anlaşmaya göre yapılır. Bu, tam esneklik ve yatırım kontrolü sağlar.",
-    step7_list: [
-      "Bütçe yönetiminde esneklik.",
-      "Sözleşmeye göre net ödeme aşamaları.",
-      "Anahtar teslimine kadar yatırım üzerinde kontrol."
-    ],
-    calc_title: "BAE’de Mortgage Hesaplayıcı",
-    calc_text1: "BAE’de mortgage, mülk değerinin en az %50’si ödendikten sonra alınabilir.",
-    calc_text2: "Maksimum vade genellikle 25 yıla kadar (300 ay), yaş ve müşteri profiline bağlıdır. Çalışanlar için 65 yaşına kadar, BAE vatandaşları ve serbest meslek sahipleri için 70 yaşına kadar. Tipik süre: 15–25 yıl.",
-    calc_button: "Aylık Ödemeyi Hesapla",
-    contact_title: "İletişim",
-    contact_subtitle: "Off-plan gayrimenkul yatırımlarında profesyonel destek",
-    contact_text1: "Dubai ve Abu Dabi’deki doğru off-plan projeye, hedeflerinize uygun olarak yatırım yapmanıza yardımcı oluyoruz – kiralama, yeniden satış veya kişisel kullanım.",
-    contact_text2: "Müşterilerimiz, resmi satış başlamadan önce projelere erişim, belirli bir daire seçme ve Expression of Interest (EOI) ile rezervasyon yapma imkanına sahiptir.",
-    contact_text3: "Proje ve daire seçimi, rezervasyon, sözleşmeler, ödemeler ve tamamlanma dahil olmak üzere her adımda yardımcı oluyoruz.",
-    contact_button: "Ücretsiz Danışmanlık",
-    footer_newsletter_title: "Piyasa Güncellemeleri için Abone Olun",
-  footer_newsletter_input: "E-posta adresi",
-  footer_newsletter_button: "Gönder",
-  footer_guides_title: "Kaynaklar",
-  footer_guide1: "Alıcı Rehberi",
-  footer_guide2: "Yatırım Rehberi",
-  footer_guide3: "Dubai Bölgeleri",
-  footer_guide4: "Piyasa Analizleri",
-  footer_company_title: "Şirket",
-  footer_about: "Hakkımızda",
-  footer_projects: "Projeler",
-  footer_process: "Satın Alma Süreci",
-  footer_contact: "İletişim",
-  footer_contact_title: "Bizimle İletişime Geçin",
-  footer_phone: "📞 +971 XX XXX XXXX",
-  footer_email: "✉️ info@yourdomain.com",
-  footer_address: "📍 Dubai, UAE",
-  footer_copyright: "Invest in UAE © 2026 Tüm hakları saklıdır"
-  }
-};
-
-
-// Функция за смяна на езика
-function setLanguage(lang) {
-  // 1. Всички елементи с data-key
-  document.querySelectorAll("[data-key]").forEach(el => {
-    const key = el.getAttribute("data-key");
-    const value = translations[lang][key];
-
-    if(Array.isArray(value)) {
-      // ако е масив – рендерираме <li> за всеки елемент
-      el.innerHTML = value.map(item => `<li>${item}</li>`).join("");
-    } else if(value) {
-      // иначе просто текст
-      el.textContent = value;
     }
-  });}
 
+    // Дефинираме информацията за проектите
+    const projects = [
+      {
+        title: "Dubai Marina Residence",
+        images: ["./properties/abu-dhabi/villa.jpg", "./images/marina-residence.jpg", "./images/skyline-towers.jpg", "./images/skyline-towers.jpg"],
+        details: "2 Bedrooms, 2 Bathrooms, 120 m², modern amenities, sea view."
+      },
+      {
+        title: "Skyline Towers",
+        images: ["./properties/abu-dhabi/villa.jpg", "./images/marina-residence.jpg", "./images/skyline-towers.jpg", "./images/skyline-towers.jpg"],
+        details: "3 Bedrooms, 3 Bathrooms, 180 m², high floor with panoramic view."
+      },
+      {
+        title: "Abu Dhabi Villas",
+        images: ["./properties/abu-dhabi/villa.jpg", "./images/marina-residence.jpg", "./images/skyline-towers.jpg", "./images/skyline-towers.jpg"],
+        details: "4 Bedrooms, 4 Bathrooms, private yard and pool, luxury finish."
+      }
+    ];
 
-// Инициално – български
-setLanguage('bg');
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalImages = document.getElementById("modal-images");
+    const modalDetails = document.getElementById("modal-details");
 
+    function openModal(index) {
+      const project = projects[index];
+      modalTitle.innerText = project.title;
+      modalDetails.innerText = project.details;
+      modalImages.innerHTML = "";
+      modalImages.style.display = "flex";
+      modalImages.style.gap = "10px";        // разстояние между снимките
+      modalImages.style.overflowX = "auto";  // хоризонтален скрол, ако се събират много
+      modalImages.style.padding = "10px 0";
 
-</script>
+      project.images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = project.title;
+        img.style.width = "200px";  // фиксирана ширина
+        img.style.height = "auto";  // запазване на пропорции
+        img.style.flexShrink = "0"; // не се свива
+        img.style.borderRadius = "5px"; // малко заобляне, по желание
+        modalImages.appendChild(img);
+      });
+
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    // Затваряне при кликане извън модала
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+
+    function showStep(step) {
+      document.querySelectorAll('.process-steps li').forEach(li => {
+        li.classList.remove('active');
+      });
+
+      document.querySelectorAll('.step').forEach(s => {
+        s.classList.remove('active');
+      });
+
+      document.querySelector(`.process-steps li:nth-child(${step})`).classList.add('active');
+      document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
+    }
+
+    // превод на кода
+
+    const translations = {
+      bg: {
+        nav_home: "Начало",
+        nav_about: "За нас",
+        nav_projects: "Проекти",
+        nav_benefits: "Защо Дубай",
+        nav_process: "Процес",
+        nav_calculator: "Калкулатор",
+        nav_contact: "Контакти",
+        hero_title: "Инвестирайте в имоти на зелено",
+        hero_text: "Дубай и Абу Даби – сигурни инвестиции с висока възвръщаемост",
+        hero_button: "Научете повече",
+        about_title: "За нас",
+        about_subtitle: "Официален партньор на Equity Real Estate – Дубай",
+        about_text1: "Ние работим в партньорство с Equity Real Estate – водеща луксозна агенция за недвижими имоти в Дубай, известна със своята експертиза, иновативен подход и безкомпромисно качество на обслужване.",
+        about_text2: "Equity Real Estate е специализирана в луксозни имоти и инвестиции от най-висок клас, предоставяйки на клиентите ексклузивен достъп до подбрани проекти и възможности с висока възвръщаемост.",
+        projects_title: "Проекти",
+        projects_text: "Разгледайте нашите луксозни апартаменти и инвестиционни имоти в Дубай и Абу Даби. Всяка оферта включва подробни планове, 3D визуализации и информация за потенциалната доходност.",
+        project1_title: "Dubai Marina Residence",
+        project1_location: "Jumeirah Lake Towers, Dubai",
+        project1_bedrooms: "2 спални",
+        project1_bathrooms: "2 бани",
+        project1_size: "120 кв.м",
+        project1_price: "Цена: AED 1,200,000",
+        process_title: "Процес на покупка",
+        step1_li: "1. Проявяване на интерес",
+        step2_li: "2. Консултация и стратегия",
+        step3_li: "3. Подбор на проект",
+        step4_li: "4. EOI – Резервация",
+        step5_li: "5. Booking Form",
+        step6_li: "6. SPA & Oqood",
+        step7_li: "7. Разсрочено плащане",
+        step1_title: "Проявяване на интерес",
+        step1_text: "Първата стъпка е клиентът да заяви интерес към инвестиция в off-plan имоти в Дубай или Абу Даби. Това позволява да получава информация за нови проекти, оферти и предимства при ранни резервации.",
+        step1_list: [
+          "Получавате достъп до предварителни проекти.",
+          "Можете да изберете апартамент преди старта на продажбите.",
+          "Ние оценяваме потенциалната възвръщаемост и рисковете."
+        ],
+        step2_title: "Консултация и инвестиционна стратегия",
+        step2_text: "Заедно обсъждаме инвестиционната ви цел, като определяме най-подходящата стратегия.",
+        step2_list: [
+          "Дългосрочно отдаване под наем.",
+          "Краткосрочна препродажба след завършване на проекта.",
+          "Лично ползване – краткосрочно или за ваканции.",
+          "Определяне на бюджет, очаквана възвръщаемост и предпочитани райони."
+        ],
+        step3_title: "Подбор на проект",
+        step3_text: "Изготвяме селекция от проекти, които отговарят на вашите критерии и бюджет.",
+        step3_list: [
+          "Достъп до ексклузивни оферти преди официалния старт на продажбите.",
+          "Сравняваме различни опции по локация, цена и потенциална доходност.",
+          "Предоставяме подробни планове, 3D визуализации и срокове на строителството.",
+          "Възможност за избор на апартамент преди официалното започване на продажбите."
+        ],
+        step4_title: "EOI – Expression of Interest",
+        step4_text: "За да резервирате избрания апартамент, се заплаща депозит от 50,000 AED. Това е временно резервиране, което ви дава време да решите дали да продължите с покупката.",
+        step4_list: [
+          "Депозитът се приспада от крайната цена или може да бъде върнат.",
+          "Гарантира, че апартаментът е запазен за вас за ограничен период.",
+          "Клиентът решава след стартиране на продажбата дали да купи или да се откаже."
+        ],
+        step5_title: "Booking Form",
+        step5_text: "След потвърждение на покупката се заплащат 10% от стойността на имота и се подписва booking form. Този формуляр е официална декларация за намерение да закупите имота.",
+        step5_list: [
+          "Съдържа информация за имота и плащанията по него.",
+          "Гарантира вашите права и резервация до подписването на SPA.",
+          "Ключова стъпка преди нотариалното оформяне."
+        ],
+        step6_title: "SPA & Oqood",
+        step6_text: "След около 30 дни се заплащат допълнителни 10% от стойността + 4% DLD такса и се подписва договор за покупко-продажба (SPA). Издава се Oqood – временен нотариален акт.",
+        step6_list: [
+          "SPA е официалният договор между купувача и продавача.",
+          "Oqood потвърждава собствеността на имота.",
+          "С Oqood можете да кандидатствате за 10-годишна златна виза при стойност над 2 млн. AED."
+        ],
+        step7_title: "Разсрочено плащане",
+        step7_text: "Плащанията се извършват по договорения план до завършване на проекта. Това позволява пълна гъвкавост и контрол върху инвестицията.",
+        step7_list: [
+          "Гъвкавост в управлението на бюджета.",
+          "Ясни етапи на плащане, съгласно договора.",
+          "Контрол върху инвестицията до получаване на ключове."
+        ],
+        calc_title: "Калкулатор за ипотечен кредит в ОАЕ",
+        calc_text1: "В ОАЕ ипотечен кредит може да бъде изтеглен след заплащане на минимум 50% от стойността на имота.",
+        calc_text2: "Максималният срок на ипотеката обикновено е до 25 години (300 месеца), като точният период зависи от възрастта и профила на клиента. За служители до 65 г., за граждани и самонаети до 70 г. Обичаен срок: 15–25 години.",
+        calc_button: "Изчисли месечна вноска",
+        contact_title: "Свържете се с нас",
+        contact_subtitle: "Професионално съдействие при инвестиции в off-plan имоти",
+        contact_text1: "Ние ви помагаме да инвестирате в правилния off-plan проект в Дубай и Абу Даби, съобразен с вашите цели – отдаване под наем, препродажба или лично ползване.",
+        contact_text2: "Нашите клиенти получават достъп до проекти преди официалния старт на продажбите, възможност за избор на конкретен апартамент и запазване чрез Expression of Interest (EOI).",
+        contact_text3: "Съдействаме във всяка стъпка – от избор на проект и апартамент, през резервация, договори и плащания, до завършване на сделката.",
+        contact_button: "Безплатна консултация",
+        footer_newsletter_title: "Абонирайте се за пазарни ъпдейти",
+        footer_newsletter_input: "Email адрес",
+        footer_newsletter_button: "Изпрати",
+        footer_guides_title: "Ресурси",
+        footer_guide1: "Ръководство за купувачи",
+        footer_guide2: "Инвестиционен гид",
+        footer_guide3: "Зони в Дубай",
+        footer_guide4: "Пазарни анализи",
+        footer_company_title: "Компания",
+        footer_about: "За нас",
+        footer_projects: "Проекти",
+        footer_process: "Процес на покупка",
+        footer_contact: "Контакти",
+        footer_contact_title: "Свържете се с нас",
+        footer_phone: "📞 +971 XX XXX XXXX",
+        footer_email: "✉️ info@yourdomain.com",
+        footer_address: "📍 Dubai, UAE",
+        footer_copyright: "Invest in UAE © 2026 Всички права запазени"
+      },
+
+      en: {
+        nav_home: "Home",
+        nav_about: "About Us",
+        nav_projects: "Projects",
+        nav_benefits: "Why Dubai",
+        nav_process: "Process",
+        nav_calculator: "Calculator",
+        nav_contact: "Contact",
+        hero_title: "Invest in Off-Plan Properties",
+        hero_text: "Dubai and Abu Dhabi – secure investments with high returns",
+        hero_button: "Learn More",
+        about_title: "About Us",
+        about_subtitle: "Official Partner of Equity Real Estate – Dubai",
+        about_text1: "We work in partnership with Equity Real Estate – a leading luxury real estate agency in Dubai, known for its expertise, innovative approach, and uncompromising quality of service.",
+        about_text2: "Equity Real Estate specializes in luxury properties and high-end investments, providing clients with exclusive access to carefully selected projects and high-return opportunities.",
+        projects_title: "Projects",
+        projects_text: "Explore our luxury apartments and investment properties in Dubai and Abu Dhabi. Each listing includes detailed plans, 3D visualizations, and potential ROI information.",
+        project1_title: "Dubai Marina Residence",
+        project1_location: "Jumeirah Lake Towers, Dubai",
+        project1_bedrooms: "2 Bedrooms",
+        project1_bathrooms: "2 Bathrooms",
+        project1_size: "120 m²",
+        project1_price: "Price: AED 1,200,000",
+        process_title: "Purchase Process",
+        step1_li: "1. Express Interest",
+        step2_li: "2. Consultation & Strategy",
+        step3_li: "3. Project Selection",
+        step4_li: "4. EOI – Reservation",
+        step5_li: "5. Booking Form",
+        step6_li: "6. SPA & Oqood",
+        step7_li: "7. Installments",
+        step1_title: "Express Interest",
+        step1_text: "The first step is for the client to express interest in off-plan properties in Dubai or Abu Dhabi. This allows them to receive updates about new projects, offers, and advantages for early reservations.",
+        step1_list: [
+          "Access to preliminary projects.",
+          "Ability to select an apartment before sales start.",
+          "We evaluate potential returns and risks."
+        ],
+        step2_title: "Consultation & Investment Strategy",
+        step2_text: "Together we discuss your investment goal and define the best strategy.",
+        step2_list: [
+          "Long-term rental income.",
+          "Short-term resale after project completion.",
+          "Personal use – short-term or vacations.",
+          "Define budget, expected ROI, and preferred areas."
+        ],
+        step3_title: "Project Selection",
+        step3_text: "We prepare a selection of projects matching your criteria and budget.",
+        step3_list: [
+          "Access to exclusive offers before official sales start.",
+          "Compare options by location, price, and potential ROI.",
+          "Provide detailed plans, 3D visualizations, and construction timelines.",
+          "Ability to choose an apartment before official sales begin."
+        ],
+        step4_title: "EOI – Expression of Interest",
+        step4_text: "To reserve the selected apartment, a deposit of AED 50,000 is required. This temporary reservation gives you time to decide whether to proceed with the purchase.",
+        step4_list: [
+          "Deposit is deducted from the final price or refundable.",
+          "Guarantees the apartment is held for you for a limited period.",
+          "Client decides after sales start whether to buy or cancel."
+        ],
+        step5_title: "Booking Form",
+        step5_text: "Upon purchase confirmation, 10% of the property value is paid and the booking form is signed. This form is an official declaration of intent to purchase.",
+        step5_list: [
+          "Contains property and payment information.",
+          "Secures your rights and reservation until SPA signing.",
+          "Key step before notarization."
+        ],
+        step6_title: "SPA & Oqood",
+        step6_text: "After approximately 30 days, an additional 10% + 4% DLD fee is paid, and the sale-purchase agreement (SPA) is signed. Oqood – temporary title deed – is issued.",
+        step6_list: [
+          "SPA is the official agreement between buyer and seller.",
+          "Oqood confirms property ownership.",
+          "With Oqood, you can apply for a 10-year golden visa for properties above AED 2 million."
+        ],
+        step7_title: "Installments",
+        step7_text: "Payments are made according to the agreed plan until project completion, allowing full flexibility and investment control.",
+        step7_list: [
+          "Flexibility in budget management.",
+          "Clear payment stages according to the contract.",
+          "Control over the investment until key handover."
+        ],
+        calc_title: "Mortgage Calculator in UAE",
+        calc_text1: "In the UAE, a mortgage can be taken after paying at least 50% of the property value.",
+        calc_text2: "Maximum tenure is usually up to 25 years (300 months), depending on age and client profile. Employees up to 65, UAE citizens and self-employed up to 70. Typical range: 15–25 years.",
+        calc_button: "Calculate Monthly Payment",
+        contact_title: "Contact Us",
+        contact_subtitle: "Professional assistance with off-plan property investments",
+        contact_text1: "We help you invest in the right off-plan project in Dubai and Abu Dhabi according to your goals – rental, resale, or personal use.",
+        contact_text2: "Our clients get access to projects before the official sales launch, with the ability to choose a specific apartment and reserve via Expression of Interest (EOI).",
+        contact_text3: "We assist at every step – from project and apartment selection, to reservations, contracts, payments, and completion.",
+        contact_button: "Free Consultation",
+        footer_newsletter_title: "Subscribe for Market Updates",
+        footer_newsletter_input: "Email address",
+        footer_newsletter_button: "Send",
+        footer_guides_title: "Resources",
+        footer_guide1: "Buyer's Guide",
+        footer_guide2: "Investment Guide",
+        footer_guide3: "Dubai Zones",
+        footer_guide4: "Market Analysis",
+        footer_company_title: "Company",
+        footer_about: "About Us",
+        footer_projects: "Projects",
+        footer_process: "Purchase Process",
+        footer_contact: "Contact",
+        footer_contact_title: "Contact Us",
+        footer_phone: "📞 +971 XX XXX XXXX",
+        footer_email: "✉️ info@yourdomain.com",
+        footer_address: "📍 Dubai, UAE",
+        footer_copyright: "Invest in UAE © 2026 All rights reserved"
+      },
+
+      tr: {
+        nav_home: "Ana Sayfa",
+        nav_about: "Hakkımızda",
+        nav_projects: "Projeler",
+        nav_benefits: "Neden Dubai",
+        nav_process: "Süreç",
+        nav_calculator: "Hesap Makinesi",
+        nav_contact: "İletişim",
+        hero_title: "Off-plan Projelere Yatırım Yapın",
+        hero_text: "Dubai ve Abu Dabi – yüksek getiri sağlayan güvenli yatırımlar",
+        hero_button: "Daha Fazla Bilgi",
+        about_title: "Hakkımızda",
+        about_subtitle: "Equity Real Estate – Dubai Resmi Ortağı",
+        about_text1: "Equity Real Estate ile ortaklık içinde çalışıyoruz – Dubai'deki önde gelen lüks gayrimenkul ajansı, uzmanlığı, yenilikçi yaklaşımı ve kusursuz hizmet kalitesiyle tanınır.",
+        about_text2: "Equity Real Estate, yüksek sınıf mülkler ve yatırımlar konusunda uzmanlaşmıştır ve müşterilerine özenle seçilmiş projelere ve yüksek getiri fırsatlarına özel erişim sağlar.",
+        projects_title: "Projeler",
+        projects_text: "Dubai ve Abu Dabi'deki lüks dairelerimizi ve yatırım mülklerimizi keşfedin. Her teklif ayrıntılı planlar, 3D görselleştirmeler ve potansiyel getiriler içerir.",
+        project1_title: "Dubai Marina Residence",
+        project1_location: "Jumeirah Lake Towers, Dubai",
+        project1_bedrooms: "2 Yatak Odası",
+        project1_bathrooms: "2 Banyo",
+        project1_size: "120 m²",
+        project1_price: "Fiyat: AED 1,200,000",
+        process_title: "Satın Alma Süreci",
+        step1_li: "1. İlgi Gösterme",
+        step2_li: "2. Danışmanlık & Strateji",
+        step3_li: "3. Proje Seçimi",
+        step4_li: "4. EOI – Rezervasyon",
+        step5_li: "5. Booking Form",
+        step6_li: "6. SPA & Oqood",
+        step7_li: "7. Taksitler",
+        step1_title: "İlgi Gösterme",
+        step1_text: "İlk adım, Dubai veya Abu Dabi'deki off-plan projelerine ilgi göstermektir. Bu, yeni projeler, teklifler ve erken rezervasyon avantajları hakkında bilgi almanızı sağlar.",
+        step1_list: [
+          "Ön projelere erişim.",
+          "Satışlar başlamadan önce daire seçme imkanı.",
+          "Potansiyel getiriler ve riskleri değerlendiriyoruz."
+        ],
+        step2_title: "Danışmanlık & Yatırım Stratejisi",
+        step2_text: "Yatırım hedefinizi birlikte tartışıyor ve en uygun stratejiyi belirliyoruz.",
+        step2_list: [
+          "Uzun vadeli kiralama geliri.",
+          "Proje tamamlandıktan sonra kısa vadeli satış.",
+          "Kişisel kullanım – kısa dönem veya tatiller.",
+          "Bütçe, beklenen getiri ve tercih edilen bölgeleri belirleme."
+        ],
+        step3_title: "Proje Seçimi",
+        step3_text: "Kriterlerinize ve bütçenize uygun projelerden bir seçki hazırlıyoruz.",
+        step3_list: [
+          "Resmi satış başlangıcından önce özel tekliflere erişim.",
+          "Farklı seçenekleri konum, fiyat ve potansiyel getiriye göre karşılaştırma.",
+          "Ayrıntılı planlar, 3D görselleştirmeler ve inşaat süreleri sağlama.",
+          "Resmi satış başlamadan önce daire seçme imkanı."
+        ],
+        step4_title: "EOI – İlgi Beyanı",
+        step4_text: "Seçilen daireyi rezerve etmek için 50.000 AED depozito ödenir. Bu geçici rezervasyon, satın alma kararını vermeniz için size zaman tanır ve dairenin sizin için ayrılmasını sağlar.",
+        step4_list: [
+          "Depozito nihai fiyattan düşülür veya geri ödenebilir.",
+          "Daireyi sınırlı bir süre sizin için ayırır.",
+          "Müşteri satışlar başladıktan sonra satın alıp almamaya karar verir."
+        ],
+        step5_title: "Booking Form",
+        step5_text: "Satın alma onayında, mülkün %10'u ödenir ve booking form imzalanır. Bu form, satın alma niyetinizi resmi olarak beyan eder.",
+        step5_list: [
+          "Mülk ve ödeme bilgilerini içerir.",
+          "SPA imzalanana kadar haklarınızı ve rezervasyonu güvence altına alır.",
+          "Noter tasdikinden önceki önemli bir adımdır."
+        ],
+        step6_title: "SPA & Oqood",
+        step6_text: "Yaklaşık 30 gün sonra ek %10 + %4 DLD ücreti ödenir ve satış-satın alma sözleşmesi (SPA) imzalanır. Oqood – geçici tapu belgesi – düzenlenir.",
+        step6_list: [
+          "SPA, alıcı ve satıcı arasındaki resmi sözleşmedir.",
+          "Oqood mülkiyeti doğrular.",
+          "2 milyon AED üzerindeki mülklerde Oqood ile 10 yıllık altın vize başvurusu yapabilirsiniz."
+        ],
+        step7_title: "Taksitler",
+        step7_text: "Ödemeler, proje tamamlanana kadar anlaşmaya göre yapılır. Bu, tam esneklik ve yatırım kontrolü sağlar.",
+        step7_list: [
+          "Bütçe yönetiminde esneklik.",
+          "Sözleşmeye göre net ödeme aşamaları.",
+          "Anahtar teslimine kadar yatırım üzerinde kontrol."
+        ],
+        calc_title: "BAE’de Mortgage Hesaplayıcı",
+        calc_text1: "BAE’de mortgage, mülk değerinin en az %50’si ödendikten sonra alınabilir.",
+        calc_text2: "Maksimum vade genellikle 25 yıla kadar (300 ay), yaş ve müşteri profiline bağlıdır. Çalışanlar için 65 yaşına kadar, BAE vatandaşları ve serbest meslek sahipleri için 70 yaşına kadar. Tipik süre: 15–25 yıl.",
+        calc_button: "Aylık Ödemeyi Hesapla",
+        contact_title: "İletişim",
+        contact_subtitle: "Off-plan gayrimenkul yatırımlarında profesyonel destek",
+        contact_text1: "Dubai ve Abu Dabi’deki doğru off-plan projeye, hedeflerinize uygun olarak yatırım yapmanıza yardımcı oluyoruz – kiralama, yeniden satış veya kişisel kullanım.",
+        contact_text2: "Müşterilerimiz, resmi satış başlamadan önce projelere erişim, belirli bir daire seçme ve Expression of Interest (EOI) ile rezervasyon yapma imkanına sahiptir.",
+        contact_text3: "Proje ve daire seçimi, rezervasyon, sözleşmeler, ödemeler ve tamamlanma dahil olmak üzere her adımda yardımcı oluyoruz.",
+        contact_button: "Ücretsiz Danışmanlık",
+        footer_newsletter_title: "Piyasa Güncellemeleri için Abone Olun",
+        footer_newsletter_input: "E-posta adresi",
+        footer_newsletter_button: "Gönder",
+        footer_guides_title: "Kaynaklar",
+        footer_guide1: "Alıcı Rehberi",
+        footer_guide2: "Yatırım Rehberi",
+        footer_guide3: "Dubai Bölgeleri",
+        footer_guide4: "Piyasa Analizleri",
+        footer_company_title: "Şirket",
+        footer_about: "Hakkımızda",
+        footer_projects: "Projeler",
+        footer_process: "Satın Alma Süreci",
+        footer_contact: "İletişim",
+        footer_contact_title: "Bizimle İletişime Geçin",
+        footer_phone: "📞 +971 XX XXX XXXX",
+        footer_email: "✉️ info@yourdomain.com",
+        footer_address: "📍 Dubai, UAE",
+        footer_copyright: "Invest in UAE © 2026 Tüm hakları saklıdır"
+      }
+    };
+
+    // Функция за смяна на езика
+    function setLanguage(lang) {
+      // 1. Всички елементи с data-key
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        const value = translations[lang][key];
+
+        if (Array.isArray(value)) {
+          // ако е масив – рендерираме <li> за всеки елемент
+          el.innerHTML = value.map(item => `<li>${item}</li>`).join("");
+        } else if (value) {
+          // иначе просто текст
+          el.textContent = value;
+        }
+      });
+    }
+    setLanguage('bg');
+  </script>
 
 </body>
+
 </html>
