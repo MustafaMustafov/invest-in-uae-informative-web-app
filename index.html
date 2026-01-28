@@ -3,11 +3,13 @@
 
 <head>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dubai & Abu Dhabi Off-Plan Properties</title>
+  <title>Инвестирай в ОАЕ</title>
 
   <style>
     .nav-logo {
@@ -17,47 +19,61 @@
       object-fit: contain;
     }
 
-    /* GLOBAL */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
+      /* включва padding и border във width */
     }
 
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      /* премахва хоризонтален скрол */
+    }
+
+    /* ABOUT section */
     #about {
-      background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
-      color: white;
+      color: #C0C0C0;
     }
 
     #projects {
-      background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
-      color: white;
+      color: #C0C0C0;
     }
 
     #process {
-      background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+      color: #A9A9A9;
+      border-top: 1px solid #1A1A1A;
+      border-bottom: 1px solid #1A1A1A;
     }
 
     #calculator {
-      background: linear-gradient(135deg, #0a1a2f 0%, #162a4f 100%);
-      color: white;
+      color: #C0C0C0;
     }
 
-
+    /* ============================
+   Body
+============================ */
     body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      color: #1d1d20;
-      scroll-behavior: smooth;
-      scroll-snap-type: y proximity;
-      overflow-x: hidden;
-      background: #f7f7f7;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.8;
+      color: #C0C0C0;
+      background: #000000;
     }
 
+
+    /* ============================
+   Заглавия
+============================ */
     h1,
     h2,
     h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'League Spartan', sans-serif;
       margin-bottom: 20px;
-      color: #0a1a2f;
+      color: #E0E0E0;
     }
 
     h1 {
@@ -74,16 +90,19 @@
       font-weight: 400;
     }
 
-    /* NAVBAR */
+    /* ============================
+   Navbar
+============================ */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: #0a1a2f;
+      background: #0A0A0A;
       padding: 15px;
       z-index: 1000;
       display: flex;
       justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
 
     .header-nav {
@@ -91,19 +110,28 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 30px;
-      background: #0a1a2f;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background: #0A0A0A;
+      border-bottom: 1px solid #1A1A1A;
     }
 
-    .nav-left a {
-      margin-right: 20px;
+    .nav-left a,
+    nav a {
+      font-family: 'League Spartan', sans-serif;
+      margin: 0 15px;
       text-decoration: none;
-      color: white;
       font-weight: 500;
+      color: #C0C0C0;
+      transition: color 0.3s ease, transform 0.2s ease;
     }
 
     .nav-left a:last-child {
       margin-right: 0;
+    }
+
+    .nav-left a:hover,
+    nav a:hover {
+      color: #FFFFFF;
+      transform: translateY(-2px);
     }
 
     .nav-right {
@@ -117,112 +145,191 @@
       cursor: pointer;
       margin-left: 10px;
       border: 1px solid transparent;
-      transition: border 0.2s;
+      transition: all 0.3s ease;
+      border-radius: 4px;
     }
 
     .lang-flag:hover {
-      border: 1px solid #000;
+      border: 1px solid #C0C0C0;
+      transform: scale(1.05);
     }
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
+    .about,
+    .projects,
+    .process-section,
+    #calculator,
+    .why-dubai,
+    .contact {
+      width: 100vw;
+      min-height: 100vh;
+      padding: 80px 5%;
     }
 
-    nav a:hover {
-      color: gold;
-    }
 
-    /* SECTIONS - general */
+
+    /* ============================
+   SECTIONS - general
+============================ */
     section {
-      border-radius: 25px;
-      padding: 80px 10%;
-      margin: 40px 0;
-      background: #ffffffcc;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      width: 100vw;
+      min-height: 100vh;
+      padding: 80px 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section.bg-parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    section:nth-of-type(n+2):nth-of-type(odd) {
+      background: #000000;
+    }
+
+    section:nth-of-type(n+2):nth-of-type(even) {
+      background: #1A1A1A;
+    }
+
+
+    section:hover {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
     }
 
     .section-divider {
       text-align: center;
       font-size: 24px;
-      color: #d4af37;
+      color: #E0E0E0;
       margin: 60px 0;
+      font-weight: 500;
     }
 
-    /* FULL SCREEN SECTIONS */
-    .full-screen {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    /* HERO */
+    /* ============================
+   Hero section
+============================ */
     .hero {
-      background-image: url("./images/home-page.gif");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      color: white;
       position: relative;
+      width: 100vw;
       height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Видео на заден план */
+    .hero-bg-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: 0;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(10, 26, 47, 0.6);
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
     }
 
+    /* Съдържание върху видеото */
     .hero-content {
       position: relative;
-      max-width: 600px;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+      color: #FFFFFF;
     }
 
-    .hero .btn {
-      font-family: 'Montserrat', sans-serif;
-      background: gold;
-      color: black;
-      padding: 15px 25px;
+    .hero-content h1 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 50px;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #AAAAAA;
+    }
+
+    .hero-content .btn {
+      font-family: 'League Spartan', sans-serif;
+      background: #C0C0C0;
       border: none;
+      padding: 12px 18px;
       cursor: pointer;
-      font-weight: 500;
-      width: fit-content;
-      margin-top: 20px;
+      font-weight: 600;
+      color: #0D0D0D;
+      border-radius: 8px;
       transition: all 0.3s ease;
     }
 
-    .hero h1 {
-      color: white;
+    .hero-content .btn:hover {
+      background: #AAAAAA;
+      transform: translateY(-2px);
     }
 
-    .hero .btn:hover {
-      background: #d4af37;
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .hero-btn {
+        font-size: 14px;
+        padding: 12px 25px;
+      }
     }
 
-    /* ABOUT */
+    /* ============================
+   ABOUT секция
+============================ */
     .about {
-      background-color: #0a1a2f;
-      color: white;
+      width: 100vw;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-color: #121212;
+      color: #A9A9A9;
+      padding: 80px 0;
+      overflow-x: hidden;
     }
 
     .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      max-width: 1200px;
-      gap: 50px;
       width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 50px 5%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      transition: all 0.3s ease;
+    }
+
+    .about-container:hover {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
     }
 
     .about-text {
@@ -230,18 +337,17 @@
       min-width: 300px;
     }
 
-    .about-text p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .about-text h1 {
-      font-size: 50px;
-      color: white;
-    }
-
+    .about-text h1,
     .about-text h3 {
-      color: white;
+      color: #E0E0E0;
+      font-family: 'League Spartan', sans-serif;
+    }
+
+    .about-text p {
+      color: #A9A9A9;
+      line-height: 1.7;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
     }
 
     .about-icons {
@@ -249,90 +355,214 @@
       gap: 30px;
       margin-top: 20px;
       font-size: 18px;
+      color: #C0C0C0;
     }
 
     .about-image {
-      flex: 1;
-      min-width: 300px;
+      flex: 1 1 100%;
       display: flex;
       justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
     .about-image img {
-      max-width: 100%;
+      width: auto;
+      max-width: 400px;
+      height: auto;
       border-radius: 15px;
-      object-fit: cover;
+      object-fit: contain;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* PROJECTS */
+    .about-image img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+
+    /* ============================
+   PROJECTS SECTION
+============================ */
     .projects {
-      background-color: #0a1a2f;
-      color: white;
+      background-color: #121212;
+      color: #A9A9A9;
       text-align: center;
+      padding: 60px 0;
       min-height: 100vh;
     }
 
-    .projects h2 {
-      color: white;
+    .projects-container {
+      width: 100%;
+      padding: 50px 5%;
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
     }
 
-    .project-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
+    .projects-container:hover {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .projects h2 {
+      color: #E0E0E0;
+      margin-bottom: 20px;
+      font-family: 'League Spartan', sans-serif;
+    }
+
+    .projects p {
+      color: #E0E0E0;
+      margin-bottom: 20px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .projects .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 0 60px;
     }
 
     .project-card {
-      width: 300px;
-      background: white;
+      background: #1A1A1A;
       border-radius: 15px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
+      padding: 20px;
+      text-align: left;
+      font-family: 'Inter', serif;
+      color: #C0C0C0;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+      border: 1px solid #2A2A2A;
     }
 
     .project-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+      border: 1px solid #C0C0C0;
+    }
+
+    .project-card h3 a {
+      color: #E0E0E0;
+      font-family: 'League Spartan', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .project-card h3 a:hover {
+      color: #FFFFFF;
+    }
+
+    .project-card p {
+      color: #A9A9A9;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 6px 0;
     }
 
     .project-card img {
       width: 100%;
-      height: 200px;
+      height: 250px;
       object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .project-info {
-      padding: 15px;
-      text-align: left;
+    .project-card img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
 
-    .project-title {
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
+    .project-card strong {
+      font-weight: 600;
+      color: #C0C0C0;
+    }
+
+    /* ============================
+   WHY DUBAI SECTION
+============================ */
+    .why-dubai {
+      background: linear-gradient(135deg, #0D0D0D 0%, #121212 100%);
+      color: #C0C0C0;
+      padding: 50px 10%;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .why-dubai h2 {
+      color: #E0E0E0;
+      font-family: 'League Spartan', sans-serif;
+      text-align: center;
       margin-bottom: 10px;
-      color: #1d1d20;
+      font-size: 36px;
     }
 
-    .project-info h3 {
-      margin: 0 0 5px;
-      font-family: 'Playfair Display', serif;
+    .why-subtitle {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 40px;
+      font-weight: 500;
+      opacity: 0.85;
+      color: #A9A9A9;
     }
 
-    .project-info p {
-      margin: 0;
+    .why-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    /* Individual Why Card */
+    .why-card {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border: 1px solid #C0C0C0;
+    }
+
+    .why-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      font-family: 'League Spartan', sans-serif;
+      color: #E0E0E0;
+    }
+
+    .why-card p {
       font-size: 14px;
+      line-height: 1.7;
+      opacity: 0.9;
+      color: #C0C0C0;
     }
 
+    /* ============================
+   RESPONSIVE
+============================ */
+    @media (max-width: 900px) {
+      .why-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================
+   LOCATION & FEATURES
+============================ */
     .location {
       display: flex;
       align-items: center;
       gap: 5px;
       font-size: 14px;
-      color: #1d1d20;
+      color: #A9A9A9;
       margin-bottom: 10px;
     }
 
@@ -340,10 +570,12 @@
       display: flex;
       gap: 10px;
       padding-right: 15px;
-      border-right: 1px solid #ccc;
+      border-right: 1px solid #2A2A2A;
     }
 
-    /* MODAL */
+    /* ============================
+   MODAL
+============================ */
     .modal {
       display: none;
       position: fixed;
@@ -353,23 +585,47 @@
       width: 100%;
       height: 100%;
       overflow-y: auto;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       padding: 50px 10%;
       box-sizing: border-box;
     }
 
     .modal-content {
-      background: white;
+      background: #121212;
       padding: 30px;
       border-radius: 15px;
       max-width: 900px;
       margin: 0 auto;
       position: relative;
       text-align: left;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+      color: #C0C0C0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modal-content:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 28px;
+      color: #C0C0C0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .modal .close:hover {
+      color: #FFFFFF;
     }
 
     .modal-content h3 {
       margin-top: 0;
+      color: #E0E0E0;
+      font-family: 'League Spartan', sans-serif;
     }
 
     .modal-images img {
@@ -378,69 +634,88 @@
       object-fit: cover;
       margin-bottom: 15px;
       border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .close {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 30px;
-      cursor: pointer;
-    }
-
-    /* BUTTONS */
+    /* ============================
+   BUTTONS
+============================ */
     .btn {
-      font-family: 'Montserrat', sans-serif;
-      background: gold;
-      color: black;
+      font-family: 'League Spartan', sans-serif;
+      background: #2A2A2A;
+      color: #C0C0C0;
       padding: 15px 25px;
       border: none;
       cursor: pointer;
       font-weight: 500;
       width: fit-content;
       transition: all 0.3s ease;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
     }
 
     .btn:hover {
-      background: #d4af37;
+      background: #3A3A3A;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      color: #FFFFFF;
     }
 
-    /* CALCULATOR */
+    /* ============================
+   CALCULATOR
+============================ */
     #calculator {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: #0a1a2f;
+      background: #121212;
       padding: 100px 5%;
       box-sizing: border-box;
     }
 
-    /* Контейнер */
     .calculator-container {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 60px;
       align-items: center;
     }
 
-    /* Лява колона – текст */
+    /* Inputs */
+    .calculator input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      border: 1px solid #2A2A2A;
+      font-size: 14px;
+      font-family: 'Inter', serif;
+      background: #1D1D20;
+      color: #C0C0C0;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    .calculator input:focus {
+      outline: none;
+      border: 1px solid #C0C0C0;
+      box-shadow: 0 0 8px rgba(192, 192, 192, 0.5);
+    }
+
     .calculator-info h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'League Spartan', sans-serif;
       font-size: 36px;
       margin-bottom: 20px;
-      color: #ffffff;
+      color: #E0E0E0;
     }
 
     .calculator-info p {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Inter', serif;
       font-size: 15px;
       line-height: 1.7;
       margin-bottom: 15px;
-      color: #ffffff;
+      color: #C0C0C0;
     }
 
     .calculator-notes {
@@ -452,58 +727,58 @@
     .calculator-notes li {
       font-size: 14px;
       margin-bottom: 8px;
-      color: #ffffff;
+      color: #A9A9A9;
     }
 
     .calculator-hint {
       font-size: 13px;
-      color: #666;
+      color: #777777;
       font-style: italic;
       margin-top: 10px;
     }
 
-    /* Дясна колона – калкулатор */
     .calculator-box {
-      background: #0a1a2f;
+      background: #121212;
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    /* Полета */
-    .calculator input {
-      width: 100%;
-      padding: 12px 14px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      border: none;
-      font-size: 14px;
-      font-family: 'Montserrat', sans-serif;
+    .calculator-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
     }
 
-    .calculator input:focus {
-      outline: none;
-    }
-
-    /* Бутон */
     .calculator .btn {
       width: 100%;
       margin-top: 10px;
+      background: #2A2A2A;
+      color: #C0C0C0;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
     }
 
-    /* Резултат */
+    .calculator .btn:hover {
+      background: #3A3A3A;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      color: #FFFFFF;
+    }
+
     .calculator .result {
       margin-top: 15px;
       font-weight: 600;
       font-size: 16px;
-      color: gold;
+      color: #E0E0E0;
       text-align: center;
     }
 
-    /* === RESPONSIVE === */
     @media (max-width: 900px) {
       #calculator {
         align-items: flex-start;
+        padding: 50px 5%;
       }
 
       .calculator-container {
@@ -514,29 +789,47 @@
       .calculator-box {
         margin-top: 20px;
       }
+
+      .process-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-socials {
+        justify-content: center;
+      }
     }
 
-
+    /* Calculator result */
     .result {
       font-weight: bold;
       margin-top: 10px;
+      color: #C0C0C0;
     }
 
-    /* CHATBOT */
+    /* =============================
+   CHATBOT
+============================= */
     #chatbot {
       position: fixed;
       bottom: 20px;
       right: 20px;
+      z-index: 3000;
     }
 
     #chatbox {
       width: 300px;
       height: 400px;
-      background: white;
+      background: #121212;
       border-radius: 10px;
       display: none;
       flex-direction: column;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      color: #C0C0C0;
+      font-family: 'Inter', serif;
     }
 
     #messages {
@@ -546,32 +839,71 @@
     }
 
     .option {
-      background: #0a1a2f;
-      color: white;
+      background: #1D1D20;
+      color: #C0C0C0;
       padding: 8px;
       margin: 5px 0;
       cursor: pointer;
       border-radius: 5px;
       text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .option:hover {
+      background: #2A2A2A;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
     #chat-toggle {
-      background: gold;
+      background: #C0C0C0;
       border-radius: 50%;
       width: 60px;
       height: 60px;
       border: none;
       font-size: 24px;
       cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    /* -------------------- ПРОЦЕС НА ПОКУПКА -------------------- */
+    #chat-toggle:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    /* =============================
+   PROCESS SECTION
+============================= */
     .process-section {
       min-height: 100vh;
-      background: #f7f7f7;
+      min-width: 100vw;
+      background: #121212;
       display: flex;
       align-items: center;
       padding: 100px 5%;
+      border-radius: 25px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+      color: #C0C0C0;
+    }
+
+    .process-section h2 {
+      font-family: 'League Spartan', sans-serif;
+      color: #E0E0E0;
+    }
+
+    .process-section ul li {
+      margin-bottom: 12px;
+      font-size: 16px;
+      color: #AAAAAA;
+      transition: color 0.3s;
+    }
+
+    .process-section ul li.active,
+    .process-section ul li:hover {
+      color: #E0E0E0;
+      font-weight: 600;
     }
 
     .process-container {
@@ -582,12 +914,12 @@
       gap: 60px;
     }
 
-    /* Лява част – списък */
+    /* Steps list */
     .process-steps h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'League Spartan', sans-serif;
       font-size: 36px;
       margin-bottom: 30px;
-      color: #0a1a2f;
+      color: #E0E0E0;
     }
 
     .process-steps ul {
@@ -599,31 +931,58 @@
     .process-steps li {
       padding: 15px 20px;
       margin-bottom: 12px;
-      background: white;
+      background: #1D1D20;
       border-radius: 12px;
       cursor: pointer;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Inter', serif;
       font-size: 15px;
-      transition: all 0.3s ease;
+      transition: all 0.3s ease, box-shadow 0.3s;
       border-left: 4px solid transparent;
+      color: #AAAAAA;
     }
 
     .process-steps li:hover {
       transform: translateX(5px);
+      color: #C0C0C0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
 
     .process-steps li.active {
-      border-left: 4px solid gold;
-      background: #0a1a2f;
-      color: white;
+      border-left: 4px solid #C0C0C0;
+      background: #2A2A2A;
+      color: #FFFFFF;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
 
-    /* Дясна част – съдържание */
+    /* Right content */
     .process-content {
-      background: white;
+      background: #1D1D20;
+      color: #C0C0C0;
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .process-content h3 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 24px;
+      color: #E0E0E0;
+      margin-bottom: 15px;
+    }
+
+    .process-content p,
+    .process-content ul li {
+      font-family: 'Inter', serif;
+      color: #C0C0C0;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .process-content ul li::before {
+      position: absolute;
+      left: 0;
+      color: #C0C0C0;
     }
 
     .step {
@@ -634,31 +993,13 @@
       display: block;
     }
 
-    .step h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #0a1a2f;
-    }
-
-    .step p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
-      color: #333;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .process-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* CONTACT */
+    /* =============================
+   CONTACT SECTION
+============================= */
     .contact {
-      background: #f7f7f7;
+      background: #121212;
       padding: 100px 5%;
+      color: #C0C0C0;
     }
 
     .contact-container {
@@ -676,68 +1017,62 @@
       height: 450px;
       border: none;
       border-radius: 15px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     }
 
     /* Text */
     .contact-content h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'League Spartan', sans-serif;
       font-size: 36px;
       margin-bottom: 10px;
+      color: #E0E0E0;
     }
 
     .contact-content h3 {
       font-size: 18px;
       font-weight: 400;
       margin-bottom: 25px;
-      color: #555;
+      color: #AAAAAA;
     }
 
     .contact-content p {
       font-size: 15px;
       line-height: 1.7;
       margin-bottom: 15px;
-      color: #333;
+      color: #C0C0C0;
     }
 
     .contact-details p {
       font-weight: 600;
       margin-top: 15px;
+      color: #C0C0C0;
     }
 
-    /* Button */
     .contact-btn {
       display: inline-block;
       margin-top: 25px;
-      background: gold;
-      color: black;
+      background: #C0C0C0;
+      color: #0D0D0D;
       padding: 14px 30px;
       font-weight: 600;
       text-decoration: none;
       border-radius: 30px;
-      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(192, 192, 192, 0.4);
+      transition: all 0.3s ease, box-shadow 0.3s ease;
     }
 
     .contact-btn:hover {
-      background: #e6c200;
+      background: #AAAAAA;
       transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(170, 170, 170, 0.5);
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-map iframe {
-        height: 300px;
-      }
-    }
-
-
+    /* =============================
+   FOOTER
+============================= */
     .footer {
-      background: #0a1a2f;
-      color: white;
+      background: #121212;
+      color: #C0C0C0;
       padding: 80px 5% 30px;
     }
 
@@ -751,25 +1086,21 @@
 
     .footer h3,
     .footer h4 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'League Spartan', sans-serif;
       margin-bottom: 20px;
+      color: #E0E0E0;
     }
 
     .footer p,
     .footer li,
     .footer a {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Inter', serif;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .footer a {
-      text-decoration: none;
-      transition: color 0.3s ease;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .footer a:hover {
-      color: gold;
+      color: #C0C0C0;
     }
 
     .footer-logo {
@@ -777,28 +1108,38 @@
       margin-bottom: 25px;
     }
 
-    /* Newsletter */
     .footer-form {
       display: flex;
       margin-top: 15px;
+      gap: 10px;
     }
 
     .footer-form input {
       flex: 1;
       padding: 12px;
+      border-radius: 8px;
       border: none;
       outline: none;
+      background: #1A1A1A;
+      color: #FFFFFF;
     }
 
     .footer-form button {
-      background: gold;
+      background: #C0C0C0;
       border: none;
       padding: 12px 18px;
       cursor: pointer;
       font-weight: 600;
+      color: #0D0D0D;
+      border-radius: 8px;
+      transition: all 0.3s ease;
     }
 
-    /* Lists */
+    .footer-form button:hover {
+      background: #AAAAAA;
+      transform: translateY(-2px);
+    }
+
     .footer ul {
       list-style: none;
       padding: 0;
@@ -806,9 +1147,18 @@
 
     .footer ul li {
       margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.8);
     }
 
-    /* Socials */
+    .footer ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+    }
+
+    .footer ul li a:hover {
+      color: #C0C0C0;
+    }
+
     .footer-socials {
       margin-top: 20px;
       display: flex;
@@ -823,13 +1173,16 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
     }
 
     .footer-socials a:hover {
-      border-color: gold;
+      border-color: #C0C0C0;
+      color: #C0C0C0;
+      box-shadow: 0 4px 12px rgba(192, 192, 192, 0.4);
     }
 
-    /* Bottom */
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       margin-top: 60px;
@@ -837,17 +1190,6 @@
       text-align: center;
       font-size: 13px;
       color: rgba(255, 255, 255, 0.6);
-    }
-
-    .footer h3 {
-      color: white;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .footer-container {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -860,7 +1202,7 @@
       <a href="#home" data-key="nav_home">Home</a>
       <a href="#about" data-key="nav_about">За нас</a>
       <a href="#projects" data-key="nav_projects">Проекти</a>
-      <a href="#benefits" data-key="nav_benefits">Защо Дубай</a>
+      <a href="#why-dubai" data-key="nav_benefits">Защо Дубай</a>
       <a href="#process" data-key="nav_process">Процес</a>
       <a href="#calculator" data-key="nav_calculator">Калкулатор</a>
       <a href="#contact" data-key="nav_contact">Контакти</a>
@@ -876,6 +1218,10 @@
 
 
   <section id="home" class="hero">
+    <video autoplay muted loop playsinline class="hero-bg-video">
+      <source src="images/home-page video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-content">
       <h1 data-key="hero_title">Инвестирайте в имоти на зелено</h1>
       <p data-key="hero_text">Дубай и Абу Даби – сигурни инвестиции с висока възвръщаемост</p>
@@ -896,63 +1242,66 @@
           възвръщаемост.</p>
       </div>
       <div class="about-image">
-        <img src="./images/equity-logo.png" alt="Equity Real Estate Logo">
+        <a href="https://equitydxb.com/"> <img src="./images/equity-logo.png" alt="Equity Real Estate Logo"></a>
+
       </div>
     </div>
   </section>
 
   <section id="projects" class="projects">
-    <h2 data-key="projects_title">Projects</h2>
-    <p data-key="projects_text">Explore our luxury apartments and investment properties in Dubai and Abu Dhabi.</p>
+    <div class="projects-container">
+      <!-- <h2>Top Completed Investments in Dubai (2025)</h2>
+    <p>Delivered projects with proven capital appreciation from launch to 2025.</p> -->
+      <h2 data-key="projects_title">Едни от най-успешните завършени инвестиции в Дубай</h2>
+      <p data-key="projects_subtitle">Проекти, предадени и доказали капиталово нарастване от началото на продажбите до
+        приключване.</p>
 
+      <div class="project-list">
 
-    <div class="project-list">
-      <!-- Project 1 -->
-      <div class="project-card" onclick="openModal(0)">
-        <img src="./images/marina-residence.jpg" alt="Dubai Marina Residence">
-        <div class="project-info">
-          <h3>Dubai Marina Residence</h3>
-          <p>Jumeirah Lake Towers, Dubai</p>
-          <div class="features">
-            <span>2 Bedrooms</span>
-            <span>2 Bathrooms</span>
-            <span>120 m²</span>
-          </div>
-          <p>Price: AED 1,200,000</p>
+        <!-- 1 -->
+        <div class="project-card">
+          <img src="images/sobha-hartland-waves.png" alt="Sobha Hartland Waves">
+          <h3><a href="./pdf/sobha-waves-brochure.pdf" target="_blank">Sobha Hartland Waves</a></h3>
+          <p><strong>Developer:</strong> Sobha</p>
+          <p><strong>Delivery:</strong> Q1 2025</p>
+          <p><strong>Launch Price (2021):</strong> AED 1,200,000</p>
+          <p><strong>Resale Price (2025):</strong> AED 2,000,000</p>
         </div>
-      </div>
 
-      <!-- Project 2 -->
-      <div class="project-card" onclick="openModal(1)">
-        <img src="./images/skyline-towers.jpg" alt="Skyline Towers">
-        <div class="project-info">
-          <h3>Skyline Towers</h3>
-          <p>Downtown Dubai, Dubai</p>
-          <div class="features">
-            <span>3 Bedrooms</span>
-            <span>3 Bathrooms</span>
-            <span>180 m²</span>
-          </div>
-          <p>Price: AED 2,000,000</p>
+        <!-- 2 -->
+        <div class="project-card">
+          <img src="images/ellington-house.jpg" alt="Ellington House">
+          <h3><a href="./pdf/ellington-house.pdf" target="_blank">Ellington House</a></h3>
+          <p><strong>Developer:</strong> Ellington</p>
+          <p><strong>Delivery:</strong> Q2 2025</p>
+          <p><strong>Launch Price (2022):</strong> AED 1,500,000</p>
+          <p><strong>Resale Price (2025):</strong> AED 2,400,000</p>
         </div>
-      </div>
 
-      <!-- Project 3 -->
-      <div class="project-card" onclick="openModal(2)">
-        <img src="./images/villa.jpg" alt="Abu Dhabi Villas">
-        <div class="project-info">
-          <h3>Abu Dhabi Villas</h3>
-          <p>Saadiyat Island, Abu Dhabi</p>
-          <div class="features">
-            <span>4 Bedrooms</span>
-            <span>4 Bathrooms</span>
-            <span>300 m²</span>
-          </div>
-          <p>Price: AED 3,500,000</p>
+        <!-- 3 -->
+        <div class="project-card">
+          <img src="images/omniyat-ava.jpg" alt="Omniyat AVA">
+          <h3><a href="./pdf/ava-at-palm-brochure.pdf" target="_blank">AVA at PALM by Omniyat</a></h3>
+          <p><strong>Developer:</strong> Omniyat</p>
+          <p><strong>Delivery:</strong> 2025</p>
+          <p><strong>Launch Price (2021):</strong> AED 16,000,000</p>
+          <p><strong>Resale Price (2025):</strong> AED 28,000,000</p>
         </div>
+
+        <!-- 4 -->
+        <div class="project-card">
+          <img src="images/emaars_marina_shores.png" alt="Emaar Marina Shores">
+          <h3><a href="./pdf/emaar-marina-shores-brochure.pdf" target="_blank">Emaar Marina Shores</a></h3>
+          <p><strong>Developer:</strong> Emaar</p>
+          <p><strong>Delivery:</strong> Q4 2024</p>
+          <p><strong>Launch Price (2021):</strong> AED 1,700,000</p>
+          <p><strong>Resale Price (2025):</strong> AED 2,700,000</p>
+        </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- Modal -->
   <div id="modal" class="modal" style="display:none;">
@@ -963,6 +1312,57 @@
       <p id="modal-details"></p>
     </div>
   </div>
+
+  <section id="why-dubai" class="why-dubai">
+    <div class="why-container">
+      <h2 data-key="why_title"></h2>
+      <p class="why-subtitle" data-key="why_subtitle"></p>
+
+      <div class="why-cards">
+
+        <div class="why-card">
+          <h3 data-key="why1_title"></h3>
+          <p data-key="why1_text"></p>
+        </div>
+
+        <div class="why-card">
+          <h3 data-key="why2_title"></h3>
+          <p data-key="why2_text"></p>
+        </div>
+
+        <div class="why-card">
+          <h3 data-key="why3_title"></h3>
+          <p data-key="why3_text"></p>
+        </div>
+
+        <div class="why-card">
+          <h3 data-key="why4_title"></h3>
+          <p data-key="why4_text"></p>
+        </div>
+
+        <div class="why-card">
+          <h3 data-key="why5_title"></h3>
+          <p data-key="why5_text"></p>
+        </div>
+
+        <div class="why-card">
+          <h3 data-key="why6_title"></h3>
+          <p data-key="why6_text"></p>
+        </div>
+
+        <div class="why-card">
+          <h3 data-key="why7_title"></h3>
+          <p data-key="why7_text"></p>
+        </div>
+
+        <div class="why-card">
+          <h3 data-key="why8_title"></h3>
+          <p data-key="why8_text"></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
   <section id="process" class="process-section">
@@ -1125,7 +1525,7 @@
       <!-- Лого + newsletter -->
       <div class="footer-col footer-brand">
         <a href="#">
-          <img src="./images/live logo.png" alt="Logo" class="footer-logo">
+          <img src="./images/live logo.jpg" alt="Logo" class="footer-logo">
         </a>
 
         <h3 data-key="footer_newsletter_title">Абонирайте се за пазарни ъпдейти</h3>
@@ -1184,6 +1584,30 @@
 
 
   <script>
+    // Избираме всички секции
+    const sections = document.querySelectorAll('section');
+
+    // Създаваме наблюдател
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible'); // така ефектът се повтаря
+          }
+
+        });
+      },
+      {
+        threshold: 0.25 // активира се, когато 25% от секцията е видима
+      }
+    );
+
+    // Наблюдаваме всяка секция
+    sections.forEach(section => observer.observe(section));
+
+
     function calculate() {
       const price = document.getElementById('price').value;
       const down = document.getElementById('down').value;
@@ -1324,14 +1748,28 @@
         about_subtitle: "Официален партньор на Equity Real Estate – Дубай",
         about_text1: "Ние работим в партньорство с Equity Real Estate – водеща луксозна агенция за недвижими имоти в Дубай, известна със своята експертиза, иновативен подход и безкомпромисно качество на обслужване.",
         about_text2: "Equity Real Estate е специализирана в луксозни имоти и инвестиции от най-висок клас, предоставяйки на клиентите ексклузивен достъп до подбрани проекти и възможности с висока възвръщаемост.",
-        projects_title: "Проекти",
-        projects_text: "Разгледайте нашите луксозни апартаменти и инвестиционни имоти в Дубай и Абу Даби. Всяка оферта включва подробни планове, 3D визуализации и информация за потенциалната доходност.",
-        project1_title: "Dubai Marina Residence",
-        project1_location: "Jumeirah Lake Towers, Dubai",
-        project1_bedrooms: "2 спални",
-        project1_bathrooms: "2 бани",
-        project1_size: "120 кв.м",
-        project1_price: "Цена: AED 1,200,000",
+        projects_title: "Едни от най-успешните завършени инвестиции в Дубай",
+        projects_subtitle: "Проекти, предадени и доказали капиталово нарастване от началото на продажбите до приключване.",
+        why_title: "Защо Дубай?",
+        why_subtitle: "Дубай е повече от град – той е инвестиционна екосистема със стабилни правила, растеж и визия за бъдещето.",
+
+        why1_title: "🔍 Сигурни плащания",
+        why1_text: "Дубай предлага правна защита за чуждестранни инвеститори. Off-plan покупките се извършват чрез ескроу сметки, което гарантира сигурност на плащанията и контролирани разходи до завършване на проекта.",
+
+        why2_title: "🔒 Един от най-сигурните градове",
+        why2_text: "Дубай е сред най-безопасните мегаполиси в света с ниска престъпност и високо качество на живот, което привлича инвеститори и наематели.",
+        why3_title: "✨ Чистота и модерност",
+        why3_text: "Градът е известен с изключително чиста и поддържана инфраструктура, модерни квартали и високи стандарти за градско развитие.",
+        why4_title: "🌐 Мрежови възможности",
+        why4_text: "Дубай е международен бизнес хъб с огромна мрежа от професионални контакти, изложби, конференции и инвестиционни събития през цялата година.",
+        why5_title: "💰 Няма данъци върху доходи",
+        why5_text: "Няма данък върху доходите от наем на имоти и печалба от продажба, което увеличава нетната възвръщаемост на инвестициите.",
+        why6_title: "📲 Можеш да купиш онлайн",
+        why6_text: "Процесът по закупуване на имот може да бъде извършен дистанционно от всяка точка на света – без задължително присъствие.",
+        why7_title: "📈 Бърз растеж на населението",
+        why7_text: "Населението на Дубай расте с около 5–6% годишно, което създава стабилно търсене на жилища и наеми.",
+        why8_title: "🚀 Визия за бъдещето",
+        why8_text: "Дубай има дългосрочни държавни стратегии за развитие, които гарантират стабилност, иновации и привлекателност за инвеститорите.",
         process_title: "Процес на покупка",
         step1_li: "1. Проявяване на интерес",
         step2_li: "2. Консултация и стратегия",
@@ -1436,14 +1874,26 @@
         about_subtitle: "Official Partner of Equity Real Estate – Dubai",
         about_text1: "We work in partnership with Equity Real Estate – a leading luxury real estate agency in Dubai, known for its expertise, innovative approach, and uncompromising quality of service.",
         about_text2: "Equity Real Estate specializes in luxury properties and high-end investments, providing clients with exclusive access to carefully selected projects and high-return opportunities.",
-        projects_title: "Projects",
-        projects_text: "Explore our luxury apartments and investment properties in Dubai and Abu Dhabi. Each listing includes detailed plans, 3D visualizations, and potential ROI information.",
-        project1_title: "Dubai Marina Residence",
-        project1_location: "Jumeirah Lake Towers, Dubai",
-        project1_bedrooms: "2 Bedrooms",
-        project1_bathrooms: "2 Bathrooms",
-        project1_size: "120 m²",
-        project1_price: "Price: AED 1,200,000",
+        projects_title: "Some of the Most Successful Completed Investments in Dubai",
+        projects_subtitle: "Projects delivered and proven to generate capital growth from the start of sales to completion.",
+        why_title: "Why Dubai?",
+        why_subtitle: "Dubai is more than just a city – it is an investment ecosystem with stable regulations, growth, and a strong vision for the future.",
+        why1_title: "🔍 Secure Payments",
+        why1_text: "Dubai offers a legal protection for foreign investors. Off-plan purchases are conducted through escrow accounts, ensuring payment security and controlled spending until project completion.",
+        why2_title: "🔒 One of the Safest Cities",
+        why2_text: "Dubai is among the safest megacities in the world with low crime rates and a high quality of life, attracting both investors and tenants.",
+        why3_title: "✨ Clean & Modern",
+        why3_text: "The city is known for its extremely clean and well-maintained infrastructure, modern districts, and high standards of urban development.",
+        why4_title: "🌐 Networking Opportunities",
+        why4_text: "Dubai is an international business hub with a vast network of professional contacts, exhibitions, conferences, and investment events throughout the year.",
+        why5_title: "💰 No Income Taxes",
+        why5_text: "There is no tax on rental income or capital gains from property sales, increasing the net return on investment.",
+        why6_title: "📲 You Can Buy Online",
+        why6_text: "Property purchases can be completed remotely from anywhere in the world – no physical presence required.",
+        why7_title: "📈 Rapid Population Growth",
+        why7_text: "Dubai’s population grows by around 5–6% annually, creating strong demand for housing and rentals.",
+        why8_title: "🚀 Vision for the Future",
+        why8_text: "Dubai has long-term government strategies for development, ensuring stability, innovation, and continued investor attraction.",
         process_title: "Purchase Process",
         step1_li: "1. Express Interest",
         step2_li: "2. Consultation & Strategy",
@@ -1548,14 +1998,26 @@
         about_subtitle: "Equity Real Estate – Dubai Resmi Ortağı",
         about_text1: "Equity Real Estate ile ortaklık içinde çalışıyoruz – Dubai'deki önde gelen lüks gayrimenkul ajansı, uzmanlığı, yenilikçi yaklaşımı ve kusursuz hizmet kalitesiyle tanınır.",
         about_text2: "Equity Real Estate, yüksek sınıf mülkler ve yatırımlar konusunda uzmanlaşmıştır ve müşterilerine özenle seçilmiş projelere ve yüksek getiri fırsatlarına özel erişim sağlar.",
-        projects_title: "Projeler",
-        projects_text: "Dubai ve Abu Dabi'deki lüks dairelerimizi ve yatırım mülklerimizi keşfedin. Her teklif ayrıntılı planlar, 3D görselleştirmeler ve potansiyel getiriler içerir.",
-        project1_title: "Dubai Marina Residence",
-        project1_location: "Jumeirah Lake Towers, Dubai",
-        project1_bedrooms: "2 Yatak Odası",
-        project1_bathrooms: "2 Banyo",
-        project1_size: "120 m²",
-        project1_price: "Fiyat: AED 1,200,000",
+        projects_title: "Dubai’deki En Başarılı Tamamlanmış Yatırımlardan Bazıları",
+        projects_subtitle: "Satışların başlangıcından tamamlanmaya kadar sermaye artışı sağladığı kanıtlanmış projeler.",
+        why_title: "Neden Dubai?",
+        why_subtitle: "Dubai sadece bir şehir değil – istikrarlı kurallara, büyümeye ve güçlü bir geleceğe sahip bir yatırım ekosistemidir.",
+        why1_title: "🔍 Güvenli Ödemeler",
+        why1_text: "Dubai, yabancı yatırımcılar için yasal koruma sunar. Plan dışı satın alımlar, proje tamamlanana kadar ödeme güvenliği ve kontrollü harcamayı sağlayan escrow hesapları üzerinden gerçekleştirilir.",
+        why2_title: "🔒 Dünyanın En Güvenli Şehirlerinden Biri",
+        why2_text: "Dubai, düşük suç oranları ve yüksek yaşam kalitesi ile dünyanın en güvenli mega kentlerinden biridir ve yatırımcılar ile kiracıları cezbetmektedir.",
+        why3_title: "✨ Temiz ve Modern",
+        why3_text: "Şehir, son derece temiz ve bakımlı altyapısı, modern bölgeleri ve yüksek kentsel gelişim standartları ile tanınır.",
+        why4_title: "🌐 Ağ Oluşturma Fırsatları",
+        why4_text: "Dubai, yıl boyunca sayısız profesyonel bağlantı, fuar, konferans ve yatırım etkinlikleri sunan uluslararası bir iş merkezidir.",
+        why5_title: "💰 Gelir Vergisi Yok",
+        why5_text: "Kiralama gelirlerinde veya satış kazançlarında vergi yoktur, bu da yatırımın net getirisini artırır.",
+        why6_title: "📲 Online Satın Alabilirsin",
+        why6_text: "Emlak satın alma işlemi dünyanın herhangi bir yerinden fiziksel olarak bulunmaya gerek olmadan uzaktan tamamlanabilir.",
+        why7_title: "📈 Hızlı Nüfus Büyümesi",
+        why7_text: "Dubai'nin nüfusu yılda yaklaşık %5–6 oranında artmaktadır; bu durum konut ve kiralama talebini güçlendirir.",
+        why8_title: "🚀 Gelecek Vizyonu",
+        why8_text: "Dubai, istikrar, yenilik ve yatırımcı çekiciliği sağlayan uzun vadeli devlet gelişim stratejilerine sahiptir.",
         process_title: "Satın Alma Süreci",
         step1_li: "1. İlgi Gösterme",
         step2_li: "2. Danışmanlık & Strateji",
