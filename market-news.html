@@ -1789,7 +1789,7 @@
         );
         articles.forEach(a => observer.observe(a));
 
-        // Mobile Navigation
+       // Mobile Navigation
         const navToggle = document.querySelector('.nav-toggle');
         const langToggle = document.querySelector('.lang-toggle');
         const navMenu = document.querySelector('.nav-dropdown');
@@ -1808,6 +1808,23 @@
             };
         }
 
+        // Close nav menu when clicking on any nav link
+        if (navMenu) {
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('show');
+                });
+            });
+        }
+
+        // Close lang menu when clicking on any language flag
+        if (langMenu) {
+            langMenu.querySelectorAll('img').forEach(flag => {
+                flag.addEventListener('click', () => {
+                    langMenu.classList.remove('show');
+                });
+            });
+        }
         // ============================
         // TRANSLATIONS
         // ============================

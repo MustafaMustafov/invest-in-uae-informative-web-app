@@ -1610,20 +1610,42 @@
 
         setLanguage('bg');
 
+        // Mobile Navigation
         const navToggle = document.querySelector('.nav-toggle');
         const langToggle = document.querySelector('.lang-toggle');
         const navMenu = document.querySelector('.nav-dropdown');
         const langMenu = document.querySelector('.lang-dropdown');
 
-        navToggle.onclick = () => {
-            navMenu.classList.toggle('show');
-            langMenu.classList.remove('show'); // close lang menu
-        };
+        if (navToggle) {
+            navToggle.onclick = () => {
+                navMenu.classList.toggle('show');
+                if (langMenu) langMenu.classList.remove('show');
+            };
+        }
+        if (langToggle) {
+            langToggle.onclick = () => {
+                langMenu.classList.toggle('show');
+                if (navMenu) navMenu.classList.remove('show');
+            };
+        }
 
-        langToggle.onclick = () => {
-            langMenu.classList.toggle('show');
-            navMenu.classList.remove('show'); // close nav menu
-        };
+        // Close nav menu when clicking on any nav link
+        if (navMenu) {
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('show');
+                });
+            });
+        }
+
+        // Close lang menu when clicking on any language flag
+        if (langMenu) {
+            langMenu.querySelectorAll('img').forEach(flag => {
+                flag.addEventListener('click', () => {
+                    langMenu.classList.remove('show');
+                });
+            });
+        }
 
         const specialSections = ['contact'];
 
