@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инвестиционни Типове - Инвестирай в ОАЕ</title>
+
+    <style>
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #C0C0C0;
+            background: #000;
+        }
+
+        h1 {
+            font-size: clamp(32px, 5vw, 64px);
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(24px, 4vw, 42px);
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: clamp(20px, 3vw, 28px);
+        }
+
+        p {
+            font-size: clamp(15px, 2.5vw, 18px);
+            line-height: 1.7;
+        }
+
+        .btn {
+            font-size: clamp(14px, 2.5vw, 16px);
+            padding: clamp(12px, 3vw, 15px) clamp(24px, 5vw, 35px);
+        }
+
+        section {
+            padding: clamp(60px, 10vw, 120px) clamp(20px, 8vw, 10%);
+        }
+
+        .nav-logo {
+            height: 50px;
+            margin-right: 20px;
+            vertical-align: middle;
+            object-fit: contain;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* ============================
+   Body
+============================ */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.8;
+            color: #C0C0C0;
+            background: #000000;
+        }
+
+
+        /* ============================
+   Заглавия
+============================ */
+        h1,
+        h2,
+        h3 {
+            font-family: 'League Spartan', sans-serif;
+            margin-bottom: 20px;
+            color: #E0E0E0;
+        }
+
+        h1 {
+            font-size: 48px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        /* ============================
+   Navbar
+============================ */
+
+        .mobile-nav-left,
+        .mobile-nav-right,
+        .mobile-nav-logo {
+            display: none;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0A0A0A;
+            padding: 15px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #0A0A0A;
+            border-bottom: 1px solid #1A1A1A;
+        }
+
+        .nav-left a,
+        nav a {
+            font-family: 'League Spartan', sans-serif;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+            color: #C0C0C0;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-left a:last-child {
+            margin-right: 0;
+        }
+
+        .nav-left a:hover,
+        nav a:hover {
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* DROPDOWNS (mobile) */
+        .nav-dropdown,
+        .lang-dropdown {
+            position: absolute;
+            top: 55px;
+            display: none;
+            flex-direction: column;
+            background: #0A0A0A;
+            border-radius: 12px;
+            padding: 15px;
+            gap: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+        }
+
+        .nav-dropdown.show,
+        .lang-dropdown.show {
+            display: flex;
+        }
+
+        .nav-dropdown a,
+        .lang-dropdown img {
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .lang-dropdown img {
+            width: 28px;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-dropdown img:hover {
+            transform: scale(1.15);
+        }
+
+        /* TOGGLE BUTTONS */
+        .nav-toggle,
+        .lang-toggle {
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: #AAAAAA;
+            cursor: pointer;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .nav-dropdown {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 200px;
+                background: #1A1A1A;
+                border: 1px solid #2A2A2A;
+                border-radius: 8px;
+                padding: 10px 0;
+                z-index: 999;
+                flex-direction: column;
+            }
+
+            .nav-dropdown a {
+                display: block;
+                padding: 10px 15px;
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .nav-dropdown a:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-toggle.active+.nav-dropdown {
+                display: flex;
+            }
+
+            .mobile-nav-logo {
+                flex: 1;
+                text-align: center;
+            }
+
+            .logo-text {
+                font-family: 'Ovo', serif;
+
+                font-size: 1.2rem;
+
+                font-weight: normal;
+                color: #fff;
+                border: 1px solid silver;
+                padding: 5px 10px;
+                border-radius: 0px;
+                text-decoration: none;
+                display: inline-block;
+                line-height: 1;
+            }
+
+            .nav-left,
+            .nav-right {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .lang-toggle {
+                display: block;
+            }
+
+            .mobile-nav-left,
+            .mobile-nav-right,
+            .mobile-nav-logo {
+                align-items: center;
+                gap: 10px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mobile-nav-left {
+                z-index: 1999;
+            }
+
+            .mobile-nav-right {
+                z-index: 1999;
+            }
+        }
+
+        /* --- DESKTOP --- */
+        @media (min-width: 901px) {
+
+            .nav-toggle,
+            .lang-toggle {
+                display: none;
+            }
+        }
+
+        .lang-flag {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .lang-flag:hover {
+            border: 1px solid #C0C0C0;
+            transform: scale(1.05);
+        }
+
+        /* ============================
+   Hero section
+============================ */
+        .hero {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Видео на заден план */
+        .hero-bg-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+            color: #FFFFFF;
+        }
+
+        .hero-content h1 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 50px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #AAAAAA;
+        }
+
+        .hero-content .btn {
+            font-family: 'League Spartan', sans-serif;
+            background: #C0C0C0;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #0D0D0D;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-content .btn:hover {
+            background: #AAAAAA;
+            transform: translateY(-2px);
+        }
+
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-btn {
+                font-size: 14px;
+                padding: 12px 25px;
+            }
+        }
+
+        /* ============================
+   Investment Types Section
+============================ */
+        .investment-types {
+            background: #000000;
+            padding: 100px 5%;
+        }
+
+        .investment-type {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto 120px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .investment-type.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .investment-type.reverse {
+            direction: rtl;
+        }
+
+        .investment-type.reverse > * {
+            direction: ltr;
+        }
+
+        .investment-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .investment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .investment-type:hover .investment-image img {
+            transform: scale(1.05);
+        }
+
+        .investment-content {
+            padding: 40px;
+        }
+
+        .investment-content h2 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 42px;
+            color: #E0E0E0;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .investment-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #C0C0C0;
+        }
+
+        .investment-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #C0C0C0;
+            margin-bottom: 15px;
+        }
+
+        .investment-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
+        }
+
+        .investment-content ul li {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #C0C0C0;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .investment-content ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #C0C0C0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .investment-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            background: #1A1A1A;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #2A2A2A;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            border-color: #C0C0C0;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .stat-box .stat-number {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 32px;
+            color: #C0C0C0;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-box .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #AAAAAA;
+        }
+
+        @media (max-width: 768px) {
+            .investment-type {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 80px;
+            }
+
+            .investment-type.reverse {
+                direction: ltr;
+            }
+
+            .investment-image {
+                height: 350px;
+            }
+
+            .investment-content {
+                padding: 20px;
+            }
+
+            .investment-content h2 {
+                font-size: 32px;
+            }
+
+            .investment-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================
+   BUTTONS
+============================ */
+        .btn {
+            font-family: 'League Spartan', sans-serif;
+            background: #2A2A2A;
+            color: #C0C0C0;
+            padding: 15px 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            width: fit-content;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn:hover {
+            background: #3A3A3A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            color: #FFFFFF;
+        }
+
+        /* =============================
+   CONTACT SECTION
+============================= */
+        .contact {
+            background: #121212;
+            padding: 100px 5%;
+            color: #C0C0C0;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+            align-items: stretch;
+        }
+
+
+        .contact-content {
+            border-left: 4px solid #AAAAAA;
+
+            padding-left: 25px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+
+            min-height: 450px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .contact-content h2 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #E0E0E0;
+        }
+
+        .contact-content h3 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #AAAAAA;
+        }
+
+        .contact-content p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #C0C0C0;
+        }
+
+        .contact-details p {
+            font-weight: 600;
+            margin-top: 15px;
+            color: #C0C0C0;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 25px;
+            background: #C0C0C0;
+            color: #0D0D0D;
+            padding: 14px 30px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 6px 15px rgba(192, 192, 192, 0.4);
+            transition: all 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #AAAAAA;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(170, 170, 170, 0.5);
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .contact-container {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .contact-content {
+                border-left: none;
+                padding: 20px;
+                text-align: center;
+                border: 2px solid #C0C0C0;
+                border-radius: 15px;
+                box-shadow: 0 8px 20px rgba(192, 192, 192, 0.2);
+                background: #1D1D20;
+            }
+
+            .contact-map iframe {
+                height: 350px;
+            }
+
+            .contact-btn {
+                margin: 20px auto 0 auto;
+            }
+
+            .contact-map {
+                order: 2;
+            }
+        }
+
+        /* =============================
+   FOOTER
+============================= */
+        .footer {
+            background: #121212;
+            color: #C0C0C0;
+            padding: 80px 5% 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .footer h3,
+        .footer h4 {
+            font-family: 'League Spartan', sans-serif;
+            margin-bottom: 20px;
+            color: #E0E0E0;
+        }
+
+        .footer p,
+        .footer li,
+        .footer a {
+            font-family: 'Inter', serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer a:hover {
+            color: #C0C0C0;
+        }
+
+        .footer-logo {
+            height: 70px;
+            margin-bottom: 25px;
+        }
+
+        .footer-form {
+            display: flex;
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .footer-form input {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background: #1A1A1A;
+            color: #FFFFFF;
+        }
+
+        .footer-form button {
+            background: #C0C0C0;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #0D0D0D;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-form button:hover {
+            background: #AAAAAA;
+            transform: translateY(-2px);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer ul li a:hover {
+            color: #C0C0C0;
+        }
+
+        .footer-socials {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            border-color: #C0C0C0;
+            color: #C0C0C0;
+            box-shadow: 0 4px 12px rgba(192, 192, 192, 0.4);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 60px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .footer h3 {
+                text-align: left;
+            }
+
+            .footer h4 {
+                text-align: center;
+            }
+
+            .footer p,
+            .footer li,
+            .footer a {
+                text-align: center;
+                font-size: 14px;
+            }
+
+            .footer-form {
+                margin: 0px;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .footer-form input {
+                width: 70%;
+            }
+
+            .footer-form button {
+                width: 30%;
+                max-width: 200px;
+            }
+
+            .footer ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-socials {
+                justify-content: center;
+            }
+
+            .footer-logo {
+                width: 25%;
+                margin: 0 auto 10px;
+            }
+
+            .footer-bottom {
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="header-nav">
+        <div class="mobile-nav-left">
+            <button class="nav-toggle" aria-label="Menu">☰</button>
+            <div class="nav-dropdown">
+                <a href="index.html#home" data-key="nav_home">Home</a>
+                <a href="index.html#about" data-key="nav_about">За нас</a>
+                <a href="index.html#projects" data-key="nav_projects">Проекти</a>
+                <a href="index.html#why-dubai" data-key="nav_benefits">Защо Дубай</a>
+                <a href="index.html#process" data-key="nav_process">Процес</a>
+                <a href="index.html#calculator" data-key="nav_calculator">Калкулатор</a>
+                <a href="locations.html" data-key="nav_locations">Локации</a>
+                <a href="investment-types.html" data-key="nav_investment_types">Инвестиции</a>
+                <a href="index.html#contact" data-key="nav_contact">Контакти</a>
+            </div>
+        </div>
+
+        <div class="mobile-nav-logo">
+            <a href="index.html#home" class="logo-text">Invest in UAE</a>
+        </div>
+
+        <!-- RIGHT LANG -->
+        <div class="mobile-nav-right">
+            <button class="lang-toggle">🌐</button>
+            <div class="lang-dropdown">
+                <img src="images/bg.png" onclick="setLanguage('bg')" alt="Bulgarian">
+                <img src="images/en.png" onclick="setLanguage('en')" alt="English">
+                <img src="images/tr.png" onclick="setLanguage('tr')" alt="Turkish">
+            </div>
+        </div>
+
+        <div class="nav-left">
+            <a href="index.html#home" data-key="nav_home">Home</a>
+            <a href="index.html#about" data-key="nav_about">За нас</a>
+            <a href="index.html#projects" data-key="nav_projects">Проекти</a>
+            <a href="index.html#why-dubai" data-key="nav_benefits">Защо Дубай</a>
+            <a href="index.html#process" data-key="nav_process">Процес</a>
+            <a href="index.html#calculator" data-key="nav_calculator">Калкулатор</a>
+            <a href="index.html#contact" data-key="nav_contact">Контакти</a>
+        </div>
+
+        <div class="nav-right lang-switch">
+            <img src="images/bg.png" alt="BG" onclick="setLanguage('bg')" title="Български" class="lang-flag">
+            <img src="images/en.png" alt="EN" onclick="setLanguage('en')" title="English" class="lang-flag">
+            <img src="images/tr.png" alt="TR" onclick="setLanguage('tr')" title="Türkçe" class="lang-flag">
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <img src="images/investment-types/hero-image.jpg" class="hero-bg-image" alt="Investment Types">
+        <div class="hero-content">
+            <h1 data-key="hero_title">Инвестиционни Типове</h1>
+            <p data-key="hero_subtitle">Намерете стратегията, която отговаря на вашите цели</p>
+            <button class="btn" data-key="hero_button" onclick="document.querySelector('.investment-types').scrollIntoView({behavior: 'smooth'})">Разгледайте опциите</button>
+        </div>
+    </section>
+
+    <!-- INVESTMENT TYPES SECTION -->
+    <section class="investment-types">
+        
+        <!-- BUY TO FLIP -->
+        <div class="investment-type" data-type="flip">
+            <div class="investment-image">
+                <img src="images/investment-types/buy-to-flip.png" alt="Buy to Flip">
+            </div>
+            <div class="investment-content">
+                <h2 data-key="flip_title">Buy to Flip</h2>
+                <p data-key="flip_desc">Купете имот в строеж (off-plan) на по-ниска от пазарната цена и го препродайте след завършване с печалба.</p>
+                <ul>
+                    <li data-key="flip_point1">Инвестиция с висок потенциал за възвръщаемост (15-30%)</li>
+                    <li data-key="flip_point2">Кратък инвестиционен период (1-3 години)</li>
+                    <li data-key="flip_point3">Възможност за препродажба преди завършване</li>
+                    <li data-key="flip_point4">Без нужда от управление на имота</li>
+                </ul>
+                <div class="investment-stats">
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="flip_stat1">15-30%</div>
+                        <div class="stat-label" data-key="flip_stat1_label">Потенциална печалба</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="flip_stat2">1-3</div>
+                        <div class="stat-label" data-key="flip_stat2_label">Години</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="flip_stat3">24%</div>
+                        <div class="stat-label" data-key="flip_stat3_label">Първоначална вноска</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUY FOR SHORT RENTAL -->
+        <div class="investment-type reverse" data-type="short-rental">
+            <div class="investment-image">
+                <img src="images/investment-types/buy-for-short.jpg" alt="Short Rental">
+            </div>
+            <div class="investment-content">
+                <h2 data-key="short_title">Buy for Short Rental</h2>
+                <p data-key="short_desc">Краткосрочно отдаване под наем чрез платформи като Airbnb и Booking.com за максимален доход.</p>
+                <ul>
+                    <li data-key="short_point1">По-висок месечен доход (8-12% годишна доходност)</li>
+                    <li data-key="short_point2">Гъвкавост за лично ползване</li>
+                    <li data-key="short_point3">Идеално за туристически зони</li>
+                    <li data-key="short_point4">Изисква активно управление</li>
+                </ul>
+                <div class="investment-stats">
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="short_stat1">8-12%</div>
+                        <div class="stat-label" data-key="short_stat1_label">Годишна доходност</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="short_stat2">60-80%</div>
+                        <div class="stat-label" data-key="short_stat2_label">Заетост</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="short_stat3">Dubai Marina</div>
+                        <div class="stat-label" data-key="short_stat3_label">Топ локация</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUY FOR LONG RENTAL -->
+        <div class="investment-type" data-type="long-rental">
+            <div class="investment-image">
+                <img src="images/investment-types/buy-to-rent.png" alt="Long Rental">
+            </div>
+            <div class="investment-content">
+                <h2 data-key="long_title">Buy for Long Rental</h2>
+                <p data-key="long_desc">Дългосрочно отдаване под наем за стабилен пасивен доход и минимално управление. С възможност за кредитиране и изплащане от наемателя.</p>
+                <ul>
+                    <li data-key="long_point1">Стабилен месечен доход (5-8% годишна доходност)</li>
+                    <li data-key="long_point2">Минимално управление и разходи</li>
+                    <li data-key="long_point3">Дългосрочни наематели</li>
+                    <li data-key="long_point4">По-ниски наеми, но по-стабилни</li>
+                </ul>
+                <div class="investment-stats">
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="long_stat1">5-8%</div>
+                        <div class="stat-label" data-key="long_stat1_label">Годишна доходност</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="long_stat2">1-3</div>
+                        <div class="stat-label" data-key="long_stat2_label">Години договор</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="long_stat3">JVC</div>
+                        <div class="stat-label" data-key="long_stat3_label">Топ локация</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUY TO LIVE -->
+        <div class="investment-type reverse" data-type="live">
+            <div class="investment-image">
+                <img src="images/investment-types/buy-to-live.jpg" alt="Buy to Live">
+            </div>
+            <div class="investment-content">
+                <h2 data-key="live_title">Buy to Live</h2>
+                <p data-key="live_desc">Закупете мечтания дом за вас и вашето семейство в една от най-динамичните градове в света.</p>
+                <ul>
+                    <li data-key="live_point1">Висок стандарт на живот</li>
+                    <li data-key="live_point2">Безопасна и модерна среда</li>
+                    <li data-key="live_point3">Отлична инфраструктура и услуги</li>
+                    <li data-key="live_point4">Нулеви данъци върху доходите</li>
+                </ul>
+                <div class="investment-stats">
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="live_stat1">24%</div>
+                        <div class="stat-label" data-key="live_stat1_label">Първоначална вноска</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="live_stat2">Palm Jumeirah</div>
+                        <div class="stat-label" data-key="live_stat2_label">Премиум локация</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" data-key="live_stat3">0%</div>
+                        <div class="stat-label" data-key="live_stat3_label">Данъци</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-content">
+                <h2 data-key="contact_title">Свържете се с нас</h2>
+                <h3 data-key="contact_subtitle">Професионално съдействие при инвестиции в off-plan имоти</h3>
+                <p data-key="contact_text1">Ние ви помагаме да инвестирате в правилния off-plan проект в Дубай и Абу Даби, съобразен с вашите цели – отдаване под наем, препродажба или лично ползване.</p>
+                <p data-key="contact_text2">Нашите клиенти получават достъп до проекти преди официалния старт на продажбите, възможност за избор на конкретен апартамент и запазване чрез Expression of Interest (EOI).</p>
+                <p data-key="contact_text3">Съдействаме във всяка стъпка – от избор на проект и апартамент, през резервация, договори и плащания, до завършване на сделката.</p>
+                <div class="contact-details">
+                    <p>📧 info@investinuae.com</p>
+                    <p>📞 +359 89 70 00001</p>
+                </div>
+                <a href="mailto:info@investinuae.com" class="contact-btn" data-key="contact_button">Безплатна консултация</a>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps?q=Dubai,UAE&output=embed" allowfullscreen=""
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Лого + newsletter -->
+            <div class="footer-col footer-brand">
+                <a href="index.html">
+                    <img src="./images/live logo.jpg" alt="Logo" class="footer-logo">
+                </a>
+                <h3 data-key="footer_newsletter_title">Абонирайте се за пазарни ъпдейти</h3>
+                <form class="footer-form">
+                    <input type="email" data-key-placeholder="footer_newsletter_input" placeholder="Email адрес" required>
+                    <button type="submit" data-key="footer_newsletter_button">Изпрати</button>
+                </form>
+            </div>
+
+            <!-- Guides -->
+            <div class="footer-col">
+                <h4 data-key="footer_guides_title">Ресурси</h4>
+                <ul>
+                    <li><a href="market-news.html" data-key="footer_guide4">Пазарни новини</a></li>
+                    <li><a href="locations.html" data-key="footer_guide3">Зони в Дубай</a></li>
+                    <li><a href="investment-types.html" data-key="footer_guide2">Инвестиционни типове</a></li>
+                </ul>
+            </div>
+
+            <!-- Company -->
+            <div class="footer-col">
+                <h4 data-key="footer_company_title">Компания</h4>
+                <ul>
+                    <li><a href="index.html#about" data-key="footer_about">За нас</a></li>
+                    <li><a href="index.html#projects" data-key="footer_projects">Проекти</a></li>
+                    <li><a href="index.html#process" data-key="footer_process">Процес на покупка</a></li>
+                    <li><a href="index.html#contact" data-key="footer_contact">Контакти</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-col">
+                <h4 data-key="footer_contact_title">Свържете се с нас</h4>
+                <ul class="contact-list">
+                    <li data-key="footer_phone">📞 +971 XX XXX XXXX</li>
+                    <li data-key="footer_email">theinvestinuae@gmail.com</li>
+                </ul>
+
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/invest_in_uae__/" target="_blank">IG</a>
+                    <a href="https://www.facebook.com/profile.php?id=61587523347905" target="_blank">FB</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom" data-key="footer_copyright">
+            Invest in UAE © 2026 Всички права запазени
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation for Investment Types
+        const investmentTypes = document.querySelectorAll('.investment-type');
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            }
+        );
+
+        investmentTypes.forEach(type => observer.observe(type));
+
+        // Mobile Navigation
+        const navToggle = document.querySelector('.nav-toggle');
+        const langToggle = document.querySelector('.lang-toggle');
+        const navMenu = document.querySelector('.nav-dropdown');
+        const langMenu = document.querySelector('.lang-dropdown');
+
+        if (navToggle) {
+            navToggle.onclick = () => {
+                navMenu.classList.toggle('show');
+                if (langMenu) langMenu.classList.remove('show');
+            };
+        }
+
+        if (langToggle) {
+            langToggle.onclick = () => {
+                langMenu.classList.toggle('show');
+                if (navMenu) navMenu.classList.remove('show');
+            };
+        }
+
+        // Language Translations
+        const translations = {
+            bg: {
+                nav_home: "Начало",
+                nav_about: "За нас",
+                nav_projects: "Проекти",
+                nav_benefits: "Защо Дубай",
+                nav_process: "Процес",
+                nav_calculator: "Калкулатор",
+                nav_locations: "Локации",
+                nav_investment_types: "Инвестиции",
+                nav_contact: "Контакти",
+                hero_title: "Инвестиционни Типове",
+                hero_subtitle: "Намерете стратегията, която отговаря на вашите цели",
+                hero_button: "Разгледайте опциите",
+                
+                flip_title: "Buy to Flip",
+                flip_desc: "Купете имот в строеж (off-plan) с отстъпка и го препродайте след завършване или в процеса на изграждане с печалба.",
+                flip_point1: "Инвестиция с висок потенциал за възвръщаемост (15-30%)",
+                flip_point2: "Кратък инвестиционен период (1-3 години)",
+                flip_point3: "Възможност за препродажба преди завършване",
+                flip_point4: "Без нужда от управление на имота",
+                flip_stat1: "15-30%",
+                flip_stat1_label: "Потенциална печалба",
+                flip_stat2: "1-3",
+                flip_stat2_label: "Години",
+                flip_stat3: "20%",
+                flip_stat3_label: "Първоначална вноска",
+
+                short_title: "Buy for Short Rental",
+                short_desc: "Краткосрочно отдаване под наем чрез платформи като Airbnb и Booking.com за максимален доход.",
+                short_point1: "По-висок месечен доход (8-12% годишна доходност)",
+                short_point2: "Гъвкавост за лично ползване",
+                short_point3: "Идеално за туристически зони",
+                short_point4: "Изисква активно управление",
+                short_stat1: "8-12%",
+                short_stat1_label: "Годишна доходност",
+                short_stat2: "60-80%",
+                short_stat2_label: "Заетост",
+                short_stat3: "Dubai Marina",
+                short_stat3_label: "Топ локация",
+
+                long_title: "Buy for Long Rental",
+                long_desc: "Дългосрочно отдаване под наем за стабилен пасивен доход и минимално управление.",
+                long_point1: "Стабилен месечен доход (5-8% годишна доходност)",
+                long_point2: "Минимално управление и разходи",
+                long_point3: "Дългосрочни наематели",
+                long_point4: "По-ниски наеми, но по-стабилни",
+                long_stat1: "5-8%",
+                long_stat1_label: "Годишна доходност",
+                long_stat2: "1-3",
+                long_stat2_label: "Години договор",
+                long_stat3: "JVC",
+                long_stat3_label: "Топ локация",
+
+                live_title: "Buy to Live",
+                live_desc: "Закупете мечтания дом за вас и вашето семейство в една от най-динамичните градове в света.",
+                live_point1: "Висок стандарт на живот",
+                live_point2: "Безопасна и модерна среда",
+                live_point3: "Отлична инфраструктура и услуги",
+                live_point4: "Нулеви данъци върху доходите",
+                live_stat1: "25%",
+                live_stat1_label: "Първоначална вноска",
+                live_stat2: "Palm Jumeirah",
+                live_stat2_label: "Премиум локация",
+                live_stat3: "0%",
+                live_stat3_label: "Данъци",
+
+                contact_title: "Свържете се с нас",
+                contact_subtitle: "Професионално съдействие при инвестиции в off-plan имоти",
+                contact_text1: "Ние ви помагаме да инвестирате в правилния off-plan проект в Дубай и Абу Даби, съобразен с вашите цели – отдаване под наем, препродажба или лично ползване.",
+                contact_text2: "Нашите клиенти получават достъп до проекти преди официалния старт на продажбите, възможност за избор на конкретен апартамент и запазване чрез Expression of Interest (EOI).",
+                contact_text3: "Съдействаме във всяка стъпка – от избор на проект и апартамент, през резервация, договори и плащания, до завършване на сделката.",
+                contact_button: "Безплатна консултация",
+
+                footer_newsletter_title: "Абонирайте се за пазарни ъпдейти",
+                footer_newsletter_input: "Email адрес",
+                footer_newsletter_button: "Изпрати",
+                footer_guides_title: "Ресурси",
+                footer_guide2: "Инвестиционен типове",
+                footer_guide3: "Зони в Дубай",
+                footer_guide4: "Пазарни новини",
+                footer_company_title: "Компания",
+                footer_about: "За нас",
+                footer_projects: "Проекти",
+                footer_process: "Процес на покупка",
+                footer_contact: "Контакти",
+                footer_contact_title: "Свържете се с нас",
+                footer_email: "✉️ theinvestinuae@gmail.com",
+                footer_copyright: "Invest in UAE © 2026 Всички права запазени"
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_projects: "Projects",
+                nav_benefits: "Why Dubai",
+                nav_process: "Process",
+                nav_calculator: "Calculator",
+                nav_locations: "Locations",
+                nav_investment_types: "Investments",
+                nav_contact: "Contact",
+                hero_title: "Investment Types",
+                hero_subtitle: "Find the strategy that matches your goals",
+                hero_button: "Explore Options",
+                
+                flip_title: "Buy to Flip",
+                flip_desc: "Purchase off-plan property at a discount and resell after completion or during construction for profit.",
+                flip_point1: "High return potential investment (15-30%)",
+                flip_point2: "Short investment period (1-3 years)",
+                flip_point3: "Possibility to resell before completion",
+                flip_point4: "No property management needed",
+                flip_stat1: "15-30%",
+                flip_stat1_label: "Potential Profit",
+                flip_stat2: "1-3",
+                flip_stat2_label: "Years",
+                flip_stat3: "20%",
+                flip_stat3_label: "Down Payment",
+
+                short_title: "Buy for Short Rental",
+                short_desc: "Short-term rental through platforms like Airbnb and Booking.com for maximum income.",
+                short_point1: "Higher monthly income (8-12% annual yield)",
+                short_point2: "Flexibility for personal use",
+                short_point3: "Ideal for tourist areas",
+                short_point4: "Requires active management",
+                short_stat1: "8-12%",
+                short_stat1_label: "Annual Yield",
+                short_stat2: "60-80%",
+                short_stat2_label: "Occupancy",
+                short_stat3: "Dubai Marina",
+                short_stat3_label: "Top Location",
+
+                long_title: "Buy for Long Rental",
+                long_desc: "Long-term rental for stable passive income and minimal management.",
+                long_point1: "Stable monthly income (5-8% annual yield)",
+                long_point2: "Minimal management and costs",
+                long_point3: "Long-term tenants",
+                long_point4: "Lower rents, but more stable",
+                long_stat1: "5-8%",
+                long_stat1_label: "Annual Yield",
+                long_stat2: "1-3",
+                long_stat2_label: "Year Contract",
+                long_stat3: "JVC",
+                long_stat3_label: "Top Location",
+
+                live_title: "Buy to Live",
+                live_desc: "Purchase your dream home for you and your family in one of the world's most dynamic cities.",
+                live_point1: "High standard of living",
+                live_point2: "Safe and modern environment",
+                live_point3: "Excellent infrastructure and services",
+                live_point4: "Zero income tax",
+                live_stat1: "25%",
+                live_stat1_label: "Down Payment",
+                live_stat2: "Palm Jumeirah",
+                live_stat2_label: "Premium Location",
+                live_stat3: "0%",
+                live_stat3_label: "Taxes",
+
+                contact_title: "Contact Us",
+                contact_subtitle: "Professional assistance with off-plan property investments",
+                contact_text1: "We help you invest in the right off-plan project in Dubai and Abu Dhabi, tailored to your goals – rental, resale, or personal use.",
+                contact_text2: "Our clients get access to projects before the official sales launch, with the ability to choose a specific apartment and reserve via Expression of Interest (EOI).",
+                contact_text3: "We assist at every step – from project and apartment selection, to reservation, contracts, payments, and completion.",
+                contact_button: "Free Consultation",
+
+                footer_newsletter_title: "Subscribe for Market Updates",
+                footer_newsletter_input: "Email address",
+                footer_newsletter_button: "Send",
+                footer_guides_title: "Resources",
+                footer_guide2: "Investment Types",
+                footer_guide3: "Dubai Zones",
+                footer_guide4: "Market News",
+                footer_company_title: "Company",
+                footer_about: "About Us",
+                footer_projects: "Projects",
+                footer_process: "Purchase Process",
+                footer_contact: "Contact",
+                footer_contact_title: "Contact Us",
+                footer_email: "✉️ theinvestinuae@gmail.com",
+                footer_copyright: "Invest in UAE © 2026 All rights reserved"
+            },
+            tr: {
+                nav_home: "Ana Sayfa",
+                nav_about: "Hakkımızda",
+                nav_projects: "Projeler",
+                nav_benefits: "Neden Dubai",
+                nav_process: "Süreç",
+                nav_calculator: "Hesap Makinesi",
+                nav_locations: "Lokasyonlar",
+                nav_investment_types: "Yatırımlar",
+                nav_contact: "İletişim",
+                hero_title: "Yatırım Türleri",
+                hero_subtitle: "Hedeflerinize uygun stratejiyi bulun",
+                hero_button: "Seçenekleri Keşfedin",
+                
+                flip_title: "Alıp Satmak İçin",
+                flip_desc: "İndirimli fiyattan inşaat halindeki mülk satın alın ve tamamlandıktan sonra veya inşaat sırasında kârla yeniden satın.",
+                flip_point1: "Yüksek getiri potansiyeli (15-30%)",
+                flip_point2: "Kısa yatırım süresi (1-3 yıl)",
+                flip_point3: "Tamamlanmadan önce yeniden satış imkanı",
+                flip_point4: "Mülk yönetimine gerek yok",
+                flip_stat1: "15-30%",
+                flip_stat1_label: "Potansiyel Kâr",
+                flip_stat2: "1-3",
+                flip_stat2_label: "Yıl",
+                flip_stat3: "20%",
+                flip_stat3_label: "Peşinat",
+
+                short_title: "Kısa Süreli Kiralama",
+                short_desc: "Maksimum gelir için Airbnb ve Booking.com gibi platformlar üzerinden kısa süreli kiralama.",
+                short_point1: "Daha yüksek aylık gelir (8-12% yıllık getiri)",
+                short_point2: "Kişisel kullanım için esneklik",
+                short_point3: "Turistik bölgeler için ideal",
+                short_point4: "Aktif yönetim gerektirir",
+                short_stat1: "8-12%",
+                short_stat1_label: "Yıllık Getiri",
+                short_stat2: "60-80%",
+                short_stat2_label: "Doluluk",
+                short_stat3: "Dubai Marina",
+                short_stat3_label: "En İyi Lokasyon",
+
+                long_title: "Uzun Süreli Kiralama",
+                long_desc: "Istikrarlı pasif gelir ve minimal yönetim için uzun süreli kiralama.",
+                long_point1: "Istikrarlı aylık gelir (5-8% yıllık getiri)",
+                long_point2: "Minimal yönetim ve maliyetler",
+                long_point3: "Uzun süreli kiracılar",
+                long_point4: "Daha düşük kiralar, ama daha istikrarlı",
+                long_stat1: "5-8%",
+                long_stat1_label: "Yıllık Getiri",
+                long_stat2: "1-3",
+                long_stat2_label: "Yıl Sözleşme",
+                long_stat3: "JVC",
+                long_stat3_label: "En İyi Lokasyon",
+
+                live_title: "Yaşamak İçin Satın Al",
+                live_desc: "Dünyanın en dinamik şehirlerinden birinde siz ve aileniz için hayalinizdeki evi satın alın.",
+                live_point1: "Yüksek yaşam standardı",
+                live_point2: "Güvenli ve modern ortam",
+                live_point3: "Mükemmel altyapı ve hizmetler",
+                live_point4: "Sıfır gelir vergisi",
+                live_stat1: "25%",
+                live_stat1_label: "Peşinat",
+                live_stat2: "Palm Jumeirah",
+                live_stat2_label: "Premium Lokasyon",
+                live_stat3: "0%",
+                live_stat3_label: "Vergiler",
+
+                contact_title: "Bizimle İletişime Geçin",
+                contact_subtitle: "Off-plan gayrimenkul yatırımlarında profesyonel destek",
+                contact_text1: "Dubai ve Abu Dabi'deki doğru off-plan projeye, hedeflerinize uygun olarak yatırım yapmanıza yardımcı oluyoruz – kiralama, yeniden satış veya kişisel kullanım.",
+                contact_text2: "Müşterilerimiz, resmi satış başlamadan önce projelere erişim, belirli bir daire seçme ve Expression of Interest (EOI) ile rezervasyon yapma imkanına sahiptir.",
+                contact_text3: "Proje ve daire seçimi, rezervasyon, sözleşmeler, ödemeler ve tamamlanma dahil olmak üzere her adımda yardımcı oluyoruz.",
+                contact_button: "Ücretsiz Danışmanlık",
+
+                footer_newsletter_title: "Piyasa Güncellemeleri için Abone Olun",
+                footer_newsletter_input: "E-posta adresi",
+                footer_newsletter_button: "Gönder",
+                footer_guides_title: "Kaynaklar",
+                footer_guide2: "Yatırım Türleri",
+                footer_guide3: "Dubai Bölgeleri",
+                footer_guide4: "Piyasa Haberleri",
+                footer_company_title: "Şirket",
+                footer_about: "Hakkımızda",
+                footer_projects: "Projeler",
+                footer_process: "Satın Alma Süreci",
+                footer_contact: "İletişim",
+                footer_contact_title: "Bizimle İletişime Geçin",
+                footer_email: "✉️ theinvestinuae@gmail.com",
+                footer_copyright: "Invest in UAE © 2026 Tüm hakları saklıdır"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll("[data-key]").forEach(el => {
+                const key = el.getAttribute("data-key");
+                const value = translations[lang][key];
+                if (value) {
+                    el.textContent = value;
+                }
+            });
+
+            document.querySelectorAll("[data-key-placeholder]").forEach(el => {
+                const key = el.getAttribute("data-key-placeholder");
+                const value = translations[lang][key];
+                if (value) {
+                    el.placeholder = value;
+                }
+            });
+        }
+
+        // Set default language
+        setLanguage('bg');
+    </script>
+
+</body>
+</html>

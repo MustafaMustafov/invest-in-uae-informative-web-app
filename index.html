@@ -9,11 +9,30 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Инвестирай в ОАЕ</title>
+  <title>Инвестирай в имоти в Дубай и Абу Даби | Off-Plan проекти в ОАЕ</title>
+  <meta name="description"
+    content="Официален партньор на Equity Real Estate. Инвестирайте в off-plan имоти в Дубай с висока възвръщаемост. Без данъци, златна виза, разсрочено плащане.">
+  <meta name="keywords" content="инвестиции дубай, имоти дубай, off-plan дубай, златна виза оае, equity real estate">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Инвестирай в имоти в Дубай | Invest in UAE">
+  <meta property="og:description" content="Сигурни инвестиции с висока възвръщаемост в Дубай и Абу Даби">
+  <meta property="og:image"
+    content="https://mustafamustafov.github.io/invest-in-uae-informative-web-app/images/equity-logo.png">
+  <meta property="og:url" content="https://mustafamustafov.github.io/invest-in-uae-informative-web-app/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Инвестирай в имоти в Дубай | Invest in UAE">
+  <meta name="twitter:description" content="Сигурни инвестиции с висока възвръщаемост">
+  <meta name="twitter:image"
+    content="https://mustafamustafov.github.io/invest-in-uae-informative-web-app/images/equity-logo.png">
 
   <style>
     html {
       font-size: 16px;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -65,6 +84,28 @@
 
       .about-text {
         order: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .project-card {
+        padding: 15px;
+      }
+
+      .why-card {
+        padding: 20px;
+      }
+
+      section {
+        padding: 40px 5%;
       }
     }
 
@@ -968,6 +1009,7 @@
       transition: all 0.3s ease;
       border-radius: 8px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      position: relative;
     }
 
     .btn:hover {
@@ -975,6 +1017,32 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
       color: #FFFFFF;
+    }
+
+    .btn.loading {
+      opacity: 0.7;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .btn.loading::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      right: 15px;
+      margin-top: -8px;
+      border: 2px solid #fff;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* ============================
@@ -1128,6 +1196,35 @@
     /* =============================
    CHATBOT
 ============================= */
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 2999;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float svg {
+      width: 35px;
+      height: 35px;
+      fill: white;
+    }
+
     #chatbot {
       position: fixed;
       bottom: 20px;
@@ -1896,7 +1993,6 @@
           <p><strong>Launch Price (2021):</strong> AED 1,700,000</p>
           <p><strong>Resale Price (2025):</strong> AED 2,700,000</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -2110,10 +2206,13 @@
         <p data-key="contact_text2">Нашите клиенти получават достъп до проекти преди официалния старт...</p>
         <p data-key="contact_text3">Съдействаме във всяка стъпка – от избор на проект и апартамент...</p>
         <div class="contact-details">
-          <p>📧 realestateinvestmentinuae@gmail.com</p>
+          <p>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+              data-cfemail="334156525f5640475247565a5d455640475e565d475a5d46525673545e525a5f1d505c5e">[email&#160;protected]</a>
+          </p>
           <p>📞 +359 89 706 5580</p>
         </div>
-        <a href="mailto:realestateinvestmentinuae@gmail.com" class="contact-btn" data-key="contact_button">Безплатна
+        <a href="/cdn-cgi/l/email-protection#92e0f7f3fef7e1e6f3e6f7fbfce4f7e1e6fff7fce6fbfce7f3f7d2f5fff3fbfebcf1fdff"
+          class="contact-btn" data-key="contact_button">Безплатна
           консултация</a>
       </div>
       <div class="contact-map">
@@ -2122,6 +2221,15 @@
     </div>
   </section>
 
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/359897065580" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+    aria-label="Contact us on WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.547 0-5.053-0.713-7.253-2.053l-0.52-0.307-5.387 1.44 1.44-5.373-0.32-0.533c-1.387-2.267-2.12-4.853-2.12-7.507 0-7.36 5.987-13.333 13.333-13.333s13.333 5.973 13.333 13.333-5.987 13.333-13.333 13.333zM21.053 18.507c-0.373-0.187-2.2-1.093-2.547-1.213-0.347-0.133-0.6-0.187-0.853 0.187s-0.987 1.213-1.2 1.467c-0.213 0.267-0.427 0.293-0.8 0.107-0.373-0.187-1.573-0.587-3-1.867-1.107-0.987-1.853-2.2-2.067-2.573-0.213-0.373-0.013-0.573 0.16-0.76 0.173-0.16 0.373-0.427 0.56-0.64 0.187-0.213 0.253-0.373 0.373-0.613 0.133-0.267 0.067-0.48-0.027-0.667-0.107-0.187-0.853-2.067-1.173-2.827-0.307-0.747-0.627-0.64-0.853-0.653-0.213-0.013-0.467-0.013-0.72-0.013s-0.667 0.093-1.013 0.467c-0.347 0.373-1.333 1.307-1.333 3.187s1.36 3.693 1.547 3.947c0.187 0.267 2.667 4.067 6.453 5.707 0.907 0.387 1.613 0.627 2.16 0.8 0.907 0.293 1.733 0.253 2.387 0.147 0.733-0.107 2.2-0.907 2.507-1.787s0.307-1.613 0.213-1.787c-0.080-0.187-0.333-0.293-0.707-0.48z" />
+    </svg>
+  </a>
 
   <!-- CHATBOT -->
   <div id="chatbot">
@@ -2150,10 +2258,13 @@
       <div class="footer-col">
         <h4 data-key="footer_guides_title">Ресурси</h4>
         <ul>
-          <li><a href="#" data-key="footer_guide1">Ръководство за купувачи</a></li>
-          <li><a href="#" data-key="footer_guide2">Инвестиционен гид</a></li>
-          <li><a href="#" data-key="footer_guide3">Зони в Дубай</a></li>
-          <li><a href="#" data-key="footer_guide4">Пазарни анализи</a></li>
+          <li><a
+              href="file:///C:/Users/HP-VICTUS/Desktop/invest-in-uae-git-repo/invest-in-uae-informative-web-app/investment-types.html"
+              data-key="footer_guide2">Инвестиционни типове</a></li>
+          <li><a
+              href="file:///C:/Users/HP-VICTUS/Desktop/invest-in-uae-git-repo/invest-in-uae-informative-web-app/locations2.html"
+              data-key="footer_guide3">Зони в Дубай</a></li>
+          <li><a href="market-news.html" data-key="footer_guide4">Пазарни новини</a></li>
         </ul>
       </div>
 
@@ -2173,14 +2284,13 @@
         <h4 data-key="footer_contact_title">Свържете се с нас</h4>
         <ul class="contact-list">
           <li data-key="footer_phone">📞 +971 XX XXX XXXX</li>
-          <li data-key="footer_email">✉️ info@yourdomain.com</li>
-          <li data-key="footer_address">📍 Dubai, UAE</li>
+          <li data-key="footer_email">theinvestinuae@gmail.com</li>
+          <!-- <li data-key="footer_address">📍 Dubai, UAE</li> -->
         </ul>
 
         <div class="footer-socials">
           <a href="https://www.instagram.com/invest_in_uae__/">IG</a>
-          <a href="#">FB</a>
-          <a href="#">IN</a>
+          <a href="https://www.facebook.com/profile.php?id=61587523347905">FB</a>
         </div>
       </div>
 
@@ -2193,6 +2303,7 @@
 
 
 
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     // Избираме всички секции
     const sections = document.querySelectorAll('section');
@@ -2264,56 +2375,7 @@
       messages.innerHTML += `
     <p>Искате ли да използвате калкулатора или да се свържем с вас?</p>
     <div class="option" onclick="location.href='#calculator'">Калкулатор</div>
-    <div class="option">Контакт с консултант</div>
-  `;
-    }
-
-    // Дефинираме информацията за проектите
-    const projects = [
-      {
-        title: "Dubai Marina Residence",
-        images: ["./properties/abu-dhabi/villa.jpg", "./images/marina-residence.jpg", "./images/skyline-towers.jpg", "./images/skyline-towers.jpg"],
-        details: "2 Bedrooms, 2 Bathrooms, 120 m², modern amenities, sea view."
-      },
-      {
-        title: "Skyline Towers",
-        images: ["./properties/abu-dhabi/villa.jpg", "./images/marina-residence.jpg", "./images/skyline-towers.jpg", "./images/skyline-towers.jpg"],
-        details: "3 Bedrooms, 3 Bathrooms, 180 m², high floor with panoramic view."
-      },
-      {
-        title: "Abu Dhabi Villas",
-        images: ["./properties/abu-dhabi/villa.jpg", "./images/marina-residence.jpg", "./images/skyline-towers.jpg", "./images/skyline-towers.jpg"],
-        details: "4 Bedrooms, 4 Bathrooms, private yard and pool, luxury finish."
-      }
-    ];
-
-    const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modal-title");
-    const modalImages = document.getElementById("modal-images");
-    const modalDetails = document.getElementById("modal-details");
-
-    function openModal(index) {
-      const project = projects[index];
-      modalTitle.innerText = project.title;
-      modalDetails.innerText = project.details;
-      modalImages.innerHTML = "";
-      modalImages.style.display = "flex";
-      modalImages.style.gap = "10px";        // разстояние между снимките
-      modalImages.style.overflowX = "auto";  // хоризонтален скрол, ако се събират много
-      modalImages.style.padding = "10px 0";
-
-      project.images.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = project.title;
-        img.style.width = "200px";  // фиксирана ширина
-        img.style.height = "auto";  // запазване на пропорции
-        img.style.flexShrink = "0"; // не се свива
-        img.style.borderRadius = "5px"; // малко заобляне, по желание
-        modalImages.appendChild(img);
-      });
-
-      modal.style.display = "block";
+    <div class="option">Контакт с консултант</div>`;
     }
 
     function closeModal() {
@@ -2458,18 +2520,18 @@
         footer_newsletter_button: "Изпрати",
         footer_guides_title: "Ресурси",
         footer_guide1: "Ръководство за купувачи",
-        footer_guide2: "Инвестиционен гид",
+        footer_guide2: "Инвестиционен типове",
         footer_guide3: "Зони в Дубай",
-        footer_guide4: "Пазарни анализи",
+        footer_guide4: "Пазарни новини",
         footer_company_title: "Компания",
         footer_about: "За нас",
         footer_projects: "Проекти",
         footer_process: "Процес на покупка",
         footer_contact: "Контакти",
         footer_contact_title: "Свържете се с нас",
-        footer_phone: "📞 +971 XX XXX XXXX",
-        footer_email: "✉️ info@yourdomain.com",
-        footer_address: "📍 Dubai, UAE",
+        // footer_phone: "📞 +359 89 706 5580",
+        footer_email: "✉️ theinvestinuae@gmail.com",
+        // footer_address: "📍 Dubai, UAE",
         footer_copyright: "Invest in UAE © 2026 Всички права запазени"
       },
 
@@ -2586,18 +2648,18 @@
         footer_newsletter_button: "Send",
         footer_guides_title: "Resources",
         footer_guide1: "Buyer's Guide",
-        footer_guide2: "Investment Guide",
+        footer_guide2: "Investment Types",
         footer_guide3: "Dubai Zones",
-        footer_guide4: "Market Analysis",
+        footer_guide4: "Market News",
         footer_company_title: "Company",
         footer_about: "About Us",
         footer_projects: "Projects",
         footer_process: "Purchase Process",
         footer_contact: "Contact",
         footer_contact_title: "Contact Us",
-        footer_phone: "📞 +971 XX XXX XXXX",
-        footer_email: "✉️ info@yourdomain.com",
-        footer_address: "📍 Dubai, UAE",
+        // footer_phone: "📞 +359 89 706 5580",
+        footer_email: "✉️ theinvestinuae@gmail.com",
+        // footer_address: "📍 Dubai, UAE",
         footer_copyright: "Invest in UAE © 2026 All rights reserved"
       },
 
@@ -2714,18 +2776,18 @@
         footer_newsletter_button: "Gönder",
         footer_guides_title: "Kaynaklar",
         footer_guide1: "Alıcı Rehberi",
-        footer_guide2: "Yatırım Rehberi",
+        footer_guide2: "Yatırım Türleri",
         footer_guide3: "Dubai Bölgeleri",
-        footer_guide4: "Piyasa Analizleri",
+        footer_guide4: "Piyasa Haberleri",
         footer_company_title: "Şirket",
         footer_about: "Hakkımızda",
         footer_projects: "Projeler",
         footer_process: "Satın Alma Süreci",
         footer_contact: "İletişim",
         footer_contact_title: "Bizimle İletişime Geçin",
-        footer_phone: "📞 +971 XX XXX XXXX",
-        footer_email: "✉️ info@yourdomain.com",
-        footer_address: "📍 Dubai, UAE",
+        // footer_phone: "📞 +359 89 706 5580",
+        footer_email: "✉️ theinvestinuae@gmail.com",
+        // footer_address: "📍 Dubai, UAE",
         footer_copyright: "Invest in UAE © 2026 Tüm hakları saklıdır"
       }
     };
@@ -2756,6 +2818,41 @@
     }
 
     setLanguage('bg');
+
+    // Email validation function
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Newsletter form handler
+    document.addEventListener('DOMContentLoaded', function () {
+      const newsletterForm = document.querySelector('.footer-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const emailInput = this.querySelector('input[type="email"]');
+          const submitBtn = this.querySelector('button[type="submit"]');
+
+          if (!validateEmail(emailInput.value)) {
+            alert('Моля, въведете валиден имейл адрес / Please enter a valid email / Lütfen geçerli bir e-posta adresi girin');
+            return;
+          }
+
+          // Add loading state
+          submitBtn.classList.add('loading');
+          submitBtn.disabled = true;
+
+          // Simulate form submission (replace with actual endpoint)
+          setTimeout(() => {
+            alert('Благодарим ви! / Thank you! / Teşekkürler!');
+            emailInput.value = '';
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+          }, 1500);
+        });
+      }
+    });
 
     const navToggle = document.querySelector('.nav-toggle');
     const langToggle = document.querySelector('.lang-toggle');
@@ -2870,4 +2967,5 @@
   </script>
 
 </body>
+
 </html>
