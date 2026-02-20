@@ -2258,12 +2258,8 @@
       <div class="footer-col">
         <h4 data-key="footer_guides_title">Ресурси</h4>
         <ul>
-          <li><a
-              href="file:///C:/Users/HP-VICTUS/Desktop/invest-in-uae-git-repo/invest-in-uae-informative-web-app/investment-types.html"
-              data-key="footer_guide2">Инвестиционни типове</a></li>
-          <li><a
-              href="file:///C:/Users/HP-VICTUS/Desktop/invest-in-uae-git-repo/invest-in-uae-informative-web-app/locations.html"
-              data-key="footer_guide3">Зони в Дубай</a></li>
+          <li><a href="investment-types.html" data-key="footer_guide2">Инвестиционни типове</a></li>
+          <li><a href="locations.html" data-key="footer_guide3">Зони в Дубай</a></li>
           <li><a href="market-news.html" data-key="footer_guide4">Пазарни новини</a></li>
         </ul>
       </div>
@@ -2343,231 +2339,231 @@
         `Месечна вноска: ${emi.toFixed(2)} AED`;
     }
 
-   /* ENHANCED CHATBOT LOGIC */
-const messages = document.getElementById("messages");
-let chatState = { location: null, investmentType: null, budget: null };
+    /* ENHANCED CHATBOT LOGIC */
+    const messages = document.getElementById("messages");
+    let chatState = { location: null, investmentType: null, budget: null };
 
-function toggleChat() {
-  const box = document.getElementById("chatbox");
-  box.style.display = box.style.display === "flex" ? "none" : "flex";
-  box.style.flexDirection = "column";
-  if (messages.innerHTML === "") startChat();
-}
+    function toggleChat() {
+      const box = document.getElementById("chatbox");
+      box.style.display = box.style.display === "flex" ? "none" : "flex";
+      box.style.flexDirection = "column";
+      if (messages.innerHTML === "") startChat();
+    }
 
-function addMessage(text, isUser = false) {
-  const msgClass = isUser ? 'user-message' : 'bot-message';
-  messages.innerHTML += `<p class="${msgClass}" style="text-align: ${isUser ? 'right' : 'left'}; padding: 8px; margin: 5px 0;">${text}</p>`;
-  messages.scrollTop = messages.scrollHeight;
-}
+    function addMessage(text, isUser = false) {
+      const msgClass = isUser ? 'user-message' : 'bot-message';
+      messages.innerHTML += `<p class="${msgClass}" style="text-align: ${isUser ? 'right' : 'left'}; padding: 8px; margin: 5px 0;">${text}</p>`;
+      messages.scrollTop = messages.scrollHeight;
+    }
 
-function addOptions(options) {
-  options.forEach(opt => {
-    messages.innerHTML += `<div class="option" onclick="${opt.action}">${opt.label}</div>`;
-  });
-  messages.scrollTop = messages.scrollHeight;
-}
+    function addOptions(options) {
+      options.forEach(opt => {
+        messages.innerHTML += `<div class="option" onclick="${opt.action}">${opt.label}</div>`;
+      });
+      messages.scrollTop = messages.scrollHeight;
+    }
 
-function startChat() {
-  messages.innerHTML = `<p style="padding: 8px;">👋 Здравейте! Аз съм вашият асистент за инвестиции в ОАЕ. Как мога да ви помогна?</p>`;
-  addOptions([
-    { label: '🏠 Искам да инвестирам в имот', action: "askLocation()" },
-    { label: '📊 Искам пазарна информация', action: "showMarketInfo()" },
-    { label: '🏙️ Искам да разгледам локации', action: "showLocations()" },
-    { label: '💰 Използвай калкулатора', action: "goToCalculator()" },
-    { label: '📞 Говори с консултант', action: "contactConsultant()" },
-    { label: '✈️ Защо Дубай?', action: "whyDubai()" }
-  ]);
-}
+    function startChat() {
+      messages.innerHTML = `<p style="padding: 8px;">👋 Здравейте! Аз съм вашият асистент за инвестиции в ОАЕ. Как мога да ви помогна?</p>`;
+      addOptions([
+        { label: '🏠 Искам да инвестирам в имот', action: "askLocation()" },
+        { label: '📊 Искам пазарна информация', action: "showMarketInfo()" },
+        { label: '🏙️ Искам да разгледам локации', action: "showLocations()" },
+        { label: '💰 Използвай калкулатора', action: "goToCalculator()" },
+        { label: '📞 Говори с консултант', action: "contactConsultant()" },
+        { label: '✈️ Защо Дубай?', action: "whyDubai()" }
+      ]);
+    }
 
-function askLocation() {
-  messages.innerHTML = '';
-  addMessage('Отлично! В кой емират искате да инвестирате?');
-  addOptions([
-    { label: '🏙️ Дубай', action: "selectLocation('Dubai')" },
-    { label: '🏛️ Абу Даби', action: "selectLocation('Abu Dhabi')" },
-    { label: '🤔 Не съм сигурен/сигурна', action: "compareLocations()" },
-    { label: '← Назад', action: "startChat()" }
-  ]);
-}
+    function askLocation() {
+      messages.innerHTML = '';
+      addMessage('Отлично! В кой емират искате да инвестирате?');
+      addOptions([
+        { label: '🏙️ Дубай', action: "selectLocation('Dubai')" },
+        { label: '🏛️ Абу Даби', action: "selectLocation('Abu Dhabi')" },
+        { label: '🤔 Не съм сигурен/сигурна', action: "compareLocations()" },
+        { label: '← Назад', action: "startChat()" }
+      ]);
+    }
 
-function selectLocation(location) {
-  chatState.location = location;
-  addMessage(location, true);
-  addMessage(`Чудесен избор! ${location} предлага отлични възможности. Какъв тип инвестиция търсите?`);
-  addOptions([
-    { label: '🔄 Buy to Flip (15-30% печалба)', action: "selectInvestmentType('flip')" },
-    { label: '🏖️ Short Rental (8-12%)', action: "selectInvestmentType('short-rental')" },
-    { label: '🏘️ Long Rental (5-8%)', action: "selectInvestmentType('long-rental')" },
-    { label: '🏡 Buy to Live', action: "selectInvestmentType('live')" },
-    { label: '❓ Не знам кое е най-добро', action: "investmentAdvice()" },
-    { label: '← Назад', action: "askLocation()" }
-  ]);
-}
+    function selectLocation(location) {
+      chatState.location = location;
+      addMessage(location, true);
+      addMessage(`Чудесен избор! ${location} предлага отлични възможности. Какъв тип инвестиция търсите?`);
+      addOptions([
+        { label: '🔄 Buy to Flip (15-30% печалба)', action: "selectInvestmentType('flip')" },
+        { label: '🏖️ Short Rental (8-12%)', action: "selectInvestmentType('short-rental')" },
+        { label: '🏘️ Long Rental (5-8%)', action: "selectInvestmentType('long-rental')" },
+        { label: '🏡 Buy to Live', action: "selectInvestmentType('live')" },
+        { label: '❓ Не знам кое е най-добро', action: "investmentAdvice()" },
+        { label: '← Назад', action: "askLocation()" }
+      ]);
+    }
 
-function selectInvestmentType(type) {
-  chatState.investmentType = type;
-  const typeNames = {
-    'flip': 'Buy to Flip',
-    'short-rental': 'Short Rental',
-    'long-rental': 'Long Rental',
-    'live': 'Buy to Live'
-  };
-  addMessage(typeNames[type], true);
-  
-  const descriptions = {
-    'flip': 'Off-plan имот → препродажба за 15-30% печалба за 1-3 години.',
-    'short-rental': 'Airbnb за 8-12% доходност. Идеално за Marina, Downtown.',
-    'long-rental': 'Стабилен наем 5-8%. Минимално управление, JVC, JLT.',
-    'live': 'Собствено жилище с нулеви данъци и висок стандарт.'
-  };
-  
-  addMessage(descriptions[type]);
-  addMessage('Какъв е вашият бюджет?');
-  addOptions([
-    { label: '💵 До $200K', action: "selectBudget('low')" },
-    { label: '💰 $200K - $500K', action: "selectBudget('medium')" },
-    { label: '💎 $500K - $1M', action: "selectBudget('high')" },
-    { label: '👑 Над $1M', action: "selectBudget('premium')" },
-    { label: '← Назад', action: "selectLocation(chatState.location)" }
-  ]);
-}
+    function selectInvestmentType(type) {
+      chatState.investmentType = type;
+      const typeNames = {
+        'flip': 'Buy to Flip',
+        'short-rental': 'Short Rental',
+        'long-rental': 'Long Rental',
+        'live': 'Buy to Live'
+      };
+      addMessage(typeNames[type], true);
 
-function selectBudget(budget) {
-  chatState.budget = budget;
-  const budgetLabels = {
-    'low': 'До $200K', 'medium': '$200K-$500K',
-    'high': '$500K-$1M', 'premium': 'Над $1M'
-  };
-  addMessage(budgetLabels[budget], true);
-  
-  let rec = `📍 Локация: <b>${chatState.location}</b><br>🎯 Тип: <b>${chatState.investmentType}</b><br>💰 Бюджет: <b>${budgetLabels[budget]}</b><br><br>`;
-  
-  if (chatState.investmentType === 'flip' && budget === 'low') {
-    rec += '<b>Препоръка:</b> Dubai South, Dubailand - $150K+, 20-25% ръст за 2-3 г.';
-  } else if (chatState.investmentType === 'short-rental') {
-    rec += '<b>Препоръка:</b> Marina, JBR, Downtown - 60-80% заетост, 9-12%.';
-  } else if (chatState.investmentType === 'long-rental') {
-    rec += '<b>Препоръка:</b> JVC, Dubai Hills - стабилни наематели, 6-8%.';
-  } else if (chatState.investmentType === 'live' && budget === 'premium') {
-    rec += '<b>Препоръка:</b> Palm Jumeirah, Emirates Hills - престижни адреси.';
-  } else {
-    rec += 'Имаме много опции! Екипът ни ще помогне.';
-  }
-  
-  addMessage(rec);
-  addOptions([
-    { label: '📊 Виж проекти', action: "location.href='#projects'" },
-    { label: '🧮 Калкулатор', action: "location.href='#calculator'" },
-    { label: '📞 Консултант', action: "contactConsultant()" },
-    { label: '🏅 Златна виза', action: "goldenVisaInfo()" },
-    { label: '🔄 Отначало', action: "startChat()" }
-  ]);
-}
+      const descriptions = {
+        'flip': 'Off-plan имот → препродажба за 15-30% печалба за 1-3 години.',
+        'short-rental': 'Airbnb за 8-12% доходност. Идеално за Marina, Downtown.',
+        'long-rental': 'Стабилен наем 5-8%. Минимално управление, JVC, JLT.',
+        'live': 'Собствено жилище с нулеви данъци и висок стандарт.'
+      };
 
-function showMarketInfo() {
-  messages.innerHTML = '';
-  addMessage('📈 Пазарна информация:');
-  addMessage(`<b>Ян 2026:</b> $30 млрд. продажби (2×↑)<br>
+      addMessage(descriptions[type]);
+      addMessage('Какъв е вашият бюджет?');
+      addOptions([
+        { label: '💵 До $200K', action: "selectBudget('low')" },
+        { label: '💰 $200K - $500K', action: "selectBudget('medium')" },
+        { label: '💎 $500K - $1M', action: "selectBudget('high')" },
+        { label: '👑 Над $1M', action: "selectBudget('premium')" },
+        { label: '← Назад', action: "selectLocation(chatState.location)" }
+      ]);
+    }
+
+    function selectBudget(budget) {
+      chatState.budget = budget;
+      const budgetLabels = {
+        'low': 'До $200K', 'medium': '$200K-$500K',
+        'high': '$500K-$1M', 'premium': 'Над $1M'
+      };
+      addMessage(budgetLabels[budget], true);
+
+      let rec = `📍 Локация: <b>${chatState.location}</b><br>🎯 Тип: <b>${chatState.investmentType}</b><br>💰 Бюджет: <b>${budgetLabels[budget]}</b><br><br>`;
+
+      if (chatState.investmentType === 'flip' && budget === 'low') {
+        rec += '<b>Препоръка:</b> Dubai South, Dubailand - $150K+, 20-25% ръст за 2-3 г.';
+      } else if (chatState.investmentType === 'short-rental') {
+        rec += '<b>Препоръка:</b> Marina, JBR, Downtown - 60-80% заетост, 9-12%.';
+      } else if (chatState.investmentType === 'long-rental') {
+        rec += '<b>Препоръка:</b> JVC, Dubai Hills - стабилни наематели, 6-8%.';
+      } else if (chatState.investmentType === 'live' && budget === 'premium') {
+        rec += '<b>Препоръка:</b> Palm Jumeirah, Emirates Hills - престижни адреси.';
+      } else {
+        rec += 'Имаме много опции! Екипът ни ще помогне.';
+      }
+
+      addMessage(rec);
+      addOptions([
+        { label: '📊 Виж проекти', action: "location.href='#projects'" },
+        { label: '🧮 Калкулатор', action: "location.href='#calculator'" },
+        { label: '📞 Консултант', action: "contactConsultant()" },
+        { label: '🏅 Златна виза', action: "goldenVisaInfo()" },
+        { label: '🔄 Отначало', action: "startChat()" }
+      ]);
+    }
+
+    function showMarketInfo() {
+      messages.innerHTML = '';
+      addMessage('📈 Пазарна информация:');
+      addMessage(`<b>Ян 2026:</b> $30 млрд. продажби (2×↑)<br>
 <b>Проекти:</b> Dubai Loop $35млрд, DIFC 2.0 $27млрд, Летище 260млн пътници<br>
 <b>Виза:</b> $550K+ = 10 год.`);
-  addOptions([
-    { label: '📰 Всички новини', action: "window.open('market-news.html','_blank')" },
-    { label: '💡 Инвестиционен съвет', action: "askLocation()" },
-    { label: '← Назад', action: "startChat()" }
-  ]);
-}
+      addOptions([
+        { label: '📰 Всички новини', action: "window.open('market-news.html','_blank')" },
+        { label: '💡 Инвестиционен съвет', action: "askLocation()" },
+        { label: '← Назад', action: "startChat()" }
+      ]);
+    }
 
-function showLocations() {
-  messages.innerHTML = '';
-  addMessage('🗺️ Топ локации:');
-  addMessage(`<b>🏖️ Луксозни:</b> Palm, Marina, JBR<br>
+    function showLocations() {
+      messages.innerHTML = '';
+      addMessage('🗺️ Топ локации:');
+      addMessage(`<b>🏖️ Луксозни:</b> Palm, Marina, JBR<br>
 <b>🏙️ Бизнес:</b> Downtown, Business Bay<br>
 <b>👨‍👩‍👧‍👦 Семейни:</b> Arabian Ranches, JVC<br>
 <b>💰 Бюджетни:</b> Dubai South, Dubailand`);
-  addOptions([
-    { label: '🏠 Започни търсене', action: "askLocation()" },
-    { label: '← Назад', action: "startChat()" }
-  ]);
-}
+      addOptions([
+        { label: '🏠 Започни търсене', action: "askLocation()" },
+        { label: '← Назад', action: "startChat()" }
+      ]);
+    }
 
-function compareLocations() {
-  messages.innerHTML = '';
-  addMessage('🤔 Дубай vs Абу Даби:');
-  addMessage(`<b>🏙️ ДУБАЙ:</b> Динамичен, високи наеми, flip<br>
+    function compareLocations() {
+      messages.innerHTML = '';
+      addMessage('🤔 Дубай vs Абу Даби:');
+      addMessage(`<b>🏙️ ДУБАЙ:</b> Динамичен, високи наеми, flip<br>
 <b>🏛️ АБУ ДАБИ:</b> Стабилен, -20% цени, Etihad Rail<br>
 <i>90% избират Дубай</i>`);
-  addOptions([
-    { label: '🏙️ Дубай', action: "selectLocation('Dubai')" },
-    { label: '🏛️ Абу Даби', action: "selectLocation('Abu Dhabi')" },
-    { label: '← Назад', action: "askLocation()" }
-  ]);
-}
+      addOptions([
+        { label: '🏙️ Дубай', action: "selectLocation('Dubai')" },
+        { label: '🏛️ Абу Даби', action: "selectLocation('Abu Dhabi')" },
+        { label: '← Назад', action: "askLocation()" }
+      ]);
+    }
 
-function investmentAdvice() {
-  messages.innerHTML = '';
-  addMessage('💡 Избор на стратегия:');
-  addMessage(`<b>🔄 Flip:</b> Бърза печалба 1-3г<br>
+    function investmentAdvice() {
+      messages.innerHTML = '';
+      addMessage('💡 Избор на стратегия:');
+      addMessage(`<b>🔄 Flip:</b> Бърза печалба 1-3г<br>
 <b>🏖️ Short:</b> Висока доходност 8-12%<br>
 <b>🏘️ Long:</b> Стабилност, пасивен доход<br>
 <b>🏡 Live:</b> Качество + Златна виза`);
-  addOptions([
-    { label: '🎯 Избирам', action: "selectLocation(chatState.location||'Dubai')" },
-    { label: '📞 Консултация', action: "contactConsultant()" },
-    { label: '← Назад', action: "askLocation()" }
-  ]);
-}
+      addOptions([
+        { label: '🎯 Избирам', action: "selectLocation(chatState.location||'Dubai')" },
+        { label: '📞 Консултация', action: "contactConsultant()" },
+        { label: '← Назад', action: "askLocation()" }
+      ]);
+    }
 
-function whyDubai() {
-  messages.innerHTML = '';
-  addMessage('✨ Защо Дубай?');
-  addMessage(`<b>💰</b> 0% данък, 5-12% доходност<br>
+    function whyDubai() {
+      messages.innerHTML = '';
+      addMessage('✨ Защо Дубай?');
+      addMessage(`<b>💰</b> 0% данък, 5-12% доходност<br>
 <b>🌍</b> 260млн пътници, бизнес хъб<br>
 <b>🏗️</b> Dubai Loop, Визия 2040<br>
 <b>🛂</b> Златна виза $550K+`);
-  addOptions([
-    { label: '🚀 Готов съм!', action: "askLocation()" },
-    { label: '📊 Процес', action: "location.href='#process'" },
-    { label: '← Назад', action: "startChat()" }
-  ]);
-}
+      addOptions([
+        { label: '🚀 Готов съм!', action: "askLocation()" },
+        { label: '📊 Процес', action: "location.href='#process'" },
+        { label: '← Назад', action: "startChat()" }
+      ]);
+    }
 
-function goldenVisaInfo() {
-  messages.innerHTML = '';
-  addMessage('🏅 Златна виза:');
-  addMessage(`<b>Изискване:</b> $550K+ имот<br>
+    function goldenVisaInfo() {
+      messages.innerHTML = '';
+      addMessage('🏅 Златна виза:');
+      addMessage(`<b>Изискване:</b> $550K+ имот<br>
 <b>Какво:</b> 10 год. виза + семейство<br>
 <b>Време:</b> 60-90 дни<br>
 <b>Бонус:</b> 0% данък, световна класа`);
-  addOptions([
-    { label: '💎 Имоти $550K+', action: "chatState.location='Dubai';selectBudget('high')" },
-    { label: '📞 Помощ за виза', action: "contactConsultant()" },
-    { label: '← Назад', action: "startChat()" }
-  ]);
-}
+      addOptions([
+        { label: '💎 Имоти $550K+', action: "chatState.location='Dubai';selectBudget('high')" },
+        { label: '📞 Помощ за виза', action: "contactConsultant()" },
+        { label: '← Назад', action: "startChat()" }
+      ]);
+    }
 
-function goToCalculator() {
-  addMessage('Към калкулатора...', true);
-  setTimeout(() => {
-    location.href = '#calculator';
-    document.getElementById("chatbox").style.display = "none";
-  }, 500);
-}
+    function goToCalculator() {
+      addMessage('Към калкулатора...', true);
+      setTimeout(() => {
+        location.href = '#calculator';
+        document.getElementById("chatbox").style.display = "none";
+      }, 500);
+    }
 
-function contactConsultant() {
-  messages.innerHTML = '';
-  addMessage('📞 Как да се свържем?');
-  addMessage(`<b>Контакти:</b><br>
+    function contactConsultant() {
+      messages.innerHTML = '';
+      addMessage('📞 Как да се свържем?');
+      addMessage(`<b>Контакти:</b><br>
 📧 theinvestinuae@gmail.com<br>
 📱 +359 89 700 0001<br>
 📍 Dubai, UAE<br>
 <i>Отговор до 24ч</i>`);
-  addOptions([
-    { label: '📧 Email', action: "location.href='mailto:theinvestinuae@gmail.com'" },
-    { label: '📱 Обади се', action: "location.href='tel:+359897000001'" },
-    { label: '📍 Контакти', action: "location.href='#contact'" },
-    { label: '🔄 Отначало', action: "startChat()" }
-  ]);
-}
+      addOptions([
+        { label: '📧 Email', action: "location.href='mailto:theinvestinuae@gmail.com'" },
+        { label: '📱 Обади се', action: "location.href='tel:+359897000001'" },
+        { label: '📍 Контакти', action: "location.href='#contact'" },
+        { label: '🔄 Отначало', action: "startChat()" }
+      ]);
+    }
 
     function closeModal() {
       modal.style.display = "none";
@@ -3039,52 +3035,52 @@ function contactConsultant() {
       }
     });
 
-     // Mobile Navigation
-        const navToggle = document.querySelector('.nav-toggle');
-        const langToggle = document.querySelector('.lang-toggle');
-        const navMenu = document.querySelector('.nav-dropdown');
-        const langMenu = document.querySelector('.lang-dropdown');
+    // Mobile Navigation
+    const navToggle = document.querySelector('.nav-toggle');
+    const langToggle = document.querySelector('.lang-toggle');
+    const navMenu = document.querySelector('.nav-dropdown');
+    const langMenu = document.querySelector('.lang-dropdown');
 
-        if (navToggle) {
-            navToggle.onclick = () => {
-                navMenu.classList.toggle('show');
-                if (langMenu) langMenu.classList.remove('show');
-            };
-        }
-        if (langToggle) {
-            langToggle.onclick = () => {
-                langMenu.classList.toggle('show');
-                if (navMenu) navMenu.classList.remove('show');
-            };
-        }
+    if (navToggle) {
+      navToggle.onclick = () => {
+        navMenu.classList.toggle('show');
+        if (langMenu) langMenu.classList.remove('show');
+      };
+    }
+    if (langToggle) {
+      langToggle.onclick = () => {
+        langMenu.classList.toggle('show');
+        if (navMenu) navMenu.classList.remove('show');
+      };
+    }
 
-        // Close nav menu when clicking on any nav link
-        if (navMenu) {
-            navMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('show');
-                });
-            });
-        }
-
-        // Close lang menu when clicking on any language flag
-        if (langMenu) {
-            langMenu.querySelectorAll('img').forEach(flag => {
-                flag.addEventListener('click', () => {
-                    langMenu.classList.remove('show');
-                });
-            });
-        }
-
-        // Close menus when clicking outside
-        document.addEventListener('click', (e) => {
-            if (navMenu && !e.target.closest('.mobile-nav-left') && !e.target.closest('.nav-toggle')) {
-                navMenu.classList.remove('show');
-            }
-            if (langMenu && !e.target.closest('.mobile-nav-right') && !e.target.closest('.lang-toggle')) {
-                langMenu.classList.remove('show');
-            }
+    // Close nav menu when clicking on any nav link
+    if (navMenu) {
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('show');
         });
+      });
+    }
+
+    // Close lang menu when clicking on any language flag
+    if (langMenu) {
+      langMenu.querySelectorAll('img').forEach(flag => {
+        flag.addEventListener('click', () => {
+          langMenu.classList.remove('show');
+        });
+      });
+    }
+
+    // Close menus when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMenu && !e.target.closest('.mobile-nav-left') && !e.target.closest('.nav-toggle')) {
+        navMenu.classList.remove('show');
+      }
+      if (langMenu && !e.target.closest('.mobile-nav-right') && !e.target.closest('.lang-toggle')) {
+        langMenu.classList.remove('show');
+      }
+    });
     // Get modal elements
     const mobileModalOverlay = document.getElementById('mobileProcessModalOverlay');
     const mobileModal = document.getElementById('mobileProcessModal');
@@ -3175,3 +3171,5 @@ function contactConsultant() {
 </body>
 
 </html>
+
+<!--  locations.html не работи навбара -->
